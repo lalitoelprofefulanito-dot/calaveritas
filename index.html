@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calaveritas literarias · Apuntes para familias</title>
+<meta name="description" content="Lo que cada grupo trabajó, anotó en su cuaderno y aprendió en las clases de biblioteca. Escuela Primaria «Molino de Rosas», ciclo 2026-2027.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<a class="saltar" href="#principal">Ir al contenido</a>
+<header class="cabecera">
+  <div class="papel-picado" aria-hidden="true"></div>
+  <div class="cab">
+    <p class="escuela">Escuela Primaria «Molino de Rosas» · Biblioteca</p>
+    <h1 class="marca">Calaveritas literarias: apuntes para familias</h1>
+    <p class="intro">Aquí puede consultar, día por día, lo que su hija o hijo trabajó en la biblioteca, lo que anotó en su cuaderno y lo que aprendió.
+      <strong>No es tarea:</strong> la calaverita se escribe y se termina en la escuela, y en cada sesión ayudamos a quien faltó a ponerse al día.</p>
+  </div>
+</header>
+
+<main id="principal" tabindex="-1">
+  <p id="aviso-error" class="aviso-error" role="alert" hidden></p>
+  <noscript><p class="aviso-error">Esta página necesita JavaScript activado para mostrar los apuntes.</p></noscript>
+
+  <section aria-labelledby="t-grupo">
+    <h2 id="t-grupo" class="paso"><span class="num" aria-hidden="true">1</span> Elija el grupo</h2>
+    <div class="grupos" id="grupos" role="group" aria-label="Grupo"></div>
+  </section>
+
+  <section id="paso-dias" aria-labelledby="t-dia" hidden>
+    <h2 id="t-dia" class="paso"><span class="num" aria-hidden="true">2</span> Elija el día</h2>
+    <p class="guia">Las sesiones están en orden de fecha. El cuaderno 📒 indica que ese día hay apunte. Las que aún no ocurren aparecen como «Próximamente».</p>
+    <ol class="dias" id="dias"></ol>
+  </section>
+
+  <section id="dia" aria-live="polite"></section>
+</main>
+
+<footer class="pie">
+  <p>Dudas: acérquese al Profr. Eduardo Kantún Martínez, Promotor de Lectura. Esta página no pide ni guarda datos personales; solo recuerda en este dispositivo el último grupo que eligió.</p>
+</footer>
+
+<script src="rima.js"></script>
+<script src="datos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

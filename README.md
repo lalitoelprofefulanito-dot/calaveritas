@@ -1,0 +1,62 @@
+# Calaveritas literarias · Apuntes para familias
+
+Sitio de consulta para familias de la **Escuela Primaria «Molino de Rosas»** (Biblioteca, ciclo 2026-2027).
+Muestra, por grupo y en orden de fecha, qué se hizo en cada sesión de biblioteca, qué quedó en el cuaderno y qué se aprendió.
+
+Autor: Profr. Eduardo Kantún Martínez, Promotor de Lectura.
+
+---
+
+## Cómo funciona para las familias
+
+1. **Elija el grupo** (1.° A a 6.° A).
+2. **Elija el día.** Las sesiones aparecen en orden cronológico; las que aún no ocurren se ven como «Próximamente» y no se pueden abrir. El cuaderno 📒 señala los días con apunte.
+3. **Elija una de tres pestañas** (solo una abierta a la vez):
+
+| Pestaña | Qué muestra |
+|---|---|
+| 🧩 **Lo que trabajamos** (herramientas y juegos) | Qué se hizo en clase y las herramientas de esa sesión para explorarlas en casa: modelo leído, buscador y banco de rimas, juegos (¿Riman?, Memorama, Detectives), receta de la calaverita, humor con cariño, recursos de poeta. |
+| 📒 **Lo que anotamos** en el cuaderno | La página del cuaderno de ese día, con apariencia de hoja de raya. |
+| 💡 **Lo que aprendimos** en esa clase | El aprendizaje, qué hacer si faltó, una idea opcional para platicar en casa y los requisitos de la calaverita del grado. |
+
+Cada vista tiene su propio enlace, por ejemplo `…/#3A/10-08/cuaderno`, para mandarlo por WhatsApp a las familias de un grupo.
+
+## Archivos
+
+```
+index.html   estructura de la página
+estilos.css  apariencia (incluye la hoja de cuaderno)
+rima.js      motor que detecta rimas en español (consonante y asonante)
+datos.js     TODO el contenido: sesiones, apuntes, banco de rimas y páginas del cuaderno
+app.js       lógica de la página (grupos, días, pestañas, juegos)
+img/         imágenes de las páginas del cuaderno
+```
+
+**Para actualizar el contenido solo se edita `datos.js`.** Al inicio de la sección `window.CUADERNO` hay instrucciones para agregar una página nueva del cuaderno: se copia un bloque, se cambia la fecha (`AAAA-MM-DD`) y el contenido. Si la fecha coincide con una sesión del proyecto, la página aparece sola en la pestaña «Lo que anotamos» de ese día; si no coincide (por ejemplo, un reporte de lectura), se crea un día nuevo en la lista, y entonces hay que escribir también `titulo`, `trabajamos` y `aprendimos`.
+
+## Publicar en GitHub Pages (paso a paso)
+
+1. Entre a <https://github.com> con su cuenta.
+2. Arriba a la derecha, toque el **+** y elija **New repository**.
+3. En **Repository name** escriba, por ejemplo, `calaveritas-familias`. Deje marcado **Public** y toque **Create repository**.
+4. En la página del repositorio nuevo, toque el enlace **uploading an existing file**.
+5. Abra en su computadora la carpeta `calaveritas-familias` (descomprimida), seleccione **todo su contenido** (los cinco archivos, este README y la carpeta `img`) y arrástrelo a la ventana del navegador. Espere a que terminen de cargarse.
+6. Abajo, toque **Commit changes**.
+7. Toque la pestaña **Settings** (engrane, arriba del repositorio) y, en el menú de la izquierda, **Pages**.
+8. En **Branch** elija `main`, deje la carpeta en `/ (root)` y toque **Save**.
+9. Espere uno o dos minutos y recargue esa misma página: arriba aparece el enlace del sitio, con la forma `https://SU-USUARIO.github.io/calaveritas-familias/`.
+
+Para actualizar después: entre al repositorio, toque el archivo (por ejemplo `datos.js`), toque el lápiz ✏️ para editar, haga el cambio y toque **Commit changes**. El sitio se actualiza en uno o dos minutos.
+
+### Mostrarlo en el Google Sites de la biblioteca
+
+En el editor de Google Sites: panel derecho **Insertar → Insertar → Por URL**, pegue el enlace de GitHub Pages y elija **Página completa** (o use **Páginas → + → Insertar página completa**). También puede poner un **Botón** que abra el enlace directamente, que funciona mejor en celulares y conserva los enlaces por grupo.
+
+## Razonamiento pedagógico
+
+- **Tres pestañas, tres momentos de la clase.** *Lo que trabajamos* recupera la experiencia (hacer); *Lo que anotamos* muestra el registro que produjo el propio estudiante; *Lo que aprendimos* nombra el aprendizaje y abre la metacognición en casa («¿qué aprendiste hoy?», con algo concreto que mirar juntos).
+- **Una cosa a la vez.** Un día y una pestaña abiertos; dentro, una herramienta y un juego a la vez. Así se reduce la carga cognitiva para familias que consultan desde el celular.
+- **Faltar no se castiga.** Cada sesión dice qué hacer si el estudiante faltó y que se pone al día en la escuela. La calaverita no es tarea: se escribe en clase, con apoyos.
+- **Diseño Universal para el Aprendizaje (DUA).** Varias formas de acceder al mismo contenido: lectura en voz alta (🔊), emojis en 1.° y 2.°, colores para ver las rimas, juegos para practicarlas y letra Atkinson Hyperlegible.
+- **Corresponsabilidad escuela–familia.** «Para platicar en casa» propone conversaciones opcionales (cómo se celebra el Día de Muertos en la familia), sin exigir materiales ni tareas.
+- **Privacidad.** No se piden ni se guardan datos personales; las páginas del cuaderno no llevan nombres de estudiantes. El navegador solo recuerda el último grupo elegido.
