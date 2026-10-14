@@ -447,6 +447,8 @@
     pintarDia();
     pintarCuadernoCompleto();
     escribirHash();
+    const g = grupoActual();
+    if (g && window.contarVisita) window.contarVisita(g.id, g.nombre);
   }
 
   /* ---------- Eventos ---------- */

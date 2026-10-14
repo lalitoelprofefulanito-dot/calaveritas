@@ -31,6 +31,7 @@ estilos.css  apariencia (incluye la hoja de cuaderno)
 rima.js      motor que detecta rimas en español (consonante y asonante)
 datos.js     TODO el contenido: sesiones, apuntes, banco de rimas y páginas del cuaderno
 app.js       lógica de la página (grupos, días, pestañas, juegos)
+contador.js  conteo anónimo de visitas por grupo (GoatCounter)
 img/         imágenes de las páginas del cuaderno
 ```
 
@@ -54,6 +55,27 @@ Para actualizar después: entre al repositorio, toque el archivo (por ejemplo `d
 
 En el editor de Google Sites: panel derecho **Insertar → Insertar → Por URL**, pegue el enlace de GitHub Pages y elija **Página completa** (o use **Páginas → + → Insertar página completa**). También puede poner un **Botón** que abra el enlace directamente, que funciona mejor en celulares y conserva los enlaces por grupo.
 
+## Contar las visitas de cada grupo (GoatCounter)
+
+GitHub Pages no cuenta visitas por sí mismo. `contador.js` usa **GoatCounter**, un servicio gratuito para proyectos sin fines de lucro que **no usa cookies ni guarda datos personales** (no hace falta pedir consentimiento a las familias). Cada grupo se registra como una página: `/grupo/1A` a `/grupo/6A`, más `/inicio`, que cuenta las entradas al sitio. Si una familia revisa 3.° A varias veces en la misma visita, cuenta una sola vez.
+
+**Crear la cuenta (una sola vez):**
+
+1. Entre a <https://www.goatcounter.com> y toque **Sign up**.
+2. En **Code** escriba un nombre corto, sin espacios ni acentos, por ejemplo `biblioteca-molino`. Será su panel: `https://biblioteca-molino.goatcounter.com`.
+3. Escriba su correo y una contraseña y toque **Sign up**. Confirme el correo que le llega.
+4. Cuando le pida el **Site domain**, escriba la dirección de su sitio de GitHub Pages (por ejemplo `su-usuario.github.io`).
+
+**Conectarlo con el sitio:**
+
+5. En GitHub, abra el repositorio, toque `contador.js` y luego el lápiz ✏️.
+6. En la línea `const CODIGO_GOATCOUNTER = "PENDIENTE";` cambie `PENDIENTE` por su código, sin borrar las comillas: `const CODIGO_GOATCOUNTER = "biblioteca-molino";`
+7. Toque **Commit changes**. En uno o dos minutos empieza a contar.
+
+**Consultar el conteo:** entre a su panel (`https://SU-CODIGO.goatcounter.com`). Verá cada `/grupo/…` con su número de visitas por día, semana o mes. Si quiere compartirlo con dirección o con el CTE sin dar su contraseña: **Settings → Settings → Dashboard viewable by → Anyone**.
+
+**Qué significa el número (y qué no):** es un indicador aproximado del interés de las familias por grupo, útil para decidir dónde reforzar la difusión (por ejemplo, reenviar el enlace al chat de un grupo con pocas visitas). No identifica quién entró, y algunos bloqueadores de anuncios impiden el conteo, así que el número real puede ser mayor. No conviene leerlo como medida del compromiso de una familia en particular: el acceso a internet, el tiempo disponible y el dispositivo son condiciones situacionales, no disposiciones.
+
 ## Razonamiento pedagógico
 
 - **Tres pestañas, tres momentos de la clase.** *Lo que trabajamos* recupera la experiencia (hacer); *Lo que anotamos* muestra el registro que produjo el propio estudiante; *Lo que aprendimos* nombra el aprendizaje y abre la metacognición en casa («¿qué aprendiste hoy?», con algo concreto que mirar juntos).
@@ -61,4 +83,4 @@ En el editor de Google Sites: panel derecho **Insertar → Insertar → Por URL*
 - **Faltar no se castiga.** Cada sesión dice qué hacer si el estudiante faltó y que se pone al día en la escuela. La calaverita no es tarea: se escribe en clase, con apoyos.
 - **Diseño Universal para el Aprendizaje (DUA).** Varias formas de acceder al mismo contenido: lectura en voz alta (🔊), emojis en 1.° y 2.°, colores para ver las rimas, juegos para practicarlas y letra Atkinson Hyperlegible.
 - **Corresponsabilidad escuela–familia.** «Para platicar en casa» propone conversaciones opcionales (cómo se celebra el Día de Muertos en la familia), sin exigir materiales ni tareas.
-- **Privacidad.** No se piden ni se guardan datos personales; las páginas del cuaderno no llevan nombres de estudiantes. El navegador solo recuerda el último grupo elegido.
+- **Privacidad.** No se piden ni se guardan datos personales; las páginas del cuaderno no llevan nombres de estudiantes. El navegador solo recuerda el último grupo elegido, y el conteo de visitas es anónimo y sin cookies.
