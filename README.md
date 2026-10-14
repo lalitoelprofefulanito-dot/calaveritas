@@ -19,6 +19,8 @@ Autor: Profr. Eduardo Kantún Martínez, Promotor de Lectura.
 | 📒 **Lo que anotamos** en el cuaderno | La página del cuaderno de ese día, con apariencia de hoja de raya. |
 | 💡 **Lo que aprendimos** en esa clase | El aprendizaje, qué hacer si faltó, una idea opcional para platicar en casa y los requisitos de la calaverita del grado. |
 
+Debajo del día elegido está siempre **📒 El cuaderno completo del grupo**: todas sus páginas en orden de fecha, cada una con un botón para abrir ese día.
+
 Cada vista tiene su propio enlace, por ejemplo `…/#3A/10-08/cuaderno`, para mandarlo por WhatsApp a las familias de un grupo.
 
 ## Archivos
@@ -32,7 +34,7 @@ app.js       lógica de la página (grupos, días, pestañas, juegos)
 img/         imágenes de las páginas del cuaderno
 ```
 
-**Para actualizar el contenido solo se edita `datos.js`.** Al inicio de la sección `window.CUADERNO` hay instrucciones para agregar una página nueva del cuaderno: se copia un bloque, se cambia la fecha (`AAAA-MM-DD`) y el contenido. Si la fecha coincide con una sesión del proyecto, la página aparece sola en la pestaña «Lo que anotamos» de ese día; si no coincide (por ejemplo, un reporte de lectura), se crea un día nuevo en la lista, y entonces hay que escribir también `titulo`, `trabajamos` y `aprendimos`.
+**Para actualizar el contenido solo se edita `datos.js`.** Al inicio de la sección `window.CUADERNO` hay instrucciones para agregar una página nueva del cuaderno: se copia un bloque, se cambia la fecha (`AAAA-MM-DD`) y el contenido. La página aparece sola en «El cuaderno completo» del grupo. Si la fecha coincide con una sesión del proyecto, aparece también en la pestaña «Lo que anotamos» de ese día; si no coincide (por ejemplo, un reporte de lectura), se crea un día nuevo en la lista, y entonces hay que escribir también `titulo`, `trabajamos` y `aprendimos`.
 
 ## Publicar en GitHub Pages (paso a paso)
 

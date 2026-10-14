@@ -406,12 +406,27 @@
     if (t === "enlace") return `<p><a class="cd-enlace" href="${esc(b)}" target="_blank" rel="noopener">${esc(a)}</a></p>`;
     return "";
   }
+  const hojaHTML = (p, pie = "") => `<article class="cd-hoja" aria-label="Cuaderno, ${esc(p.fecha)}"><p class="cd-fecha">${esc(p.fecha)}</p>${p.b.map(bloque).join("")}${pie}</article>`;
   function panelCuaderno(g, e) {
     const ps = paginasDe(g, e.md);
     if (!ps.length) return `<p class="lead">Este día no hay página de cuaderno registrada todavía.</p>
-      <p class="leyenda">Cuando el maestro de biblioteca suba la página, aparecerá aquí.</p>`;
+      <p class="leyenda">Los días con apunte llevan 📒 en la lista. Todas las páginas están más abajo, en «El cuaderno completo de ${esc(g.nombre)}».</p>`;
     return `<p class="guia">Así quedó en el cuaderno de ${esc(g.nombre)}. Si su hija o hijo faltó, puede copiarla para ponerse al día.</p>
-      ${ps.map((p) => `<article class="cd-hoja" aria-label="Cuaderno, ${esc(p.fecha)}"><p class="cd-fecha">${esc(p.fecha)}</p>${p.b.map(bloque).join("")}</article>`).join("")}`;
+      ${ps.map((p) => hojaHTML(p)).join("")}`;
+  }
+
+  /* ---------- El cuaderno completo del grupo, en orden de fecha ---------- */
+  function pintarCuadernoCompleto() {
+    const g = grupoActual();
+    const sec = $("#cuaderno-completo");
+    if (!g) { sec.hidden = true; sec.innerHTML = ""; return; }
+    const ps = (C[g.id] || []).slice().sort((a, b) => (a.f < b.f ? -1 : 1));
+    sec.hidden = false;
+    sec.innerHTML = `<h2 id="t-cuaderno" class="paso"><span class="num" aria-hidden="true">📒</span> El cuaderno completo de ${esc(g.nombre)}</h2>
+      <p class="guia">Todas las páginas que el grupo anotó en la biblioteca, en orden de fecha, como se ven en el cuaderno.</p>
+      ${ps.length ? `<div class="cd-cuaderno">${ps.map((p) => hojaHTML(p,
+        `<p class="cd-ir"><button type="button" class="boton" data-dia="${p.f.slice(5)}">Ver lo que trabajamos y aprendimos ese día</button></p>`)).join("")}</div>`
+        : '<p class="leyenda">Todavía no hay páginas de cuaderno para este grupo.</p>'}`;
   }
 
   /* ----- Pestaña 3: lo que aprendimos ----- */
@@ -430,6 +445,7 @@
     pintarGrupos();
     pintarDias();
     pintarDia();
+    pintarCuadernoCompleto();
     escribirHash();
   }
 
