@@ -49,8 +49,25 @@
 </footer>
 
 <script src="rima.js"></script>
-<script src="datos.js"></script>
 <script src="contador.js"></script>
-<script src="app.js"></script>
+<script>
+  /* datos.js y app.js se piden siempre en su versión más reciente, para que nadie vea
+     apuntes viejos guardados en la memoria del navegador después de una actualización. */
+  (function () {
+    var version = Date.now();
+    function cargar(archivo, despues) {
+      var s = document.createElement("script");
+      s.src = archivo + "?v=" + version;
+      s.onload = despues;
+      s.onerror = function () {
+        var a = document.getElementById("aviso-error");
+        a.hidden = false;
+        a.textContent = "No se pudo cargar " + archivo + ". Revise su conexión y recargue la página.";
+      };
+      document.body.appendChild(s);
+    }
+    cargar("datos.js", function () { cargar("app.js"); });
+  }());
+</script>
 </body>
 </html>

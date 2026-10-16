@@ -51,6 +51,8 @@ img/         imágenes de las páginas del cuaderno
 
 Para actualizar después: entre al repositorio, toque el archivo (por ejemplo `datos.js`), toque el lápiz ✏️ para editar, haga el cambio y toque **Commit changes**. El sitio se actualiza en uno o dos minutos.
 
+**Al agregar apuntes nuevos suba siempre dos cosas:** `datos.js` y, si la página lleva dibujo, la imagen dentro de la carpeta `img` (en GitHub: abra la carpeta `img`, toque **Add file → Upload files**, arrastre la imagen y toque **Commit changes**). Si falta la imagen, la página del cuaderno aparece sin dibujo. Las familias ven los cambios en cuanto GitHub termina de publicar (pestaña **Actions** del repositorio, círculo verde ✅): la página pide siempre la versión más reciente de `datos.js`.
+
 ### Mostrarlo en el Google Sites de la biblioteca
 
 En el editor de Google Sites: panel derecho **Insertar → Insertar → Por URL**, pegue el enlace de GitHub Pages y elija **Página completa** (o use **Páginas → + → Insertar página completa**). También puede poner un **Botón** que abra el enlace directamente, que funciona mejor en celulares y conserva los enlaces por grupo.
