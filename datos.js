@@ -2898,6 +2898,10 @@ window.CUADERNO = {
         ["6. ¿Me gustó? ¿Por qué?", "Escribo si me gustó y por qué.", ""]
       ]],
       ["enlace", "▶ Video de la lectura del libro", "https://www.youtube.com/watch?v=5gnjxnFIAL0"]
+    ]},
+    { f: "2026-10-16", fecha: "Viernes 16 de octubre de 2026", b: [
+      ["tit", "Léelo con diferentes tonos"],
+      ["verso", "", ["A mi gato bigotón", "La calaca fue a ==buscar==", "Pero él se hizo el dormido", "y la dejó sin ==bailar=="]]
     ]}
   ],
   "3A": [
@@ -2926,6 +2930,11 @@ window.CUADERNO = {
       ["tit", "Semáforo y memorama de rimas"],
       ["pares", "", [["plato", "zapato"], ["fuente", "serpiente"], ["hueso", "peso"], ["barca", "parca"]]],
       ["pares", "Rimas del memorama", [["soñando", "bailando"], ["carpintero", "sombrero"], ["dientona", "persona"], ["estante", "diamante"], ["estaba", "jugaba"], ["suelo", "vuelo"]]]
+    ]},
+    { f: "2026-10-15", fecha: "Jueves 15 de octubre 2026", b: [
+      ["tit", "La pelota de la Pelona"],
+      ["verso", "", ["Baloncín era la pelota de un niño", "desgastada, pero llena de cariño", "llegó la Pelona y no la vio,", "tropezó con ella y se cayó", "y en vez de llevárselo al panteón,", "¡se quedó bailando con el balón!"]],
+      ["img", "img/la-pelota-de-la-pelona-3A.webp", "Dibujo para colorear: la Pelona, con sombrero de flores, baila abrazada a un balón entre papel picado, calaveras músicos y una ofrenda", ""]
     ]}
   ],
   "4A": [
@@ -2972,6 +2981,16 @@ window.CUADERNO = {
       ["def", "Dedicatoria:", "Se escribe para una persona, personaje, lugar, término, o lo que uno desee."],
       ["def", "Originalidad:", "Debe de contener algo escrito que solo tú sabrías."],
       ["img", "img/catrina-en-el-salon-5A.webp", "Dibujo para colorear: la Catrina entra al salón con una escoba y una bolsa de dulces mientras cuatro estudiantes corren riendo con comida, junto a la ofrenda de Día de Muertos", ""]
+    ]},
+    { f: "2026-10-16", fecha: "Viernes 16 de octubre de 2026", b: [
+      ["p", "**Personaje / Destinatario:** ____________"],
+      ["ficha", "", [
+        ["¿Qué hacía mi personaje cuando se apareció la muerte?", "Ejemplos: Peleaba con molinos de viento, escribía versos de noche, leía las leyes, grababa calaveras, decía una mentira, cuidaba su rosa, perseguía a un conejo", ""],
+        ["¿Cómo le llamaré a la muerte?", "Ejemplos: La Calaca, la Flaca, la Huesuda, la Pelona, la Catrina, La elegante calavera de, la Dientona, la Tilica, Flaquita, la Calavera, la Parca, la Descarnada, la Muerte.", ""],
+        ["¿Qué hacía la muerte?", "Ejemplos: La Calaca... llegó sin avisar, se tropezó, se distrajo, perdió la discusión, se quedó dormida, se llevó algo y se arrepintió, no pudo llevárselo, se puso a bailar, se perdió en el camino, se asustó", ""],
+        ["¿Qué sabes tú que nadie más sabe de tu personaje?", "", ""],
+        ["¿Cuál es el giro argumental de tu calaverita?", "Ejemplos: 🌀 Termina bailando · 🌀 Se queda a leer en la biblioteca · 🌀 Se lleva otra cosa por error · 🌀 Se hace amiga del destinatario · 🌀 Huye corriendo · 🌀 Promete volver el próximo año · 🌀 Todo era un sueño · 🌀 El destinatario la engaña", ""]
+      ]]
     ]}
   ],
   "6A": [
