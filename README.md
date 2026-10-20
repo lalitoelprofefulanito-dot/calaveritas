@@ -33,7 +33,35 @@ datos.js     TODO el contenido: sesiones, apuntes, banco de rimas y páginas del
 app.js       lógica de la página (grupos, días, pestañas, juegos)
 contador.js  conteo anónimo de visitas por grupo (GoatCounter)
 img/         imágenes de las páginas del cuaderno
+img/recortables/  hojas de recortables y guías «Así organizo mi cuaderno» de cada grupo (WebP)
+pdf/         un PDF por grupo: 2 hojas de recortables + la guía del cuaderno
 ```
+
+## Semana de recortables y escritura (19 al 23 de octubre)
+
+Cada grupo tiene dos sesiones esa semana, **en el orden en que le toquen, sea lectura de 20 minutos o clase de 50**:
+
+1. **Pegamos los recortables en el cuaderno** (primera sesión de la semana).
+2. **Escribo mi calaverita** (siguiente sesión), con las tarjetas pegadas y el banco de rimas.
+
+| Grupo | Recortables | Escritura |
+|---|---|---|
+| 1.° A | lun 19 (lectura) | mié 21 (clase) |
+| 6.° A | lun 19 (lectura) | jue 22 (clase) |
+| 2.° A | mar 20 (clase) | vie 23 (lectura) |
+| 3.° A | mar 20 (lectura) | jue 22 (clase) |
+| 4.° A | mié 21 (clase) | vie 23 (lectura) |
+| 5.° A | mié 21 (clase) | vie 23 (lectura) |
+
+Después siguen «Leo a mi pareja» y «Reviso, paso en limpio y leo» en las dos sesiones siguientes de cada grupo.
+
+**La página decide sola si una sesión es «Clase» o «Lectura»** según el día de la semana (campos `diaClase` y `diaLectura` de cada grupo en `datos.js`). Así cualquier actividad puede moverse a cualquiera de los dos horarios cambiando solo la fecha en `ruta`.
+
+**Desbloqueo por fecha.** Cada sesión aparece «Próximamente» y no se puede abrir hasta su día; a las 0:00 de ese día se habilita, y con ella su página del cuaderno (también en «El cuaderno completo»). Por eso las páginas de toda la semana ya están cargadas: cada una aparece sola en su fecha. Si alguien abre antes un enlace a un día futuro, la página lo lleva al último día disponible.
+
+**Herramienta nueva: ✂️ Los recortables de la clase** (pestaña «Lo que trabajamos» de ambas sesiones): las dos hojas del grado, la guía de pegado y el PDF para ver o descargar. No hace falta imprimir en casa.
+
+**Páginas del día de escritura.** Llevan un «Ejemplo del maestro», marcado como tal, y la lista de revisión del grado. Si después quiere subir lo que realmente quedó en el pizarrón, edite ese bloque en `window.CUADERNO` (la fecha ya está puesta) o agregue una foto con un bloque `["img", ...]`.
 
 **Para actualizar el contenido solo se edita `datos.js`.** Al inicio de la sección `window.CUADERNO` hay instrucciones para agregar una página nueva del cuaderno: se copia un bloque, se cambia la fecha (`AAAA-MM-DD`) y el contenido. La página aparece sola en «El cuaderno completo» del grupo. Si la fecha coincide con una sesión del proyecto, aparece también en la pestaña «Lo que anotamos» de ese día; si no coincide (por ejemplo, un reporte de lectura), se crea un día nuevo en la lista, y entonces hay que escribir también `titulo`, `trabajamos` y `aprendimos`.
 
@@ -43,7 +71,7 @@ img/         imágenes de las páginas del cuaderno
 2. Arriba a la derecha, toque el **+** y elija **New repository**.
 3. En **Repository name** escriba, por ejemplo, `calaveritas-familias`. Deje marcado **Public** y toque **Create repository**.
 4. En la página del repositorio nuevo, toque el enlace **uploading an existing file**.
-5. Abra en su computadora la carpeta `calaveritas-familias` (descomprimida), seleccione **todo su contenido** (los cinco archivos, este README y la carpeta `img`) y arrástrelo a la ventana del navegador. Espere a que terminen de cargarse.
+5. Abra en su computadora la carpeta `calaveritas-familias` (descomprimida), seleccione **todo su contenido** (los seis archivos, este README y las carpetas `img` y `pdf`) y arrástrelo a la ventana del navegador. Espere a que terminen de cargarse.
 6. Abajo, toque **Commit changes**.
 7. Toque la pestaña **Settings** (engrane, arriba del repositorio) y, en el menú de la izquierda, **Pages**.
 8. En **Branch** elija `main`, deje la carpeta en `/ (root)` y toque **Save**.

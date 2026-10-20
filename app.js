@@ -35,7 +35,8 @@
     acuerdos: ["acuerdos", "🤝", "Humor con cariño"],
     taller: ["receta", "🧁", "La receta de la calaverita"],
     juntos: ["receta", "🧁", "La receta de la calaverita"],
-    recursos: ["recursos", "✨", "Recursos de poeta"]
+    recursos: ["recursos", "✨", "Recursos de poeta"],
+    recortables: ["recortables", "✂️", "Los recortables de la clase"]
   };
 
   /* ---------- Memoria del navegador (opcional: si falla, la página sigue igual) ---------- */
@@ -88,9 +89,13 @@
     let nC = 0, nL = 0;
     const lista = g.ruta.map(([md, clave]) => {
       const s = D.sesiones[clave];
-      const esClase = s.tipo === "C";
-      const num = esClase ? ++nC : ++nL;
       const [m, d] = md.split("-").map(Number);
+      // La actividad no depende del horario: si ese día al grupo le toca la clase de 50 minutos,
+      // es «Clase»; si le toca la lectura de 20 minutos, es «Lectura». Solo si la fecha no cae
+      // en ninguno de sus dos días se usa el tipo sugerido de la sesión.
+      const dow = new Date(2026, m - 1, d).getDay();
+      const esClase = dow === g.diaClase ? true : dow === g.diaLectura ? false : s.tipo === "C";
+      const num = esClase ? ++nC : ++nL;
       const ini = minutos(esClase ? g.clase : g.lectura);
       const dur = esClase ? 50 : 20;
       const inicio = new Date(2026, m - 1, d, Math.floor(ini / 60), ini % 60);
@@ -116,7 +121,10 @@
     if (ahora >= e.inicio) return "ahora";
     return mismoDia(ahora, e.inicio) ? "hoy" : "futura";
   }
-  const paginasDe = (g, md) => (C[g.id] || []).filter((p) => p.f.slice(5) === md);
+  // Una página del cuaderno se muestra a partir de las 0:00 de su fecha: se pueden dejar
+  // preparadas las de toda la semana y cada una se habilita sola el día que toca.
+  const yaVisible = (p, ahora = new Date()) => { const [y, m, d] = p.f.split("-").map(Number); return ahora >= new Date(y, m - 1, d); };
+  const paginasDe = (g, md) => (C[g.id] || []).filter((p) => p.f.slice(5) === md && yaVisible(p));
 
   /* ---------- Estado ---------- */
   const est = {
@@ -226,7 +234,7 @@
       <div class="herramientas" role="group" aria-label="Herramientas y juegos de la clase">
         ${hs.map(([id, ic, t]) => `<button type="button" class="herr" data-herramienta="${id}" aria-pressed="${est.herramienta === id}"><span aria-hidden="true">${ic}</span> ${t}</button>`).join("")}
       </div>
-      <div class="herr-panel">${{ modelo: verModelo, rimas: verRimas, juegos: verJuegos, acuerdos: verAcuerdos, receta: verReceta, recursos: verRecursos }[est.herramienta](g)}</div>` : ""}`;
+      <div class="herr-panel">${{ modelo: verModelo, rimas: verRimas, juegos: verJuegos, acuerdos: verAcuerdos, receta: verReceta, recursos: verRecursos, recortables: verRecortables }[est.herramienta](g)}</div>` : ""}`;
   }
 
   function modeloHTML(m, modo) {
@@ -393,6 +401,20 @@
       <blockquote>${esc(r.ejemplo).replace(/ \/ /g, "<br>")}</blockquote>
       <button type="button" class="boton" data-decir="${esc(r.ejemplo.replace(/\//g, ","))}">🔊 Escuchar</button></article>`).join("")}</div>`;
 
+  function verRecortables(g) {
+    const r = D.recortables[g.id];
+    if (!r) return '<p class="guia">Este grupo todavía no tiene hoja de recortables.</p>';
+    const hoja = ([src, alt, pie], i) => `<figure class="recorte">
+        <a href="${esc(src)}" target="_blank" rel="noopener" aria-label="Abrir en grande: ${esc(pie || `hoja ${i + 1}`)}"><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"></a>
+        <figcaption>${esc(pie || `Hoja ${i + 1}`)} · toque la imagen para verla en grande</figcaption></figure>`;
+    return `<p class="guia">${esc(r.guia)}</p>
+      <div class="fila"><a class="boton principal" href="${esc(r.pdf)}" target="_blank" rel="noopener">📄 Ver o descargar el PDF de ${esc(g.nombre)}</a></div>
+      <div class="recortes">${r.hojas.map(hoja).join("")}</div>
+      <h4 class="sub">Así se pegan en el cuaderno</h4>
+      <div class="recortes">${hoja([r.cuaderno, r.cuadernoAlt, "Guía «Así organizo mi cuaderno»"], 2)}</div>
+      <p class="leyenda">No hace falta imprimir ni recortar en casa: cada estudiante recibe su hoja en la biblioteca y quien faltó la recibe en la siguiente sesión.</p>`;
+  }
+
   /* ----- Pestaña 2: lo que anotamos en el cuaderno ----- */
   function bloque([t, a, b, c, d]) {
     if (t === "tit") return `<h4 class="cd-tit">${marcas(a)}</h4>`;
@@ -402,7 +424,7 @@
     if (t === "pares") return `${a ? `<p class="cd-sub">${marcas(a)}</p>` : ""}<ul class="cd-pares">${b.map(([x, y]) => `<li><span>${marcas(x)}</span><span class="cd-guion" aria-hidden="true">—</span><span class="sr">rima con</span><span>${marcas(y)}</span></li>`).join("")}</ul>`;
     if (t === "lista") return `${a ? `<p class="cd-sub">${marcas(a)}</p>` : ""}<ul class="cd-lista ${c || ""}">${b.map((x) => `<li>${marcas(x)}</li>`).join("")}</ul>`;
     if (t === "ficha") return `<div class="cd-ficha">${a ? `<p class="cd-ficha-cab">${marcas(a)}</p>` : ""}${b.map(([q, ay, r]) => `<div class="cd-preg"><p class="cd-q"><strong>${marcas(q)}</strong>${ay ? ` <span class="cd-ayuda">${marcas(ay)}</span>` : ""}</p>${r ? `<p class="cd-r">${marcas(r)}</p>` : '<p class="cd-r cd-vacio"><span class="sr">Sin respuesta escrita</span></p>'}</div>`).join("")}</div>`;
-    if (t === "img") return `<figure class="cd-img ${d || ""}"><img src="${esc(a)}" alt="${esc(b)}" loading="lazy">${c ? `<figcaption>${esc(c)}</figcaption>` : ""}</figure>`;
+    if (t === "img") return `<figure class="cd-img ${d || ""}"><a href="${esc(a)}" target="_blank" rel="noopener" title="Abrir la imagen en grande"><img src="${esc(a)}" alt="${esc(b)}" loading="lazy"></a>${c ? `<figcaption>${esc(c)}</figcaption>` : ""}</figure>`;
     if (t === "enlace") return `<p><a class="cd-enlace" href="${esc(b)}" target="_blank" rel="noopener">${esc(a)}</a></p>`;
     return "";
   }
@@ -420,7 +442,7 @@
     const g = grupoActual();
     const sec = $("#cuaderno-completo");
     if (!g) { sec.hidden = true; sec.innerHTML = ""; return; }
-    const ps = (C[g.id] || []).slice().sort((a, b) => (a.f < b.f ? -1 : 1));
+    const ps = (C[g.id] || []).filter((p) => yaVisible(p)).sort((a, b) => (a.f < b.f ? -1 : 1));
     sec.hidden = false;
     sec.innerHTML = `<h2 id="t-cuaderno" class="paso"><span class="num" aria-hidden="true">📒</span> El cuaderno completo de ${esc(g.nombre)}</h2>
       <p class="guia">Todas las páginas que el grupo anotó en la biblioteca, en orden de fecha, como se ven en el cuaderno.</p>

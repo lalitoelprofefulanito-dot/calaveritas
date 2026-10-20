@@ -1,6 +1,11 @@
 /* ============================================================
    PROYECTO: datos del proyecto «Calaveritas literarias» (Biblioteca, ciclo 2026-2027).
    grupos.ruta = [fecha MM-DD, clave de sesión] en orden cronológico.
+   grupos.diaClase / diaLectura = día de la semana de la clase de 50 min y de la lectura de 20 min
+     (1 lunes, 2 martes, 3 miércoles, 4 jueves, 5 viernes). Con ellos la página decide sola si
+     una fecha es «Clase» o «Lectura»: cualquier sesión puede ir en cualquiera de los dos horarios.
+   Una sesión aparece «Próximamente» (bloqueada) hasta que llega su fecha; ese día se habilita.
+   recortables = hoja de recortables de cada grupo (PDF en pdf/ e imágenes en img/recortables/).
    sesiones.*.apuntes = lo que se muestra a las familias en cada pestaña:
      hicimos -> «Lo que trabajamos»; aprendimos, faltaste y casa -> «Lo que aprendimos».
    Marcadores que se rellenan solos: {ext} extensión del grado, {nombre} grupo, {modelo} letra del modelo.
@@ -14,7 +19,9 @@ window.PROYECTO = {
    "nombre": "1.° A",
    "grado": 1,
    "clase": "9:00",
+   "diaClase": 3,
    "lectura": "11:30",
+   "diaLectura": 1,
    "libros": [
     "BV-1634",
     "BV-1615"
@@ -38,7 +45,7 @@ window.PROYECTO = {
     ],
     [
      "10-19",
-     "preparo"
+     "recortables"
     ],
     [
      "10-21",
@@ -59,7 +66,9 @@ window.PROYECTO = {
    "nombre": "2.° A",
    "grado": 2,
    "clase": "11:30",
+   "diaClase": 2,
    "lectura": "11:30",
+   "diaLectura": 5,
    "libros": [
     "BV-1634",
     "BV-1615"
@@ -83,14 +92,18 @@ window.PROYECTO = {
     ],
     [
      "10-20",
-     "escribo"
+     "recortables"
     ],
     [
      "10-23",
-     "pareja"
+     "escribo"
     ],
     [
      "10-27",
+     "pareja"
+    ],
+    [
+     "10-30",
      "reviso"
     ]
    ]
@@ -100,7 +113,9 @@ window.PROYECTO = {
    "nombre": "3.° A",
    "grado": 3,
    "clase": "12:30",
+   "diaClase": 4,
    "lectura": "9:00",
+   "diaLectura": 2,
    "libros": [
     "BV-1634",
     "BV-0631"
@@ -124,7 +139,7 @@ window.PROYECTO = {
     ],
     [
      "10-20",
-     "preparo"
+     "recortables"
     ],
     [
      "10-22",
@@ -145,7 +160,9 @@ window.PROYECTO = {
    "nombre": "4.° A",
    "grado": 4,
    "clase": "11:30",
+   "diaClase": 3,
    "lectura": "9:00",
+   "diaLectura": 5,
    "libros": [
     "BV-1634",
     "BV-0631"
@@ -169,14 +186,18 @@ window.PROYECTO = {
     ],
     [
      "10-21",
-     "escribo"
+     "recortables"
     ],
     [
      "10-23",
-     "pareja"
+     "escribo"
     ],
     [
      "10-28",
+     "pareja"
+    ],
+    [
+     "10-30",
      "reviso"
     ]
    ]
@@ -186,7 +207,9 @@ window.PROYECTO = {
    "nombre": "5.° A",
    "grado": 5,
    "clase": "8:00",
+   "diaClase": 3,
    "lectura": "10:00",
+   "diaLectura": 5,
    "libros": [
     "BV-1634",
     "BV-0631",
@@ -211,14 +234,18 @@ window.PROYECTO = {
     ],
     [
      "10-21",
-     "escribo"
+     "recortables"
     ],
     [
      "10-23",
-     "pareja"
+     "escribo"
     ],
     [
      "10-28",
+     "pareja"
+    ],
+    [
+     "10-30",
      "reviso"
     ]
    ]
@@ -228,7 +255,9 @@ window.PROYECTO = {
    "nombre": "6.° A",
    "grado": 6,
    "clase": "13:30",
+   "diaClase": 4,
    "lectura": "9:00",
+   "diaLectura": 1,
    "libros": [
     "BV-1634",
     "BV-0631",
@@ -253,7 +282,7 @@ window.PROYECTO = {
     ],
     [
      "10-19",
-     "preparo"
+     "recortables"
     ],
     [
      "10-22",
@@ -347,18 +376,33 @@ window.PROYECTO = {
     "casa": ""
    }
   },
+  "recortables": {
+   "tipo": "L",
+   "titulo": "Pegamos los recortables en el cuaderno",
+   "herramientas": [
+    "recortables",
+    "taller"
+   ],
+   "apuntes": {
+    "hicimos": "Recibimos la hoja de recortables de nuestro grado. Recortamos las tarjetas por la línea punteada, elegimos una de cada color y las pegamos en el cuaderno siguiendo la guía «Así organizo mi cuaderno». Con eso quedó listo el plan de la calaverita: quién llega, a quién y qué pasa.",
+    "aprendimos": "Planear antes de escribir ayuda: cada color es una pieza de la calaverita y, al pegarlas en orden, ya sabemos qué va en cada verso. Las tarjetas son un apoyo; las ideas y el detalle propio son de cada quien.",
+    "faltaste": "No pasa nada: al inicio de la siguiente sesión de biblioteca te damos tu hoja de recortables y te ayudamos a pegarla. No hay que imprimir ni recortar nada en casa.",
+    "casa": "Si quieren, pregunten qué tarjetas eligió y por qué. La hoja completa está en «Lo que trabajamos», en «Los recortables de la clase»."
+   }
+  },
   "escribo": {
    "tipo": "C",
    "titulo": "Escribo mi calaverita",
    "herramientas": [
     "taller",
     "rimas",
+    "recortables",
     "modelos"
    ],
    "apuntes": {
-    "hicimos": "Cada quien escribió el borrador de su calaverita, de {ext}, con apoyos: banco de rimas, hoja con cajas, pareja de escritura o dictado. Los borradores se guardan en la biblioteca.",
+    "hicimos": "Con las tarjetas ya pegadas en el cuaderno, cada quien escribió su calaverita, de {ext}. Nos apoyamos en el banco de rimas y en las parejas que riman de los recortables; quien lo necesitó, dictó al maestro o trabajó con su pareja.",
     "aprendimos": "La pieza más importante es «algo propio»: un detalle que solo tú sabrías o inventarías. Eso hace única a tu calaverita.",
-    "faltaste": "Escribes tu borrador en la siguiente lectura de 20 minutos, que es tiempo de taller, con ayuda del maestro. La calaverita se escribe en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+    "faltaste": "Escribes tu calaverita en la siguiente sesión de biblioteca, con ayuda del maestro, sea lectura o clase. La calaverita se escribe en la escuela: no se hace en casa ni se copia de internet o de la IA.",
     "casa": ""
    }
   },
@@ -389,6 +433,104 @@ window.PROYECTO = {
     "faltaste": "Acércate al maestro de biblioteca: buscamos un momento en la escuela para que termines y tu calaverita llegue al muro.",
     "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con seudónimo."
    }
+  }
+ },
+ "recortables": {
+  "1A": {
+   "pdf": "pdf/calaveritas-1A.pdf",
+   "guia": "Cada color es una pieza del pareado: quién llega, por quién, qué hizo y la rima. Se elige una tarjeta de cada color y se pegan en orden; el maestro ayuda a leerlas.",
+   "hojas": [
+    [
+     "img/recortables/rec-1A-1.webp",
+     "Hoja 1 de recortables de 1.° A: tarjetas de ¿Quién llega? (la Calaca, la Flaca, la Pelona, la Catrina) y ¿Por quién? (animales, familia, mascota)."
+    ],
+    [
+     "img/recortables/rec-1A-2.webp",
+     "Hoja 2 de recortables de 1.° A: tarjetas de ¿Qué hizo?, de La rima con su palabra que rima, y tarjetas en blanco para título, detalle e iniciales."
+    ]
+   ],
+   "cuaderno": "img/recortables/cuaderno-1A.webp",
+   "cuadernoAlt": "Guía «Así organizo mi cuaderno» de 1.° A: renglón por renglón, los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano."
+  },
+  "2A": {
+   "pdf": "pdf/calaveritas-2A.pdf",
+   "guia": "Cada color es un verso del cuarteto. Se elige una tarjeta de cada color y se pega un verso en cada renglón; riman el verso 2 y el 4 (terminan en -ó).",
+   "hojas": [
+    [
+     "img/recortables/rec-2A-1.webp",
+     "Hoja 1 de recortables de 2.° A: guía para pegar 4 versos y tarjetas de ¿A quién le llega la Calaca?, ¿Qué hacía? y verso 2: ¿quién llega?."
+    ],
+    [
+     "img/recortables/rec-2A-2.webp",
+     "Hoja 2 de recortables de 2.° A: tarjetas del verso 3 (qué hizo la Calaca), del verso 4 (final en -ó), sonidos y tarjetas en blanco."
+    ]
+   ],
+   "cuaderno": "img/recortables/cuaderno-2A.webp",
+   "cuadernoAlt": "Guía «Así organizo mi cuaderno» de 2.° A: renglón por renglón, los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano."
+  },
+  "3A": {
+   "pdf": "pdf/calaveritas-3A.pdf",
+   "guia": "Cada color es un verso. Todas las tarjetas de los versos 2, 4 y 6 terminan en -ar, así que la rima funciona con cualquier combinación. El detalle propio se escribe a mano en el verso 1.",
+   "hojas": [
+    [
+     "img/recortables/rec-3A-1.webp",
+     "Hoja 1 de recortables de 3.° A: guía para pegar 6 versos que riman en -ar y tarjetas de arranque, a quién y qué hacía."
+    ],
+    [
+     "img/recortables/rec-3A-2.webp",
+     "Hoja 2 de recortables de 3.° A: tarjetas de quién llega, qué quería, qué le pasó a la Calaca, final en -ar y tarjetas en blanco."
+    ]
+   ],
+   "cuaderno": "img/recortables/cuaderno-3A.webp",
+   "cuadernoAlt": "Guía «Así organizo mi cuaderno» de 3.° A: renglón por renglón, los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano."
+  },
+  "4A": {
+   "pdf": "pdf/calaveritas-4A.pdf",
+   "guia": "Las tarjetas arman el plan (a quién, qué hacía, quién llega, qué le pasa y final). Los versos los escribe cada quien, con apoyo de arranques y parejas que riman.",
+   "hojas": [
+    [
+     "img/recortables/rec-4A-1.webp",
+     "Hoja 1 de recortables de 4.° A: guía del plan y tarjetas de a quién, qué hacía y nombres de la Muerte con sus rimas."
+    ],
+    [
+     "img/recortables/rec-4A-2.webp",
+     "Hoja 2 de recortables de 4.° A: tarjetas de qué le pasa, final sorpresa, arranques, parejas que riman y tarjetas en blanco."
+    ]
+   ],
+   "cuaderno": "img/recortables/cuaderno-4A.webp",
+   "cuadernoAlt": "Guía «Así organizo mi cuaderno» de 4.° A: renglón por renglón, los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano."
+  },
+  "5A": {
+   "pdf": "pdf/calaveritas-5A.pdf",
+   "guia": "Primero se pega la ficha del personaje y se responde; luego se arma el plan con las tarjetas de colores. Las dos estrofas las escribe cada quien, con arranques, recursos literarios y parejas que riman.",
+   "hojas": [
+    [
+     "img/recortables/rec-5A-1.webp",
+     "Hoja 1 de recortables de 5.° A: guía del cuaderno, ficha del personaje en seis preguntas, nombres de la Muerte con sus rimas, qué le pasa y giro final."
+    ],
+    [
+     "img/recortables/rec-5A-2.webp",
+     "Hoja 2 de recortables de 5.° A: arranques, recursos literarios con ejemplo, organizador de estrofas, parejas que riman y tarjetas en blanco."
+    ]
+   ],
+   "cuaderno": "img/recortables/cuaderno-5A.webp",
+   "cuadernoAlt": "Guía «Así organizo mi cuaderno» de 5.° A: renglón por renglón, los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano."
+  },
+  "6A": {
+   "pdf": "pdf/calaveritas-6A.pdf",
+   "guia": "Primero se pega la ficha del personaje y se responde; luego se arma el plan con las tarjetas de colores. Las dos estrofas las escribe cada quien, con arranques, recursos literarios y parejas que riman.",
+   "hojas": [
+    [
+     "img/recortables/rec-6A-1.webp",
+     "Hoja 1 de recortables de 6.° A: guía del cuaderno, ficha del personaje en seis preguntas, nombres de la Muerte con sus rimas, qué le pasa y giro final."
+    ],
+    [
+     "img/recortables/rec-6A-2.webp",
+     "Hoja 2 de recortables de 6.° A: arranques, recursos literarios con ejemplo, organizador de estrofas, parejas que riman y tarjetas en blanco."
+    ]
+   ],
+   "cuaderno": "img/recortables/cuaderno-6A.webp",
+   "cuadernoAlt": "Guía «Así organizo mi cuaderno» de 6.° A: renglón por renglón, los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano."
   }
  },
  "libros": {
@@ -2879,6 +3021,21 @@ window.CUADERNO = {
     { f: "2026-10-14", fecha: "Miércoles 14 de octubre de 2026", b: [
       ["tit", "Memorama de rimas"],
       ["pares", "", [["🍦 helado", "pescado 🐟"], ["🐝 colmena", "sirena 🧜‍♀️"], ["🥗 ensalada", "carcajada 🤣"], ["🎤 cantando", "soñando 😴"]]]
+    ]},
+    { f: "2026-10-19", fecha: "Lunes 19 de octubre de 2026", b: [
+      ["tit", "Mi calaverita literaria"],
+      ["p", "Recortamos las tarjetas por la línea punteada y pegamos **una de cada color**, en orden, siguiendo la guía."],
+      ["img", "img/recortables/cuaderno-1A.webp", "Guía «Así organizo mi cuaderno» de 1.° A: los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano", "Guía «Así organizo mi cuaderno» · recuadro de color = tarjeta que se pega · texto café = lo que se escribe a mano"],
+      ["enlace", "📄 Hojas de recortables y guía de 1.° A (PDF)", "pdf/calaveritas-1A.pdf"]
+    ]},
+    { f: "2026-10-21", fecha: "Miércoles 21 de octubre de 2026", b: [
+      ["tit", "Termino mi calaverita"],
+      ["p", "Con las tarjetas ya pegadas, escribimos o dictamos el **título** y **mi detalle**, dibujamos a la Calaca con nuestro personaje y pusimos **nuestras iniciales**."],
+      ["verso", "Ejemplo del maestro: «La abuelita bailarina»", ["La Calaca llegó por mi ==abuelita==", "y bailó con la ==galletita==."]],
+      ["p", "**Mi detalle:** hace las galletas más ricas del barrio."],
+      ["p", "La tuya lleva tus propias tarjetas y tu detalle."],
+      ["lista", "Reviso ✓", ["💀 ¿Está la Calaca?", "🎵 ¿Riman las palabras del final?", "😄 ¿Da risa sin burlarse?", "✍️ ¿Puse mis iniciales?"], ""],
+      ["p", "Se la leí a mi pareja ✓"]
     ]}
   ],
   "2A": [
@@ -2902,6 +3059,20 @@ window.CUADERNO = {
     { f: "2026-10-16", fecha: "Viernes 16 de octubre de 2026", b: [
       ["tit", "Léelo con diferentes tonos"],
       ["verso", "", ["A mi gato bigotón", "La calaca fue a ==buscar==", "Pero él se hizo el dormido", "y la dejó sin ==bailar=="]]
+    ]},
+    { f: "2026-10-20", fecha: "Martes 20 de octubre de 2026", b: [
+      ["tit", "Mi calaverita literaria"],
+      ["p", "Recortamos las tarjetas por la línea punteada y pegamos **una de cada color**, en orden, siguiendo la guía."],
+      ["img", "img/recortables/cuaderno-2A.webp", "Guía «Así organizo mi cuaderno» de 2.° A: los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano", "Guía «Así organizo mi cuaderno» · recuadro de color = tarjeta que se pega · texto café = lo que se escribe a mano"],
+      ["enlace", "📄 Hojas de recortables y guía de 2.° A (PDF)", "pdf/calaveritas-2A.pdf"]
+    ]},
+    { f: "2026-10-23", fecha: "Viernes 23 de octubre de 2026", b: [
+      ["tit", "Escribo mi calaverita"],
+      ["p", "Debajo de las tarjetas escribimos el **título**, **mi detalle** (algo de mi personaje que nadie más conoce, y lo agregamos en el verso 1) y el **seudónimo**."],
+      ["verso", "Ejemplo del maestro: «El abuelito de la tele»", ["Mi abuelito, el que colecciona trompos, veía la tele,", "cuando la Flaca ==llegó==;", "le contó un chiste", "y al final se ==rió==."]],
+      ["p", "La tuya lleva tus propias tarjetas y tu detalle."],
+      ["lista", "Reviso ✓", ["4 versos", "riman el 2 y el 4", "está la Calaca", "algo que solo yo sé", "título"], "plana"],
+      ["p", "**Le gustó:** ____________ · **Me sugiere:** ____________"]
     ]}
   ],
   "3A": [
@@ -2935,6 +3106,21 @@ window.CUADERNO = {
       ["tit", "La pelota de la Pelona"],
       ["verso", "", ["Baloncín era la pelota de un niño", "desgastada, pero llena de cariño", "llegó la Pelona y no la vio,", "tropezó con ella y se cayó", "y en vez de llevárselo al panteón,", "¡se quedó bailando con el balón!"]],
       ["img", "img/la-pelota-de-la-pelona-3A.webp", "Dibujo para colorear: la Pelona, con sombrero de flores, baila abrazada a un balón entre papel picado, calaveras músicos y una ofrenda", ""]
+    ]},
+    { f: "2026-10-20", fecha: "Martes 20 de octubre de 2026", b: [
+      ["tit", "Mi calaverita literaria"],
+      ["p", "Recortamos las tarjetas por la línea punteada y pegamos **una de cada color**, en orden, siguiendo la guía."],
+      ["img", "img/recortables/cuaderno-3A.webp", "Guía «Así organizo mi cuaderno» de 3.° A: los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano", "Guía «Así organizo mi cuaderno» · recuadro de color = tarjeta que se pega · texto café = lo que se escribe a mano"],
+      ["enlace", "📄 Hojas de recortables y guía de 3.° A (PDF)", "pdf/calaveritas-3A.pdf"]
+    ]},
+    { f: "2026-10-22", fecha: "Jueves 22 de octubre de 2026", b: [
+      ["tit", "Escribo mi calaverita"],
+      ["p", "Escribimos el **título**, agregamos con nuestra letra **mi detalle** en el verso 1 y firmamos con **seudónimo**. Los versos 2, 4 y 6 terminan en **-ar**."],
+      ["verso", "Ejemplo del maestro: «El tío roncador»", ["Cuentan que mi tío, el que arregla bicis,", "no dejaba de ==roncar==,", "cuando la Pelona llegó", "y se lo quiso ==llevar==;", "pero se quedó dormida", "y se puso a ==bailar==."]],
+      ["p", "**¿Solo 4 versos?** Se pegan los versos 1, 2, 3 y 6."],
+      ["p", "La tuya lleva tus propias tarjetas y tu detalle."],
+      ["lista", "Reviso ✓", ["versos 2, 4 y 6 en -ar", "está la Calaca", "mi detalle propio", "humor con cariño"], "plana"],
+      ["p", "**Le gustó:** ________ · **Me sugiere:** ________ · **Cambié:** ________"]
     ]}
   ],
   "4A": [
@@ -2959,6 +3145,20 @@ window.CUADERNO = {
       ["verso", "Calaverita construida por el grupo 4° A", ["Estaba el maestro Pedro", "leyendo en su ==salón==", "cuando aparece la flaca", "quien no pudo llevárselo al ==panteón=="]],
       ["p", "**Tarea: Crea los últimos versos tomando en cuenta lo siguiente:**"],
       ["lista", "", ["==**Algo propio:** Es muy puntual==", "==**Giro:** La calaca promete volver el próximo año=="], ""]
+    ]},
+    { f: "2026-10-21", fecha: "Miércoles 21 de octubre de 2026", b: [
+      ["tit", "Mi calaverita literaria"],
+      ["p", "Recortamos las tarjetas por la línea punteada y pegamos **una de cada color**, en orden, siguiendo la guía."],
+      ["img", "img/recortables/cuaderno-4A.webp", "Guía «Así organizo mi cuaderno» de 4.° A: los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano", "Guía «Así organizo mi cuaderno» · recuadro de color = tarjeta que se pega · texto café = lo que se escribe a mano"],
+      ["enlace", "📄 Hojas de recortables y guía de 4.° A (PDF)", "pdf/calaveritas-4A.pdf"]
+    ]},
+    { f: "2026-10-23", fecha: "Viernes 23 de octubre de 2026", b: [
+      ["tit", "2. Mis versos"],
+      ["p", "Con el plan ya pegado, escribimos de **6 a 8 versos**: el 2 rima con el 1, el 4 con el 3, el 6 con el 5 y el 8 con el 7. Nos apoyamos en los arranques y en las parejas que riman."],
+      ["verso", "Ejemplo del maestro: «La cantante de la regadera»", ["Aquí yace mi hermana, la ==cantora==,", "que en la regadera cantaba a toda ==hora==;", "con el champú por micrófono en la ==mano==", "ensayaba su concierto de ==verano==.", "La Parca llegó tocando la ==puerta==,", "pero perdió la discusión, ==boquiabierta==;", "ahora cantan juntas cada ==canción==", "y comparten la misma ==emoción==."]],
+      ["p", "La tuya lleva tu propio plan y algo que solo tú sabes."],
+      ["lista", "3. Revisión ✓", ["6 a 8 versos", "suenan igual las rimas", "la Calaca es personaje", "algo propio y final sorpresa", "humor con cariño"], "plana"],
+      ["p", "**Le gustó:** ________ · **Sugerencia:** ________ · **Lo que cambié:** ________"]
     ]}
   ],
   "5A": [
@@ -2991,6 +3191,22 @@ window.CUADERNO = {
         ["¿Qué sabes tú que nadie más sabe de tu personaje?", "", ""],
         ["¿Cuál es el giro argumental de tu calaverita?", "Ejemplos: 🌀 Termina bailando · 🌀 Se queda a leer en la biblioteca · 🌀 Se lleva otra cosa por error · 🌀 Se hace amiga del destinatario · 🌀 Huye corriendo · 🌀 Promete volver el próximo año · 🌀 Todo era un sueño · 🌀 El destinatario la engaña", ""]
       ]]
+    ]},
+    { f: "2026-10-21", fecha: "Miércoles 21 de octubre de 2026", b: [
+      ["tit", "Mi calaverita literaria"],
+      ["p", "Recortamos las tarjetas por la línea punteada y pegamos **una de cada color**, en orden, siguiendo la guía."],
+      ["img", "img/recortables/cuaderno-5A.webp", "Guía «Así organizo mi cuaderno» de 5.° A: los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano", "Guía «Así organizo mi cuaderno» · recuadro de color = tarjeta que se pega · texto café = lo que se escribe a mano"],
+      ["enlace", "📄 Hojas de recortables y guía de 5.° A (PDF)", "pdf/calaveritas-5A.pdf"]
+    ]},
+    { f: "2026-10-23", fecha: "Viernes 23 de octubre de 2026", b: [
+      ["tit", "3. Mis versos"],
+      ["p", "Con la ficha respondida y el plan pegado, escribimos **dos estrofas**: la 1 presenta al personaje, lo que hace siempre y el dato propio; la 2 trae a la Calaca, algo que le sale mal y el giro final. Riman el verso 2 con el 4 y el 6 con el 8."],
+      ["verso", "Ejemplo del maestro · Estrofa 1", ["Cuentan que Posada, el grabador,", "nació en Aguascalientes, tierra de ==feria==;", "grababa y grababa calaveras sin parar", "con tinta, buril y cara muy ==seria==."]],
+      ["verso", "Estrofa 2", ["Llegó la Catrina a su taller,", "pero al ver su retrato se quedó ==encantada==;", "Posada la grabó con sombrero elegante", "y la Catrina, presumida, se fue sin llevarse ==nada==."]],
+      ["p", "**Recurso:** aliteración: «grababa y grababa» repite el sonido gr."],
+      ["p", "La tuya es sobre tu propio personaje, con tu dato propio."],
+      ["lista", "4. Revisión ✓", ["8 versos o más", "se reconoce a mi personaje", "rimas consonantes o asonantes", "giro final", "humor con cariño y respeto", "usé un recurso"], "plana"],
+      ["p", "**Le gustó:** ________ · **Sugerencia:** ________ · **Lo que cambié:** ________"]
     ]}
   ],
   "6A": [
@@ -3004,6 +3220,22 @@ window.CUADERNO = {
         "5.- Extensión 5° y 6° mínimo con 8 versos.",
         "6.- Firma protegida (Usaremos seudónimo o iniciales), grado y grupo."
       ], "plana"]
+    ]},
+    { f: "2026-10-19", fecha: "Lunes 19 de octubre de 2026", b: [
+      ["tit", "Mi calaverita literaria"],
+      ["p", "Recortamos las tarjetas por la línea punteada y pegamos **una de cada color**, en orden, siguiendo la guía."],
+      ["img", "img/recortables/cuaderno-6A.webp", "Guía «Así organizo mi cuaderno» de 6.° A: los recuadros de color muestran dónde se pega cada tarjeta y el texto café lo que se escribe a mano", "Guía «Así organizo mi cuaderno» · recuadro de color = tarjeta que se pega · texto café = lo que se escribe a mano"],
+      ["enlace", "📄 Hojas de recortables y guía de 6.° A (PDF)", "pdf/calaveritas-6A.pdf"]
+    ]},
+    { f: "2026-10-22", fecha: "Jueves 22 de octubre de 2026", b: [
+      ["tit", "3. Mis versos"],
+      ["p", "Con la ficha respondida y el plan pegado, escribimos **dos estrofas**: la 1 presenta al personaje, lo que hace siempre y el dato propio; la 2 trae a la Calaca, algo que le sale mal y el giro final. Riman el verso 2 con el 4 y el 6 con el 8."],
+      ["verso", "Ejemplo del maestro · Estrofa 1", ["Cuentan que Sor Juana, la gran poeta,", "de niña quiso ir a la universidad vestida de ==varón==;", "leía y leía de noche y de día", "y llenó de libros cada ==rincón==."]],
+      ["verso", "Estrofa 2", ["La Muerte llegó a su celda callada,", "pero se perdió entre tanta ==poesía==;", "Sor Juana la convenció con su ingenio y su frase", "y ahora la Muerte le hace ==compañía==."]],
+      ["p", "**Recurso:** exageración: «llenó de libros cada rincón»."],
+      ["p", "La tuya es sobre tu propio personaje histórico, con tu dato propio."],
+      ["lista", "4. Revisión ✓", ["8 versos o más", "se reconoce a mi personaje", "rimas consonantes o asonantes", "giro final", "humor con cariño y respeto", "usé un recurso"], "plana"],
+      ["p", "**Le gustó:** ________ · **Sugerencia:** ________ · **Lo que cambié:** ________"]
     ]}
   ]
 };
