@@ -89,6 +89,7 @@ main:focus { outline: none; }
 .sub { font-size: 1.1rem; margin: 1.5rem 0 .5rem; }
 .caja { border-left: 6px solid var(--morado); background: var(--hueso); padding: .7rem 1rem; border-radius: 4px; margin: 1rem 0 0; max-width: 70ch; }
 .caja.casa { border-left-color: var(--verde); }
+.caja.avance { border-left-color: #B45309; background: #FFF7E6; margin: 0 0 1rem; }
 .caja h4 { margin: 0 0 .2rem; font-size: 1rem; }
 .caja p { margin: 0; }
 details.repaso { margin-top: 1rem; border: 2px solid var(--hueso-2); border-radius: 8px; padding: .5rem 1rem; max-width: 75ch; }

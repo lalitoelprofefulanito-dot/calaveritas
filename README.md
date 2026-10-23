@@ -35,6 +35,8 @@ contador.js  conteo anónimo de visitas por grupo (GoatCounter)
 img/         imágenes de las páginas del cuaderno
 img/recortables/  hojas de recortables y guías «Así organizo mi cuaderno» de cada grupo (WebP)
 pdf/         un PDF por grupo: 2 hojas de recortables + la guía del cuaderno
+             y pdf/mesa-recursos-*.pdf: la hoja de la mesa (recursos literarios y banco de rimas)
+img/recortables/mesa-*.webp  las dos caras de la hoja de la mesa de cada grupo
 ```
 
 ## Semana de recortables y escritura (19 al 23 de octubre)
@@ -64,6 +66,30 @@ Después siguen «Leo a mi pareja» y «Reviso, paso en limpio y leo» en las do
 **Páginas del día de escritura.** Llevan un «Ejemplo del maestro», marcado como tal, y la lista de revisión del grado. Si después quiere subir lo que realmente quedó en el pizarrón, edite ese bloque en `window.CUADERNO` (la fecha ya está puesta) o agregue una foto con un bloque `["img", ...]`.
 
 **Para actualizar el contenido solo se edita `datos.js`.** Al inicio de la sección `window.CUADERNO` hay instrucciones para agregar una página nueva del cuaderno: se copia un bloque, se cambia la fecha (`AAAA-MM-DD`) y el contenido. La página aparece sola en «El cuaderno completo» del grupo. Si la fecha coincide con una sesión del proyecto, aparece también en la pestaña «Lo que anotamos» de ese día; si no coincide (por ejemplo, un reporte de lectura), se crea un día nuevo en la lista, y entonces hay que escribir también `titulo`, `trabajamos` y `aprendimos`.
+
+## Actualización del 22 de octubre
+
+### Tres funciones nuevas
+
+| Novedad | Dónde se ve | Dónde se edita |
+|---|---|---|
+| **📇 La hoja de la mesa: recursos y rimas** | Pestaña «Lo que trabajamos» de *Escribo mi calaverita* y *Leo a mi pareja*, en los seis grupos | `datos.js`, al final: `window.PROYECTO.recortables["…"].mesa` |
+| **💻 La herramienta digital de la clase** | Solo en los grupos que la tengan registrada (hoy, 6.° A) | `datos.js`, al final: `window.PROYECTO.digital` |
+| **Ajustes por grupo y recuadro «Dónde vamos»** | Cambia el título y los textos de una sesión **solo para un grupo** | `datos.js`, al final: `window.PROYECTO.ajustes` |
+
+**La hoja de la mesa** es la hoja de recursos literarios (una cara) y banco de rimas (la otra) que está impresa en el porta servilletas de cada mesa de la biblioteca. Las familias la ven en imagen y pueden descargarla en PDF; no hace falta imprimirla en casa.
+
+**Los ajustes por grupo** sirven cuando un grupo avanzó distinto de lo planeado. Por ejemplo, la sesión *Escribo mi calaverita* dice para todos que «cada quien escribió su calaverita»; si un grupo solo llegó a la mitad, se escribe un ajuste para ese grupo y esa fecha, y los demás grupos no cambian. Solo se escriben los campos que cambian (`titulo`, `hicimos`, `avance`, `aprendimos`, `faltaste`, `casa`, `herramientas`); lo demás se toma de la sesión general. El campo `avance` muestra el recuadro **Dónde vamos**, útil para decir con honestidad que la calaverita todavía no está terminada.
+
+**La herramienta digital** se describe con su título, para qué sirve y sus secciones. Mientras no tenga dirección (`url: ""`), la página dice que se usa en la biblioteca. Cuando la publique, pegue la dirección entre las comillas de `url` y aparecerá el botón **💻 Abrir la herramienta**. Para agregar la de otro grupo, copie el bloque de `"6A"` y cambie la clave del grupo.
+
+### Registro de 6.° A (semana del 19 al 22 de octubre)
+
+Con base en el relato del trabajo de la semana:
+
+- **Lunes 19 (lectura).** Recortaron y pegaron en el cuaderno la hoja de recortables siguiendo la guía. Quedó lista la guía de trabajo: preguntas del personaje, tarjetas para planear, arranques, recursos literarios, parejas que riman y revisión.
+- **Jueves 22 (clase).** Respondieron las seis preguntas rosas de la ficha del personaje y, con la herramienta digital «Panteón de versos de sexto grado grupo A», avanzaron **hasta el verso 4** (primera estrofa). La calaverita **no está terminada**.
+- **Lunes 26 (preparado).** *Termino mi calaverita y la leo a mi pareja*: estrofa 2 y giro final. La página del cuaderno de ese día lleva la estrofa 2 del ejemplo del maestro (Sor Juana) y se habilita sola el 26. **Si la sesión cambia** (por ejemplo, por la Evaluación de Comprensión Lectora de ese día), edite `window.PROYECTO.ajustes["6A"]["10-26"]` y la página del 26 en `window.CUADERNO["6A"]`.
 
 ## Publicar en GitHub Pages (paso a paso)
 

@@ -396,6 +396,7 @@ window.PROYECTO = {
    "herramientas": [
     "taller",
     "rimas",
+    "mesa",
     "recortables",
     "modelos"
    ],
@@ -411,6 +412,7 @@ window.PROYECTO = {
    "titulo": "Leo a mi pareja y ajusto",
    "herramientas": [
     "recursos",
+    "mesa",
     "juegos"
    ],
    "apuntes": {
@@ -3228,14 +3230,141 @@ window.CUADERNO = {
       ["enlace", "📄 Hojas de recortables y guía de 6.° A (PDF)", "pdf/calaveritas-6A.pdf"]
     ]},
     { f: "2026-10-22", fecha: "Jueves 22 de octubre de 2026", b: [
-      ["tit", "3. Mis versos"],
-      ["p", "Con la ficha respondida y el plan pegado, escribimos **dos estrofas**: la 1 presenta al personaje, lo que hace siempre y el dato propio; la 2 trae a la Calaca, algo que le sale mal y el giro final. Riman el verso 2 con el 4 y el 6 con el 8."],
+      ["tit", "1. Ficha de mi personaje"],
+      ["p", "Pegamos las **seis tarjetas rosas** y respondimos cada pregunta en el cuaderno. Las respuestas son la materia prima de la calaverita."],
+      ["ficha", "Mi personaje: histórico, de serie animada o de cómic", [
+        ["¿Quién es mi personaje?", "Su nombre, como lo conoce todo el mundo.", ""],
+        ["¿De qué historia, serie o cómic es?", "De dónde viene.", ""],
+        ["¿Por qué es famoso?", "Lo que hizo o lo que lo hace especial.", ""],
+        ["Su objeto, poder o frase", "Eso que todos reconocen de él o de ella.", ""],
+        ["¿Qué hace siempre?", "Su costumbre, su manía, lo que le encanta.", ""],
+        ["Su rival o su compañero", "Con quién pelea o con quién anda.", ""]
+      ]],
+      ["tit", "3. Mis versos · Estrofa 1"],
+      ["p", "Con la herramienta digital «Panteón de versos de sexto grado grupo A» empezamos a convertir la ficha en versos. **Llegamos hasta el verso 4**: presentamos al personaje, lo que hace siempre y su dato propio. Riman el verso 2 con el 4."],
       ["verso", "Ejemplo del maestro · Estrofa 1", ["Cuentan que Sor Juana, la gran poeta,", "de niña quiso ir a la universidad vestida de ==varón==;", "leía y leía de noche y de día", "y llenó de libros cada ==rincón==."]],
-      ["verso", "Estrofa 2", ["La Muerte llegó a su celda callada,", "pero se perdió entre tanta ==poesía==;", "Sor Juana la convenció con su ingenio y su frase", "y ahora la Muerte le hace ==compañía==."]],
       ["p", "**Recurso:** exageración: «llenó de libros cada rincón»."],
-      ["p", "La tuya es sobre tu propio personaje histórico, con tu dato propio."],
+      ["p", "La tuya es sobre tu propio personaje, con tu dato propio. **La estrofa 2 la escribimos en la siguiente sesión.**"]
+    ]},
+    { f: "2026-10-26", fecha: "Lunes 26 de octubre de 2026", b: [
+      ["tit", "3. Mis versos · Estrofa 2"],
+      ["p", "La estrofa 2 trae a la Calaca, algo que le sale mal y el **giro final**: el personaje se libra con su poder, su ingenio o su frase. Riman el verso 6 con el 8."],
+      ["verso", "Ejemplo del maestro · Estrofa 2", ["La Muerte llegó a su celda callada,", "pero se perdió entre tanta ==poesía==;", "Sor Juana la convenció con su ingenio y su frase", "y ahora la Muerte le hace ==compañía==."]],
+      ["p", "Después leímos el borrador completo a una pareja."],
       ["lista", "4. Revisión ✓", ["8 versos o más", "se reconoce a mi personaje", "rimas consonantes o asonantes", "giro final", "humor con cariño y respeto", "usé un recurso"], "plana"],
       ["p", "**Le gustó:** ________ · **Sugerencia:** ________ · **Lo que cambié:** ________"]
     ]}
   ]
 };
+
+
+/* ============================================================
+   AJUSTES POR GRUPO, HERRAMIENTA DIGITAL Y HOJA DE LA MESA
+   ------------------------------------------------------------
+   AJUSTES: cuando un grupo avanzó distinto de lo planeado, aquí se cambia solo ese grupo
+   en esa fecha, sin tocar a los demás. Se escribe window.PROYECTO.ajustes["6A"]["10-22"] = {...}
+   y se usan solo los campos que cambian:
+     titulo        nombre de la sesión en la lista de días
+     hicimos       «Lo que trabajamos»
+     avance        recuadro «Dónde vamos» (por ejemplo, si la calaverita aún no está terminada)
+     aprendimos, faltaste, casa   «Lo que aprendimos»
+     herramientas  lista de herramientas de ese día para ese grupo
+   Lo que no se escribe se toma de la sesión general (window.PROYECTO.sesiones).
+
+   HERRAMIENTA DIGITAL: window.PROYECTO.digital["6A"]. Cuando la herramienta esté publicada,
+   pegue su dirección entre las comillas de url: "https://…". Mientras url esté vacío,
+   la página la describe y dice que se usa en la biblioteca.
+
+   HOJA DE LA MESA: la hoja de recursos literarios y banco de rimas que está en el porta
+   servilletas de cada mesa (imágenes en img/recortables/mesa-*.webp y PDF en pdf/mesa-recursos-*.pdf).
+   ============================================================ */
+window.PROYECTO.ajustes = {
+  "6A": {
+    "10-19": {
+      hicimos: "Recibimos la hoja de recortables de 6.° A, recortamos las tarjetas por la línea punteada y las pegamos en el cuaderno en el orden de la guía «Así organizo mi cuaderno». Así quedó lista la guía de trabajo de las siguientes sesiones: las seis preguntas rosas para conocer al personaje, las tarjetas para planear la historia, los arranques de verso, los recursos literarios, las parejas que riman y la revisión.",
+      aprendimos: "Dividir la escritura en partes ayuda: con la guía pegada sabemos qué va primero (conocer bien al personaje), qué sigue (planear lo que pasa) y qué va al final (escribir y revisar los versos). Así nadie empieza frente a una hoja en blanco.",
+      casa: "Si quieren, pregunten qué personaje eligió (histórico, de serie animada o de cómic) y por qué."
+    },
+    "10-22": {
+      titulo: "Ficha de mi personaje y mis primeros versos",
+      hicimos: "Respondimos en el cuaderno las seis preguntas de las tarjetas rosas para conocer a nuestro personaje: quién es, de qué historia, serie o cómic viene, por qué es famoso, qué objeto, poder o frase lo identifica, qué hace siempre y quién es su rival o su compañero. Después, con la herramienta digital «Panteón de versos de sexto grado grupo A» y el acompañamiento del maestro, empezamos a convertir esa información en versos.",
+      avance: "La calaverita **todavía no está terminada**. Cada quien tiene la ficha respondida y la primera estrofa en borrador: **llegamos hasta el verso 4**. Falta la estrofa 2, donde llega la Calaca y viene el giro final.",
+      aprendimos: "Antes de escribir versos conviene saber bien de quién vamos a escribir: las respuestas de la ficha son la materia prima de la calaverita. Un dato del personaje que pocos conocen es lo que la hace propia, aunque todos usemos la misma estructura de apoyo.",
+      faltaste: "Respondes las seis preguntas de la ficha y escribes tu primera estrofa al inicio de la siguiente sesión de biblioteca, con ayuda del maestro. La calaverita se escribe en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+      casa: "Si quieren, pidan que les cuente lo que sabe de su personaje y que les lea sus primeros cuatro versos.",
+      herramientas: ["digital", "mesa", "recortables", "rimas"]
+    },
+    "10-26": {
+      titulo: "Termino mi calaverita y la leo a mi pareja",
+      hicimos: "Retomamos la primera estrofa y escribimos la segunda: llega la Calaca, algo le sale mal y el personaje se libra con su poder, su ingenio o su frase. Después leímos el borrador completo a una pareja para mejorarlo.",
+      aprendimos: "El giro final es lo que vuelve memorable una calaverita, y la sorpresa sale de lo que ya sabemos del personaje.",
+      faltaste: "Terminas tu segunda estrofa y la lees a tu pareja al inicio de la última clase, con ayuda del maestro.",
+      herramientas: ["digital", "mesa", "recursos", "juegos"]
+    }
+  }
+};
+
+window.PROYECTO.digital = {
+  "6A": {
+    titulo: "Panteón de versos de sexto grado grupo A",
+    que: "Herramienta interactiva que usamos en la biblioteca para pasar de la ficha del personaje a los versos. Acompaña el proceso por partes, sin sustituir lo que escribe cada estudiante.",
+    secciones: [
+      ["Agenda", "las sesiones del proyecto y lo que toca en cada una"],
+      ["Sesión", "el trabajo del día, paso a paso"],
+      ["Armador de versos", "ayuda a organizar las estrofas y a explorar las rimas"],
+      ["Guía de apoyo", "recordatorios para revisar cómo quedaron los versos"]
+    ],
+    url: "",
+    sinEnlace: "Por ahora se usa en la biblioteca, proyectada en el pizarrón. Cuando se publique, aquí aparecerá el botón para abrirla."
+  }
+};
+
+window.PROYECTO.recortables["1A"].mesa = {
+  pdf: "pdf/mesa-recursos-1A.pdf",
+  guia: "Por un lado, los recursos literarios de 1.° (rima, onomatopeya, calambur, personificación y giro final) con un ejemplo de cada uno; por el otro, el banco de rimas: cada personaje con sus palabras que riman, con dibujos.",
+  hojas: [
+    ["img/recortables/mesa-1A-1.webp", "Hoja de la mesa de 1.° A, cara 1: recursos literarios con su explicación y un ejemplo de calaverita, y la receta de cinco piezas.", "Cara 1 · Recursos literarios"],
+    ["img/recortables/mesa-1A-2.webp", "Hoja de la mesa de 1.° A, cara 2: banco de rimas del grado.", "Cara 2 · Banco de rimas"]
+  ]
+};
+window.PROYECTO.recortables["2A"].mesa = {
+  pdf: "pdf/mesa-recursos-2A.pdf",
+  guia: "Por un lado, los recursos literarios de 2.° con un ejemplo de cada uno; por el otro, el banco de rimas: palabras que terminan en -ó para el verso 4, los nombres de la Muerte y más familias de rimas con dibujos.",
+  hojas: [
+    ["img/recortables/mesa-2A-1.webp", "Hoja de la mesa de 2.° A, cara 1: recursos literarios con su explicación y un ejemplo de calaverita, y la receta de cinco piezas.", "Cara 1 · Recursos literarios"],
+    ["img/recortables/mesa-2A-2.webp", "Hoja de la mesa de 2.° A, cara 2: banco de rimas del grado.", "Cara 2 · Banco de rimas"]
+  ]
+};
+window.PROYECTO.recortables["3A"].mesa = {
+  pdf: "pdf/mesa-recursos-3A.pdf",
+  guia: "Por un lado, los recursos literarios de 3.° con un ejemplo de cada uno; por el otro, el banco de rimas: palabras en -ar para los versos 2, 4 y 6, los nombres de la Muerte con sus rimas y familias de palabras.",
+  hojas: [
+    ["img/recortables/mesa-3A-1.webp", "Hoja de la mesa de 3.° A, cara 1: recursos literarios con su explicación y un ejemplo de calaverita, y la receta de cinco piezas.", "Cara 1 · Recursos literarios"],
+    ["img/recortables/mesa-3A-2.webp", "Hoja de la mesa de 3.° A, cara 2: banco de rimas del grado.", "Cara 2 · Banco de rimas"]
+  ]
+};
+window.PROYECTO.recortables["4A"].mesa = {
+  pdf: "pdf/mesa-recursos-4A.pdf",
+  guia: "Por un lado, los recursos literarios de 4.°, incluido el epitafio, con un ejemplo de cada uno; por el otro, el banco de rimas: nombres de la Muerte con sus rimas, familias de palabras y la rima asonante.",
+  hojas: [
+    ["img/recortables/mesa-4A-1.webp", "Hoja de la mesa de 4.° A, cara 1: recursos literarios con su explicación y un ejemplo de calaverita, y la receta de cinco piezas.", "Cara 1 · Recursos literarios"],
+    ["img/recortables/mesa-4A-2.webp", "Hoja de la mesa de 4.° A, cara 2: banco de rimas del grado.", "Cara 2 · Banco de rimas"]
+  ]
+};
+window.PROYECTO.recortables["5A"].mesa = {
+  pdf: "pdf/mesa-recursos-5A.pdf",
+  guia: "Por un lado, los recursos literarios de 5.°, incluido el juego de palabras, con un ejemplo de cada uno; por el otro, el banco de rimas: nombres de la Muerte, familias de palabras, rima asonante y parejas para personajes.",
+  hojas: [
+    ["img/recortables/mesa-5A-1.webp", "Hoja de la mesa de 5.° A, cara 1: recursos literarios con su explicación y un ejemplo de calaverita, y la receta de cinco piezas.", "Cara 1 · Recursos literarios"],
+    ["img/recortables/mesa-5A-2.webp", "Hoja de la mesa de 5.° A, cara 2: banco de rimas del grado.", "Cara 2 · Banco de rimas"]
+  ]
+};
+window.PROYECTO.recortables["6A"].mesa = {
+  pdf: "pdf/mesa-recursos-6A.pdf",
+  guia: "Por un lado, los recursos literarios de 6.°, incluido el juego de palabras, con un ejemplo de cada uno; por el otro, el banco de rimas: nombres de la Muerte, familias de palabras, rima asonante y parejas para personajes.",
+  hojas: [
+    ["img/recortables/mesa-6A-1.webp", "Hoja de la mesa de 6.° A, cara 1: recursos literarios con su explicación y un ejemplo de calaverita, y la receta de cinco piezas.", "Cara 1 · Recursos literarios"],
+    ["img/recortables/mesa-6A-2.webp", "Hoja de la mesa de 6.° A, cara 2: banco de rimas del grado.", "Cara 2 · Banco de rimas"]
+  ]
+};
+

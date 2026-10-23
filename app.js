@@ -36,8 +36,13 @@
     taller: ["receta", "🧁", "La receta de la calaverita"],
     juntos: ["receta", "🧁", "La receta de la calaverita"],
     recursos: ["recursos", "✨", "Recursos de poeta"],
-    recortables: ["recortables", "✂️", "Los recortables de la clase"]
+    recortables: ["recortables", "✂️", "Los recortables de la clase"],
+    mesa: ["mesa", "📇", "La hoja de la mesa: recursos y rimas"],
+    digital: ["digital", "💻", "La herramienta digital de la clase"]
   };
+  // Ajustes de un grupo en una fecha (D.ajustes[grupo][MM-DD]): cambian título, textos,
+  // herramientas o agregan «Dónde vamos» solo para ese grupo, sin tocar a los demás.
+  const ajusteDe = (g, md) => (D.ajustes && D.ajustes[g.id] && D.ajustes[g.id][md]) || null;
 
   /* ---------- Memoria del navegador (opcional: si falla, la página sigue igual) ---------- */
   const leer = (k, def) => { try { const v = localStorage.getItem("calaveritas-familias:" + k); return v === null ? def : JSON.parse(v); } catch (e) { return def; } };
@@ -89,6 +94,7 @@
     let nC = 0, nL = 0;
     const lista = g.ruta.map(([md, clave]) => {
       const s = D.sesiones[clave];
+      const aj = ajusteDe(g, md);
       const [m, d] = md.split("-").map(Number);
       // La actividad no depende del horario: si ese día al grupo le toca la clase de 50 minutos,
       // es «Clase»; si le toca la lectura de 20 minutos, es «Lectura». Solo si la fecha no cae
@@ -100,8 +106,8 @@
       const dur = esClase ? 50 : 20;
       const inicio = new Date(2026, m - 1, d, Math.floor(ini / 60), ini % 60);
       return {
-        md, s, inicio, fin: new Date(inicio.getTime() + dur * 60000),
-        nombre: (esClase ? "Clase " : "Lectura ") + num, titulo: s.titulo,
+        md, s, aj, inicio, fin: new Date(inicio.getTime() + dur * 60000),
+        nombre: (esClase ? "Clase " : "Lectura ") + num, titulo: (aj && aj.titulo) || s.titulo,
         cuando: `${hora(ini)}–${hora(ini + dur)} · ${esClase ? "clase de 50 minutos" : "lectura de 20 minutos"}`
       };
     });
@@ -211,10 +217,15 @@
   }
 
   /* ----- Pestaña 1: lo que trabajamos ----- */
-  function herramientasDe(e) {
+  function disponible(h, g) {
+    if (h === "mesa") return !!(D.recortables && D.recortables[g.id] && D.recortables[g.id].mesa);
+    if (h === "digital") return !!(D.digital && D.digital[g.id]);
+    return true;
+  }
+  function herramientasDe(e, g) {
     if (e.extra) return [];
     const vistas = [];
-    e.s.herramientas.forEach((h) => {
+    ((e.aj && e.aj.herramientas) || e.s.herramientas).filter((h) => disponible(h, g)).forEach((h) => {
       const t = HERRAMIENTAS[h];
       if (t && !vistas.some((v) => v[0] === t[0])) vistas.push(t);
     });
@@ -225,16 +236,18 @@
       return `<p class="lead">${esc(e.extra.trabajamos || "Trabajamos en la biblioteca.")}</p>
         <p class="leyenda">Lo que quedó escrito está en la pestaña «Lo que anotamos en el cuaderno».</p>`;
     }
-    const hs = herramientasDe(e);
+    const hs = herramientasDe(e, g);
     if (!hs.some((h) => h[0] === est.herramienta)) est.herramienta = hs.length ? hs[0][0] : null;
     const libros = g.libros.map((id) => `<em>${esc(D.libros[id])}</em>`).join(", ");
-    return `<p class="lead">${esc(rellenar(e.s.apuntes.hicimos, g))}</p>
+    const hicimos = (e.aj && e.aj.hicimos) || e.s.apuntes.hicimos;
+    return `<p class="lead">${esc(rellenar(hicimos, g))}</p>
+      ${e.aj && e.aj.avance ? `<div class="caja avance"><h4>Dónde vamos</h4><p>${marcas(e.aj.avance)}</p></div>` : ""}
       <p class="leyenda">Libros de la biblioteca que acompañan el proyecto: ${libros}.</p>
       ${hs.length ? `<h4 class="sub">Explore en casa lo que usamos en clase</h4>
       <div class="herramientas" role="group" aria-label="Herramientas y juegos de la clase">
         ${hs.map(([id, ic, t]) => `<button type="button" class="herr" data-herramienta="${id}" aria-pressed="${est.herramienta === id}"><span aria-hidden="true">${ic}</span> ${t}</button>`).join("")}
       </div>
-      <div class="herr-panel">${{ modelo: verModelo, rimas: verRimas, juegos: verJuegos, acuerdos: verAcuerdos, receta: verReceta, recursos: verRecursos, recortables: verRecortables }[est.herramienta](g)}</div>` : ""}`;
+      <div class="herr-panel">${{ modelo: verModelo, rimas: verRimas, juegos: verJuegos, acuerdos: verAcuerdos, receta: verReceta, recursos: verRecursos, recortables: verRecortables, mesa: verMesa, digital: verDigital }[est.herramienta](g)}</div>` : ""}`;
   }
 
   function modeloHTML(m, modo) {
@@ -415,6 +428,27 @@
       <p class="leyenda">No hace falta imprimir ni recortar en casa: cada estudiante recibe su hoja en la biblioteca y quien faltó la recibe en la siguiente sesión.</p>`;
   }
 
+  function figura([src, alt, pie], i) {
+    return `<figure class="recorte">
+        <a href="${esc(src)}" target="_blank" rel="noopener" aria-label="Abrir en grande: ${esc(pie || `hoja ${i + 1}`)}"><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"></a>
+        <figcaption>${esc(pie || `Hoja ${i + 1}`)} · toque la imagen para verla en grande</figcaption></figure>`;
+  }
+  function verMesa(g) {
+    const m = D.recortables[g.id].mesa;
+    return `<p class="guia">${esc(m.guia)}</p>
+      <div class="fila"><a class="boton principal" href="${esc(m.pdf)}" target="_blank" rel="noopener">📄 Ver o descargar la hoja de la mesa de ${esc(g.nombre)}</a></div>
+      <div class="recortes">${m.hojas.map(figura).join("")}</div>
+      <p class="leyenda">En la biblioteca está impresa en un porta servilletas que gira sobre la mesa. No hace falta imprimirla en casa.</p>`;
+  }
+  function verDigital(g) {
+    const d = D.digital[g.id];
+    return `<h4 class="sub">${esc(d.titulo)}</h4>
+      <p class="guia">${esc(d.que)}</p>
+      ${d.secciones && d.secciones.length ? `<ul class="receta">${d.secciones.map(([t, x]) => `<li><strong>${esc(t)}:</strong> ${esc(x)}</li>`).join("")}</ul>` : ""}
+      ${d.url ? `<div class="fila"><a class="boton principal" href="${esc(d.url)}" target="_blank" rel="noopener">💻 Abrir la herramienta</a></div>`
+        : `<p class="leyenda">${esc(d.sinEnlace || "Se usa en la biblioteca, proyectada en el pizarrón.")}</p>`}`;
+  }
+
   /* ----- Pestaña 2: lo que anotamos en el cuaderno ----- */
   function bloque([t, a, b, c, d]) {
     if (t === "tit") return `<h4 class="cd-tit">${marcas(a)}</h4>`;
@@ -454,7 +488,7 @@
   /* ----- Pestaña 3: lo que aprendimos ----- */
   function panelAprendimos(g, e) {
     if (e.extra) return `<p class="lead">${esc(e.extra.aprendimos || "")}</p>`;
-    const a = e.s.apuntes;
+    const a = Object.assign({}, e.s.apuntes, e.aj || {});
     const requisitos = D.requisitos.map(([t, d]) => `<li><strong>${esc(t)}:</strong> ${d === "@extension" ? esc(`${g.nombre}: ${D.extension[g.grado].texto}`) : esc(d)}</li>`).join("");
     return `<p class="lead">${esc(rellenar(a.aprendimos, g))}</p>
       <div class="caja faltaste"><h4>Si faltó a esta clase</h4><p>${esc(rellenar(a.faltaste, g))}</p></div>
