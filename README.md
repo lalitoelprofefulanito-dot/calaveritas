@@ -70,6 +70,24 @@ Después siguen «Leo a mi pareja» y «Reviso, paso en limpio y leo» en las do
 
 **Para actualizar el contenido solo se edita `datos.js`.** Al inicio de la sección `window.CUADERNO` hay instrucciones para agregar una página nueva del cuaderno: se copia un bloque, se cambia la fecha (`AAAA-MM-DD`) y el contenido. La página aparece sola en «El cuaderno completo» del grupo. Si la fecha coincide con una sesión del proyecto, aparece también en la pestaña «Lo que anotamos» de ese día; si no coincide (por ejemplo, un reporte de lectura), se crea un día nuevo en la lista, y entonces hay que escribir también `titulo`, `trabajamos` y `aprendimos`.
 
+## Cierre de la semana (lunes 26 a jueves 29 de octubre)
+
+**Todas las calaveritas se terminan a más tardar el miércoles 28**, solo con las sesiones de biblioteca (lecturas y clases), porque el **jueves 29** es la ceremonia cívica: al final, una alumna o un alumno elegido previamente al azar lee su calaverita. El **viernes 30** es Consejo Técnico Escolar y no tiene sesiones.
+
+| Grupo | Hasta el miércoles 28 | Jueves 29 |
+|---|---|---|
+| 1.° A | Lectura lun 26 (leo a mi pareja) · clase mié 28 (reviso y paso en limpio) | Ceremonia |
+| 2.° A | Clase mar 27: arma los 4 versos | Ceremonia |
+| 3.° A | Lectura mar 27: versos 5 y 6 | Ceremonia · clase: paso en limpio y decoro para el muro |
+| 4.° A y 5.° A | Clase mié 28: arman los 8 versos | Ceremonia |
+| 6.° A | Lectura lun 26: cuarteta 2 (versos 5 a 8) | Ceremonia · clase: paso en limpio y decoro para el muro |
+
+**📌 Para terminar la calaverita.** En cuanto la familia elige su grupo (por ejemplo, al llegar por el código QR), aparece arriba una tarjeta con la fecha límite, la ceremonia, por qué se pide el apoyo de la familia (cada calaverita se revisa en lo individual: rima y requisitos mínimos del grado), lo que debe tener la calaverita de ese grado, los pasos para terminarla en casa y los botones al ejemplo y al Armador. Se oculta sola después del jueves 29. Sus textos están al final de `datos.js`, en `window.PROYECTO.cierre`; ahí se cambia, por ejemplo, cuándo se entrega el cuaderno (`entrega`).
+
+**La herramienta del docente también cambió:** la segunda parte de 6.° A pasó a la lectura del lunes 26 (pasos 5–8), la de 3.° A a la lectura del martes 27 (pasos 5–6), 4.° y 5.° A arman los 8 versos en la clase del miércoles 28 y se quitaron las lecturas del viernes 30. La hoja impresa de 4.° y 5.° que dice «Lectura · vie 30» se usa en esa misma clase.
+
+**Textos que ya no dicen «no es tarea».** Los avisos «Si faltó», los requisitos («Tu voz» y «Fecha límite») y la presentación del sitio explican que quien faltó o no terminó concluye en casa con apoyo de la familia.
+
 ## Actualización del 26 de octubre: formato de la herramienta y calaveritas armadas
 
 **Mismo formato y estilo que la herramienta.** El sitio usa ahora el diseño de «Panteón de versos · Sesiones de octubre»: encabezado morado fijo con botones tipo píldora (Grupo, Sesiones, Cuaderno, Guía) y papel picado naranja, tarjetas blancas con sombra, botones naranjas y **un color por grado** (el mismo de la herramienta para 2.° a 6.°; verde olivo para 1.°). Los días se ven como las tarjetas de la Agenda, con su línea de pasos. La hoja de raya del cuaderno se conserva. Todo el tema está al final de `estilos.css`, en el bloque «TEMA PANTEÓN DE VERSOS».

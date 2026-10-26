@@ -394,3 +394,13 @@ details.repaso { border: 1px solid var(--line); border-radius: 12px; background:
   header.top { display: none !important; }
   .strip, .seg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ---------- Tarjeta «Para terminar la calaverita» (cierre de la semana) ---------- */
+.cierre { margin: 1.5rem 0 0; border: 2px solid var(--gc); border-top-width: 8px; }
+.cierre .paso { margin-top: 0; }
+.cierre .paso .num { background: var(--gc); }
+.cierre-fecha { font-size: 1.15rem; background: var(--warn-bg); border-radius: 10px; padding: .7rem 1rem; margin: 0 0 .8rem; }
+.cierre h3 { font-family: var(--display); font-size: 1.1rem; margin: 1rem 0 .4rem; }
+.cierre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; }
+.cierre .fila { margin-top: .8rem; }
+@media (max-width: 760px) { .cierre-grid { grid-template-columns: 1fr; } }

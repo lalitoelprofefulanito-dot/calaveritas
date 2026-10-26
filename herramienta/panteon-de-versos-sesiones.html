@@ -307,7 +307,7 @@ const G = {
   },
   3: {
     name: '3.° A', N: 6, pairs: [[1, 2], [3, 4], [5, 6]], hint: 'symend', pista: true, stars: [2, 4, 6], cut: 5, quart: false, abcd: false,
-    firma: 'Mis iniciales y 3.° A', lab: ['✂ Clase 1 · jue 22', '✂ Clase 2 · jue 29'],
+    firma: 'Mis iniciales y 3.° A', lab: ['✂ Clase 1 · jue 22', '✂ Lectura · mar 27'],
     titles: L('Una visita de miedo;La Calaca en mi casa;¡Toc, toc! Es la Calaca;Calaverita para mi familia;La Calaca despistada;+La Copetona en el barrio;+La Dientona y la cazuela'),
     steps: [
       S('¿Quién llega?', '¿Por quién?', 'quien', 'porquien',
@@ -339,8 +339,8 @@ const G = {
     rule: 'Busca el <b>mismo símbolo y la misma terminación</b> (★ -ón) en cada pareja.'
   },
   4: {
-    name: '4.° A', N: 8, pairs: [[1, 2], [3, 4], [5, 6], [7, 8]], hint: 'end', pista: true, stars: [2, 4, 6, 8], cut: 7, quart: false, abcd: false,
-    firma: 'Mi seudónimo y 4.° A', lab: ['✂ Clase · mié 28', '✂ Lectura · vie 30'],
+    name: '4.° A', N: 8, pairs: [[1, 2], [3, 4], [5, 6], [7, 8]], hint: 'end', pista: true, stars: [2, 4, 6, 8], cut: null, quart: false, abcd: false,
+    firma: 'Mi seudónimo y 4.° A', lab: ['✂ Clase · mié 28'],
     titles: L('La calaverita de mi familia;El día que llegó la Muerte;Una visita muy despistada;La Muerte y mi casa;+La Chimuela en la cocina;+La Descarnada despistada'),
     steps: [
       S('Aquí yace…', '¿Por quién?', 'titulo', 'porquien',
@@ -378,8 +378,8 @@ const G = {
     rule: 'Busca la <b>misma terminación</b> (-ío, -ona…). Las tarjetas ≈ «suenan parecido»: también se valen.'
   },
   5: {
-    name: '5.° A', N: 8, pairs: [[1, 2], [3, 4], [5, 6], [7, 8]], hint: 'none', pista: false, stars: [4, 8], cut: 7, quart: true, abcd: false,
-    firma: 'Mi seudónimo y 5.° A', lab: ['✂ Clase · mié 28', '✂ Lectura · vie 30'],
+    name: '5.° A', N: 8, pairs: [[1, 2], [3, 4], [5, 6], [7, 8]], hint: 'none', pista: false, stars: [4, 8], cut: null, quart: true, abcd: false,
+    firma: 'Mi seudónimo y 5.° A', lab: ['✂ Clase · mié 28'],
     sets: {
       orig: { titles: L('La visita inesperada;—¡Ya te toca!—;La Muerte se quedó a cenar;Calaverita con diálogo;—¡Toc, toc, soy yo!—;La Pelona en la panadería;+La Chimuela pide posada;+—¡Ha llegado el día!—'), steps: [
       S('Aquí yace…', '¿Por quién?', 'titulo', 'porquien',
@@ -449,7 +449,7 @@ const G = {
   },
   6: {
     name: '6.° A', N: 8, pairs: [[1, 3], [2, 4], [5, 7], [6, 8]], hint: 'syl', pista: false, stars: [4, 8], cut: 5, quart: true, abcd: true,
-    firma: 'Mi seudónimo y 6.° A', lab: ['✂ Clase 1 · jue 22', '✂ Clase 2 · jue 29'],
+    firma: 'Mi seudónimo y 6.° A', lab: ['✂ Clase 1 · jue 22', '✂ Lectura · lun 26'],
     titles: L('Epitafio con pan de muerto;La Muerte en la biblioteca;Rima cruzada para mi familia;La visita más famosa;+La Tilica en el jardín;+La Copetona del callejón'),
     steps: [
       S('Aquí yace…', '¿Por quién?', 'titulo', 'porquien',
@@ -531,20 +531,16 @@ const SESS = [
     print: ['Sin recortables. Opcional: proyectar la hoja 1 para mostrar dónde irá la tarjeta blanca ✎'] },
   { id: 'g5p', g: 5, date: '2026-10-23', kind: 'prep', label: 'Lectura · Pienso mi Algo propio', min: 20, from: 0, to: 0, next: 'mié 28',
     print: ['Sin recortables. Opcional: proyectar la hoja 1 para mostrar dónde irá la tarjeta blanca ✎'] },
+  { id: 'g6c2', g: 6, date: '2026-10-26', kind: 'lectura', label: 'Lectura', min: 20, from: 5, to: 8,
+    print: ['Hoja 4 · Recortables de la Clase 2: 1 por alumno', 'Tiras de reto que hayan sobrado de la Clase 1 (hoja 5)', 'Hoja de margen A, B, C, D (quien la usó en la Clase 1)'] },
   { id: 'g2c', g: 2, date: '2026-10-27', kind: 'unica', label: 'Clase', min: 50, from: 1, to: 4,
     print: ['Elige la versión impresa: «con tarjetas extra» (lenguaje original) o «palabras de los niños»; el botón de la sesión y del armador muestra la misma', 'Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Hojas 2 y 3 · Recortables: 1 juego por alumno', 'Hoja 4 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras'] },
-  { id: 'g4c', g: 4, date: '2026-10-28', kind: 'unica', label: 'Clase', min: 50, from: 1, to: 6,
-    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Hojas 2, 3 y 4 · Recortables de la clase: 1 juego por alumno', 'Hoja 6 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras'] },
-  { id: 'g5c', g: 5, date: '2026-10-28', kind: 'unica5', label: 'Clase', min: 50, from: 1, to: 6,
-    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Elige la versión impresa: «con tarjetas extra» (lenguaje original) o «palabras de los niños»; el botón de la sesión y del armador muestra la misma', 'Hojas 2, 3 y 4 · Recortables de la clase: 1 juego por alumno', 'Hoja 6 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras', 'Colores o marcatextos por equipo (para clasificar rimas sin recortar)'] },
-  { id: 'g3c2', g: 3, date: '2026-10-29', kind: 'clase2', label: 'Clase 2', min: 50, from: 5, to: 6,
+  { id: 'g3c2', g: 3, date: '2026-10-27', kind: 'lectura', label: 'Lectura', min: 20, from: 5, to: 6,
     print: ['Hoja 4 · Recortables de la Clase 2: 1 por alumno', 'Tiras de reto que hayan sobrado de la Clase 1 (hoja 5)'] },
-  { id: 'g6c2', g: 6, date: '2026-10-29', kind: 'clase2', label: 'Clase 2', min: 50, from: 5, to: 8,
-    print: ['Hoja 4 · Recortables de la Clase 2: 1 por alumno', 'Tiras de reto que hayan sobrado de la Clase 1 (hoja 5)', 'Hoja de margen A, B, C, D (quien la usó en la Clase 1)'] },
-  { id: 'g4l', g: 4, date: '2026-10-30', kind: 'lectura', label: 'Lectura', min: 20, from: 7, to: 8,
-    print: ['Hoja 5 · Recortables de la lectura: 1 por alumno', 'Tiras de reto que hayan sobrado (hoja 6)'] },
-  { id: 'g5l', g: 5, date: '2026-10-30', kind: 'lectura', label: 'Lectura', min: 20, from: 7, to: 8,
-    print: ['Usa la misma versión impresa que en la clase del mié 28', 'Hoja 5 · Recortables de la lectura: 1 por alumno', 'Tiras de reto que hayan sobrado (hoja 6)'] }
+  { id: 'g4c', g: 4, date: '2026-10-28', kind: 'unica', label: 'Clase', min: 50, from: 1, to: 8,
+    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Hojas 2, 3 y 4 · Recortables de la clase: 1 juego por alumno', 'Hoja 5 · Recortables de los versos 7 y 8: se usan en esta misma clase (el viernes 30 es Consejo Técnico)', 'Hoja 6 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras'] },
+  { id: 'g5c', g: 5, date: '2026-10-28', kind: 'unica5', label: 'Clase', min: 50, from: 1, to: 8,
+    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Elige la versión impresa: «con tarjetas extra» (lenguaje original) o «palabras de los niños»; el botón de la sesión y del armador muestra la misma', 'Hojas 2, 3 y 4 · Recortables de la clase: 1 juego por alumno', 'Hoja 5 · Recortables de los versos 7 y 8: se usan en esta misma clase (el viernes 30 es Consejo Técnico)', 'Hoja 6 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras', 'Colores o marcatextos por equipo (para clasificar rimas sin recortar)'] }
 ];
 
 /* =====================================================================
@@ -668,7 +664,7 @@ function moments(s) {
     case 'unica': return [M.escuchar(5), M.recordar(5, 'vie 23'), M.armar(20), M.revisar(10, g === 4), M.compartir(10, g === 2)];
     case 'unica5': return [M.clasificar(10), M.escuchar(5), M.armar(20), M.revisar(10, true), M.compartir(5)];
     case 'clase2': return [M.releer(5, g === 6 ? ['Señalan al margen las letras A y B de la cuarteta 1: hoy toca C y D (5 con 7, 6 con 8).'] : ['Cuentan a su pareja qué le pasó a la Muerte hasta ahora.']), M.escuchar(5, true), M.armar(20), M.revisar(10), M.compartir(10, true)];
-    case 'lectura': return [M.releer(4, g === 5 ? ['Ensayan a dos voces el diálogo: uno es la Muerte y otro el personaje.'] : ['Leen en voz alta el verso 6: ¿qué le pasó a la Muerte?']), M.armar(10), M.revisar(4), M.compartir(2, true)];
+    case 'lectura': return [M.releer(4, g === 5 ? ['Ensayan a dos voces el diálogo: uno es la Muerte y otro el personaje.'] : s.from >= 7 ? ['Leen en voz alta el verso 6: ¿qué le pasó a la Muerte?'] : ['Releen en voz alta lo que llevan armado: ¿cómo va la calaverita hasta aquí?']), M.armar(10), M.revisar(4), M.compartir(2, true)];
     case 'prep': return [M.escuchar(5), M.destinatario(5), M.pensar(7), M.guardar(3)];
   }
   return [];
@@ -1087,10 +1083,10 @@ function renderGuia() {
     <p class="muted" style="font-size:.85rem">Los colores de pantalla son aproximados a los de las hojas impresas.</p></div>
   <div class="card-box" style="grid-column:1/-1"><h2>Progresión de 2.° a 6.°</h2><div class="tablewrap"><table><thead><tr><th>Grado</th><th>Versos y rima</th><th>Pista de rima en la tarjeta</th><th>Reto principal</th><th>Sesiones</th></tr></thead><tbody>
     <tr><td>2.°</td><td>4 versos · AABB</td><td>Símbolo ★ ☾ ♥ + «rima con»</td><td>Dos pareados seguidos</td><td>vie 23 (Algo propio) · mar 27</td></tr>
-    <tr><td>3.°</td><td>6 versos · AABBCC</td><td>Símbolo + terminación (★ -ón)</td><td>Historia con inicio, problema y final</td><td>jue 22 · jue 29</td></tr>
-    <tr><td>4.°</td><td>8 versos · AABBCCDD</td><td>Solo terminación · ≈ asonante</td><td>Rimar sin símbolos; cosas y acciones</td><td>vie 23 · mié 28 · vie 30</td></tr>
-    <tr><td>5.°</td><td>8 versos · 2 cuartetas AABB</td><td>Ninguna: se clasifica antes</td><td>Diálogo y rima reconocida de oído</td><td>vie 23 · mié 28 · vie 30</td></tr>
-    <tr><td>6.°</td><td>8 versos · 2 cuartetas ABAB</td><td>Ninguna · sílabas en la tarjeta</td><td>Rima cruzada y ritmo</td><td>jue 22 · jue 29</td></tr>
+    <tr><td>3.°</td><td>6 versos · AABBCC</td><td>Símbolo + terminación (★ -ón)</td><td>Historia con inicio, problema y final</td><td>jue 22 · mar 27</td></tr>
+    <tr><td>4.°</td><td>8 versos · AABBCCDD</td><td>Solo terminación · ≈ asonante</td><td>Rimar sin símbolos; cosas y acciones</td><td>vie 23 · mié 28</td></tr>
+    <tr><td>5.°</td><td>8 versos · 2 cuartetas AABB</td><td>Ninguna: se clasifica antes</td><td>Diálogo y rima reconocida de oído</td><td>vie 23 · mié 28</td></tr>
+    <tr><td>6.°</td><td>8 versos · 2 cuartetas ABAB</td><td>Ninguna · sílabas en la tarjeta</td><td>Rima cruzada y ritmo</td><td>jue 22 · lun 26</td></tr>
   </tbody></table></div></div>
   <div class="card-box"><h2>El armador y sus pistas</h2>
     <p>El armador usa las mismas tarjetas de cada hoja. Comprueba la rima con un detector que compara la terminación desde la vocal tónica (rima consonante) o solo las vocales (asonante, «suena parecido»).</p>

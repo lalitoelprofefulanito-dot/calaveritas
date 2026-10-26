@@ -172,6 +172,37 @@
     return lista.length ? lista[lista.length - 1].md : null;
   }
 
+  /* ---------- Cierre de la semana: «Para terminar la calaverita» ---------- */
+  function diaConHerramienta(g, h) {
+    const ahora = new Date();
+    const lista = entradasDe(g).filter((e) => !e.extra && estadoDe(e, ahora) !== "futura" && herramientasDe(e, g).some((t) => t[0] === h));
+    return lista.length ? lista[lista.length - 1].md : null;
+  }
+  function pintarCierre() {
+    const sec = $("#cierre"), g = grupoActual(), K = D.cierre;
+    const vigente = K && new Date() <= new Date(K.mostrarHasta + "T23:59:59");
+    if (!g || !vigente) { sec.hidden = true; sec.innerHTML = ""; return; }
+    const A = armadoDe(g);
+    const requisitos = A ? [`${D.extension[g.grado].texto} (${A.esquema})`].concat(A.revisar) : [D.extension[g.grado].texto].concat(K.revisar1 || []);
+    const herr = A ? "armado" : "recortables";
+    const dia = diaConHerramienta(g, herr);
+    const pasos = A ? K.pasosArmado : K.pasos1;
+    const d = D.digital && D.digital[g.id];
+    sec.hidden = false;
+    sec.className = "cierre card-box g" + g.grado;
+    sec.innerHTML = `<h2 id="t-cierre" class="paso"><span class="num" aria-hidden="true">📌</span> Para terminar la calaverita de ${esc(g.nombre)}</h2>
+      <p class="cierre-fecha"><strong>Fecha límite: ${esc(K.limite)}.</strong> ${marcas(K.ceremonia)}</p>
+      <p>${marcas(K.porque)}</p>
+      <div class="cierre-grid">
+        <div><h3>Lo que debe tener la calaverita de ${esc(g.nombre)}</h3><ul class="receta">${requisitos.map((r) => `<li>${esc(r)}</li>`).join("")}</ul></div>
+        <div><h3>Cómo terminarla en casa</h3><ol class="receta">${pasos.map((t) => `<li>${marcas(t)}</li>`).join("")}<li>${marcas(K.entrega)}</li></ol>
+          <div class="fila">${dia ? `<button type="button" class="boton principal" data-abrir-dia="${dia}" data-abrir-herr="${herr}">${A ? "🃏 Ver cómo se arma (ejemplo y piezas)" : "✂️ Ver los recortables y la guía"}</button>` : ""}
+          ${A && d && d.url ? `<a class="boton" href="${esc(d.url)}" target="_blank" rel="noopener">Abrir el Armador de ${esc(g.nombre)} ↗</a>` : ""}</div>
+        </div>
+      </div>
+      <p class="leyenda">${marcas(K.nota)}</p>`;
+  }
+
   /* ---------- Paso 1: grupos ---------- */
   function pintarGrupos() {
     $("#grupos").innerHTML = D.grupos.map((g) =>
@@ -531,6 +562,7 @@
     const ga = grupoActual();
     document.body.dataset.grado = ga ? ga.grado : "";
     pintarGrupos();
+    pintarCierre();
     pintarDias();
     pintarDia();
     pintarCuadernoCompleto();
@@ -550,6 +582,13 @@
       est.dia = elegirDiaPorOmision(grupoActual()); est.pestana = "trabajamos"; est.herramienta = null;
       est.memo = null; est.semaforo = null;
       pintar();
+      return;
+    }
+    if (ds.abrirDia) {
+      est.dia = ds.abrirDia; est.pestana = "trabajamos"; est.herramienta = ds.abrirHerr || null;
+      pintar();
+      const d = $("#dia");
+      if (d) d.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       return;
     }
     if (ds.dia) {

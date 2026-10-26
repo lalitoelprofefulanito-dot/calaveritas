@@ -103,10 +103,6 @@ window.PROYECTO = {
      "10-27",
      "armo",
      "Pasos 1–4 de 4"
-    ],
-    [
-     "10-30",
-     "reviso"
     ]
    ]
   },
@@ -149,9 +145,14 @@ window.PROYECTO = {
      "Pasos 1–4 de 6"
     ],
     [
-     "10-29",
+     "10-27",
      "armo2",
      "Pasos 5–6 de 6"
+    ],
+    [
+     "10-29",
+     "limpio",
+     "Después de la ceremonia cívica"
     ]
    ]
   },
@@ -196,12 +197,7 @@ window.PROYECTO = {
     [
      "10-28",
      "armo",
-     "Pasos 1–6 de 8"
-    ],
-    [
-     "10-30",
-     "armofin",
-     "Pasos 7–8 de 8"
+     "Pasos 1–8 de 8"
     ]
    ]
   },
@@ -247,12 +243,7 @@ window.PROYECTO = {
     [
      "10-28",
      "armo",
-     "Pasos 1–6 de 8"
-    ],
-    [
-     "10-30",
-     "armofin",
-     "Pasos 7–8 de 8"
+     "Pasos 1–8 de 8"
     ]
    ]
   },
@@ -296,15 +287,20 @@ window.PROYECTO = {
      "Pasos 1–4 de 8"
     ],
     [
-     "10-29",
+     "10-26",
      "armo2",
      "Pasos 5–8 de 8"
+    ],
+    [
+     "10-29",
+     "limpio",
+     "Después de la ceremonia cívica"
     ]
    ]
   }
  ],
  "avisos": {
-  "10-26": "El Plan Anual reserva este día para la Evaluación de Comprensión Lectora. Si se mantiene, la lectura a la pareja pasa al inicio de la última clase."
+  "10-29": "Hoy es la ceremonia cívica. Al final, una alumna o un alumno elegido previamente al azar leerá su calaverita."
  },
  "sesiones": {
   "escuchamos": {
@@ -407,7 +403,7 @@ window.PROYECTO = {
    "apuntes": {
     "hicimos": "Con las tarjetas ya pegadas en el cuaderno, cada quien escribió su calaverita, de {ext}. Nos apoyamos en el banco de rimas y en las parejas que riman de los recortables; quien lo necesitó, dictó al maestro o trabajó con su pareja.",
     "aprendimos": "La pieza más importante es «algo propio»: un detalle que solo tú sabrías o inventarías. Eso hace única a tu calaverita.",
-    "faltaste": "Escribes tu calaverita en la siguiente sesión de biblioteca, con ayuda del maestro, sea lectura o clase. La calaverita se escribe en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+    "faltaste": "Escribes tu calaverita en la siguiente sesión de biblioteca, con ayuda del maestro. Si ya no alcanza antes del miércoles 28, se termina en casa con apoyo de la familia. No se copia de internet ni de la IA.",
     "casa": ""
    }
   },
@@ -436,7 +432,7 @@ window.PROYECTO = {
    "apuntes": {
     "hicimos": "Revisamos la calaverita con la lista de cotejo, la pasamos en limpio con título y seudónimo, la decoramos y la leímos en voz alta. Las calaveritas quedan en el muro de la escuela.",
     "aprendimos": "Firmamos con seudónimo o iniciales, grado y grupo: nunca con apellidos.",
-    "faltaste": "Acércate al maestro de biblioteca: buscamos un momento en la escuela para que termines y tu calaverita llegue al muro.",
+    "faltaste": "Si faltó, termine la calaverita en casa con su hija o hijo a más tardar el miércoles 28 y traiga el cuaderno a la escuela para revisarla.",
     "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con seudónimo."
    }
   },
@@ -450,7 +446,7 @@ window.PROYECTO = {
    "apuntes": {
     "hicimos": "Hoy no recortamos. Pensamos a quién le dedicaremos la calaverita y qué sabemos de esa persona que nadie más sabe: qué le gusta, qué hace siempre, qué nos enseñó. Ese detalle es ✎ Algo propio, la única parte de la calaverita que cada quien escribe con sus palabras; los demás versos se arman con tarjetas en la siguiente clase.",
     "aprendimos": "Una calaverita es nuestra cuando lleva un detalle que solo nosotros conocemos, contado con cariño.",
-    "faltaste": "No pasa nada: al inicio de la clase te ayudamos a pensar tu ✎ Algo propio antes de armar.",
+    "faltaste": "No pasa nada: piensen en casa a quién se la dedicará y qué sabe de esa persona que nadie más sabe. En la clase de esta semana se arma con tarjetas.",
     "casa": "Si quieren, platiquen a quién se la va a dedicar y qué detalle de esa persona podría contar con cariño."
    }
   },
@@ -466,7 +462,7 @@ window.PROYECTO = {
    "apuntes": {
     "hicimos": "Armamos la calaverita con tarjetas, verso por verso: cada verso se forma con una tarjeta de inicio y una tarjeta final, y las tarjetas finales de cada pareja de versos riman. Escribimos ✎ Algo propio con nuestras palabras y lo pegamos en su lugar. Al terminar revisamos con la lista del grado.",
     "aprendimos": "Dos versos riman cuando sus palabras finales suenan igual; por eso las tarjetas finales vienen en familias de rima y las de cada pareja de versos se eligen de la misma familia. La rima queda asegurada; lo que hace única a la calaverita es ✎ Algo propio.",
-    "faltaste": "Armas tu calaverita en la siguiente sesión de biblioteca, con las mismas tarjetas y con ayuda del maestro. Se arma en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+    "faltaste": "Como ya no queda otra sesión de biblioteca antes del miércoles 28, la calaverita se termina en casa con apoyo de la familia. Al inicio de la página del grupo, en «Para terminar la calaverita», están los requisitos del grado, el ejemplo y el Armador.",
     "casa": "Si quieren, pidan que les lea su calaverita en voz alta y que les cuente cuál es su ✎ Algo propio."
    }
   },
@@ -482,27 +478,11 @@ window.PROYECTO = {
    "apuntes": {
     "hicimos": "Empezamos a armar la calaverita con tarjetas, verso por verso: cada verso lleva una tarjeta de inicio y una final, y las finales de cada pareja de versos riman. Escribimos ✎ Algo propio con nuestras palabras. En esta clase armamos la primera parte; la segunda, en la siguiente clase.",
     "aprendimos": "Dos versos riman cuando sus palabras finales suenan igual; por eso las tarjetas finales vienen en familias de rima y las de cada pareja de versos se eligen de la misma familia. La rima queda asegurada; lo que hace única a la calaverita es ✎ Algo propio.",
-    "faltaste": "Armas tu calaverita en la siguiente sesión de biblioteca, con las mismas tarjetas y con ayuda del maestro. Se arma en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+    "faltaste": "Los versos que faltaron se arman en la siguiente lectura de biblioteca. Si después de ella todavía falta algo, se termina en casa con apoyo de la familia a más tardar el miércoles 28 (vea «Para terminar la calaverita» al inicio de la página del grupo).",
     "casa": ""
    }
   },
   "armo2": {
-   "tipo": "C",
-   "titulo": "Termino de armar mi calaverita",
-   "herramientas": [
-    "armado",
-    "digital",
-    "rimas",
-    "acuerdos"
-   ],
-   "apuntes": {
-    "hicimos": "Retomamos la calaverita donde la dejamos y armamos con tarjetas los versos que faltaban, hasta el final sorpresa. Revisamos con la lista del grado y firmamos con iniciales o seudónimo.",
-    "aprendimos": "Revisar también es escribir: comprobamos que cada pareja de versos rime, que esté ✎ Algo propio y que el humor sea con cariño.",
-    "faltaste": "Te ayudamos a terminar tu calaverita en la siguiente sesión de biblioteca.",
-    "casa": "Si quieren, pidan que les lea su calaverita completa."
-   }
-  },
-  "armofin": {
    "tipo": "L",
    "titulo": "Termino de armar mi calaverita",
    "herramientas": [
@@ -512,10 +492,24 @@ window.PROYECTO = {
     "acuerdos"
    ],
    "apuntes": {
-    "hicimos": "En la lectura de 20 minutos armamos los últimos versos, los del final sorpresa. Revisamos con la lista del grado y firmamos con seudónimo.",
-    "aprendimos": "El final sorpresa es lo que vuelve memorable una calaverita.",
-    "faltaste": "Te ayudamos a terminar tu calaverita en la siguiente sesión de biblioteca.",
+    "hicimos": "En la lectura de 20 minutos retomamos la calaverita donde la dejamos y armamos con tarjetas los versos que faltaban, hasta el final sorpresa. Revisamos con la lista del grado.",
+    "aprendimos": "Revisar también es escribir: comprobamos que cada pareja de versos rime, que esté ✎ Algo propio y que el humor sea con cariño.",
+    "faltaste": "Como ya no queda otra sesión de biblioteca antes del miércoles 28, la calaverita se termina en casa con apoyo de la familia. Al inicio de la página del grupo, en «Para terminar la calaverita», están los requisitos del grado, el ejemplo y el Armador.",
     "casa": "Si quieren, pidan que les lea su calaverita completa."
+   }
+  },
+  "limpio": {
+   "tipo": "C",
+   "titulo": "Paso en limpio y decoro mi calaverita",
+   "herramientas": [
+    "armado",
+    "acuerdos"
+   ],
+   "apuntes": {
+    "hicimos": "Después de la ceremonia cívica pasamos en limpio la calaverita ya revisada, con título, seudónimo, grado y grupo, y la decoramos para el muro de la escuela.",
+    "aprendimos": "Pasar en limpio es la última revisión: letra clara, versos completos y la rima en su lugar. Firmamos con seudónimo o iniciales, grado y grupo; nunca con apellidos.",
+    "faltaste": "Acércate al maestro de biblioteca: buscamos un momento para que pases en limpio tu calaverita y llegue al muro.",
+    "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con seudónimo."
    }
   }
  },
@@ -707,7 +701,7 @@ window.PROYECTO = {
   ],
   [
    "Tu voz",
-   "Original y escrita en clase. Lleva al menos un detalle que solo tú sabrías o inventarías. No se copia de libros, internet ni de herramientas de IA; los modelos sirven de inspiración"
+   "Original. Lleva al menos un detalle que solo tú sabrías o inventarías. No se copia de libros, internet ni de herramientas de IA; los modelos y las tarjetas sirven de apoyo"
   ],
   [
    "Extensión",
@@ -718,8 +712,8 @@ window.PROYECTO = {
    "Título, seudónimo (o iniciales) y grado y grupo. Sin apellidos ni otros datos"
   ],
   [
-   "Terminada en clase",
-   "Se entrega al final de la última clase; no hay tarea en casa"
+   "Fecha límite",
+   "Terminada a más tardar el miércoles 28 de octubre. Se arma en las sesiones de biblioteca; quien faltó o no alcanzó a terminar la concluye en casa con apoyo de su familia, para revisar su rima y los requisitos de su grado"
   ]
  ],
  "modelos": [
@@ -3209,9 +3203,9 @@ window.CUADERNO = {
       ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (6 versos · AABBCC)."],
       ["tiras", "Ejemplo del maestro: «Una visita de miedo»", 3, 1, 4],
       ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
-      ["p", "**La segunda parte (versos 5 y 6) la armamos el jueves 29.**"]
+      ["p", "**La segunda parte (versos 5 y 6) la armamos el martes 27, en la lectura.**"]
     ]},
-    { f: "2026-10-29", fecha: "Jueves 29 de octubre de 2026", b: [
+    { f: "2026-10-27", fecha: "Martes 27 de octubre de 2026", b: [
       ["tit", "Termino de armar mi calaverita · versos 5 a 6"],
       ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (6 versos · AABBCC)."],
       ["tiras", "Ejemplo del maestro: «Una visita de miedo»", 3, 5, 6],
@@ -3257,16 +3251,9 @@ window.CUADERNO = {
       ["p", "En la clase del **miércoles 28** armamos la calaverita con tarjetas."]
     ]},
     { f: "2026-10-28", fecha: "Miércoles 28 de octubre de 2026", b: [
-      ["tit", "Armo mi calaverita · versos 1 a 6"],
-      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · AABBCCDD)."],
-      ["tiras", "Ejemplo del maestro: «El día que llegó la Muerte»", 4, 1, 6],
-      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
-      ["p", "**Los versos 7 y 8 los armamos en la lectura del viernes 30.**"]
-    ]},
-    { f: "2026-10-30", fecha: "Viernes 30 de octubre de 2026", b: [
-      ["tit", "Termino de armar mi calaverita · versos 7 a 8"],
-      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · AABBCCDD)."],
-      ["tiras", "Ejemplo del maestro: «El día que llegó la Muerte»", 4, 7, 8],
+      ["tit", "Armo mi calaverita · versos 1 a 8"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · AABBCCDD). Hoy armamos la calaverita completa."],
+      ["tiras", "Ejemplo del maestro: «El día que llegó la Muerte»", 4, 1, 8],
       ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
       ["lista", "Reviso ✓", ["¿Tiene 8 versos en cuatro pareados?", "¿Cada pareja termina igual, o suena parecido (≈)?", "¿El verso 5 termina con el nombre de la Muerte?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño?", "¿Firmé con mi seudónimo?"], "plana"],
       ["p", "**Firma:** Mi seudónimo y 4.° A"]
@@ -3317,16 +3304,9 @@ window.CUADERNO = {
       ["p", "En la clase del **miércoles 28** armamos la calaverita con tarjetas."]
     ]},
     { f: "2026-10-28", fecha: "Miércoles 28 de octubre de 2026", b: [
-      ["tit", "Armo mi calaverita · versos 1 a 6"],
-      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas AABB)."],
-      ["tiras", "Ejemplo del maestro: «La Muerte se quedó a cenar»", 5, 1, 6],
-      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
-      ["p", "**Los versos 7 y 8 los armamos en la lectura del viernes 30.**"]
-    ]},
-    { f: "2026-10-30", fecha: "Viernes 30 de octubre de 2026", b: [
-      ["tit", "Termino de armar mi calaverita · versos 7 a 8"],
-      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas AABB)."],
-      ["tiras", "Ejemplo del maestro: «La Muerte se quedó a cenar»", 5, 7, 8],
+      ["tit", "Armo mi calaverita · versos 1 a 8"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas AABB). Hoy armamos la calaverita completa."],
+      ["tiras", "Ejemplo del maestro: «La Muerte se quedó a cenar»", 5, 1, 8],
       ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
       ["lista", "Reviso ✓", ["¿Tiene dos cuartetas de 4 versos?", "¿Las rayas del diálogo abren y cierran bien?", "¿Cada pareja rima igual o suena parecido?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño, sin burlarse de nadie?", "¿Firmé con mi seudónimo?"], "plana"],
       ["p", "**Firma:** Mi seudónimo y 5.° A"]
@@ -3364,9 +3344,9 @@ window.CUADERNO = {
       ["tit", "2. Mis primeros versos · Cuarteta 1"],
       ["p", "Con la herramienta digital «Panteón de versos de sexto grado grupo A» armamos con tarjetas los **pasos 1 a 4**: quién descansa aquí, qué hacía, ✎ Algo propio y una exageración. En sexto la rima es **cruzada**: el verso 1 rima con el 3 y el 2 con el 4."],
       ["tiras", "Ejemplo del maestro: «Epitafio con pan de muerto»", 6, 1, 4],
-      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio. **La cuarteta 2 la armamos el jueves 29.**"]
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio. **La cuarteta 2 la armamos el lunes 26, en la lectura.**"]
     ]},
-    { f: "2026-10-29", fecha: "Jueves 29 de octubre de 2026", b: [
+    { f: "2026-10-26", fecha: "Lunes 26 de octubre de 2026", b: [
       ["tit", "Termino de armar mi calaverita · versos 5 a 8"],
       ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas ABAB)."],
       ["tiras", "Ejemplo del maestro: «Epitafio con pan de muerto»", 6, 5, 8],
@@ -3408,9 +3388,9 @@ window.PROYECTO.ajustes = {
     "10-22": {
       titulo: "Ficha de mi personaje y mis primeros versos",
       hicimos: "Respondimos en el cuaderno las seis preguntas de las tarjetas rosas para conocer a nuestro personaje: quién es, de qué historia, serie o cómic viene, por qué es famoso, qué objeto, poder o frase lo identifica, qué hace siempre y quién es su rival o su compañero. Después, con la herramienta digital «Panteón de versos de sexto grado grupo A» y el acompañamiento del maestro, armamos con tarjetas los primeros versos.",
-      avance: "La calaverita **todavía no está terminada**. Cada quien tiene la ficha respondida y la **cuarteta 1 (versos 1 a 4)**. La cuarteta 2 (llega la Muerte, algo le pasa, una exageración y el final) la armamos el **jueves 29**.",
+      avance: "La calaverita **todavía no está terminada**. Cada quien tiene la ficha respondida y la **cuarteta 1 (versos 1 a 4)**. La cuarteta 2 (llega la Muerte, algo le pasa, una exageración y el final) la armamos el **lunes 26**, en la lectura.",
       aprendimos: "Antes de armar versos conviene saber bien de quién vamos a escribir: las respuestas de la ficha son la materia prima de ✎ Algo propio. En sexto la rima es cruzada: el verso 1 rima con el 3 y el 2 con el 4.",
-      faltaste: "Respondes la ficha y armas tu primera cuarteta al inicio de la siguiente clase, con ayuda del maestro. La calaverita se arma en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+      faltaste: "Respondes la ficha y armas tu primera cuarteta al inicio de la lectura del lunes 26, con ayuda del maestro. Si todavía falta algo, se termina en casa con apoyo de la familia a más tardar el miércoles 28. No se copia de internet ni de la IA.",
       casa: "Si quieren, pidan que les cuente lo que sabe de su personaje y que les lea sus primeros cuatro versos.",
       herramientas: ["armado", "digital", "recortables", "rimas"]
     }
@@ -3586,7 +3566,7 @@ window.PROYECTO.armado = {
   "corte": 5,
   "etiquetas": [
    "✂ Clase 1 · jue 22",
-   "✂ Clase 2 · jue 29"
+   "✂ Lectura · mar 27"
   ],
   "cuartetas": false,
   "letras": false,
@@ -3758,10 +3738,9 @@ window.PROYECTO.armado = {
     8
    ]
   ],
-  "corte": 7,
+  "corte": null,
   "etiquetas": [
-   "✂ Clase · mié 28",
-   "✂ Lectura · vie 30"
+   "✂ Clase · mié 28"
   ],
   "cuartetas": false,
   "letras": false,
@@ -3966,10 +3945,9 @@ window.PROYECTO.armado = {
     8
    ]
   ],
-  "corte": 7,
+  "corte": null,
   "etiquetas": [
-   "✂ Clase · mié 28",
-   "✂ Lectura · vie 30"
+   "✂ Clase · mié 28"
   ],
   "cuartetas": true,
   "letras": false,
@@ -4193,7 +4171,7 @@ window.PROYECTO.armado = {
   "corte": 5,
   "etiquetas": [
    "✂ Clase 1 · jue 22",
-   "✂ Clase 2 · jue 29"
+   "✂ Lectura · lun 26"
   ],
   "cuartetas": true,
   "letras": true,
@@ -4378,6 +4356,7 @@ window.PROYECTO.armado = {
  }
 };
 
+
 window.PROYECTO.recortables["1A"].mesa = {
   pdf: "pdf/mesa-recursos-1A.pdf",
   guia: "Por un lado, los recursos literarios de 1.° (rima, onomatopeya, calambur, personificación y giro final) con un ejemplo de cada uno; por el otro, el banco de rimas: cada personaje con sus palabras que riman, con dibujos.",
@@ -4425,5 +4404,32 @@ window.PROYECTO.recortables["6A"].mesa = {
     ["img/recortables/mesa-6A-1.webp", "Hoja de la mesa de 6.° A, cara 1: recursos literarios con su explicación y un ejemplo de calaverita, y la receta de cinco piezas.", "Cara 1 · Recursos literarios"],
     ["img/recortables/mesa-6A-2.webp", "Hoja de la mesa de 6.° A, cara 2: banco de rimas del grado.", "Cara 2 · Banco de rimas"]
   ]
+};
+
+/* ============================================================
+   CIERRE DE LA SEMANA · tarjeta «Para terminar la calaverita»
+   Aparece arriba en cuanto la familia elige su grupo (llegan por el QR) y se oculta sola
+   después de mostrarHasta. Puede editar cualquier texto; **negritas** con dos asteriscos.
+   ============================================================ */
+window.PROYECTO.cierre = {
+  limite: "miércoles 28 de octubre",
+  mostrarHasta: "2026-10-29",
+  ceremonia: "El **jueves 29** es la ceremonia cívica: al final, una alumna o un alumno elegido previamente al azar leerá su calaverita.",
+  porque: "Si su hija o hijo faltó o no alcanzó a terminar en la biblioteca, **por favor termínenla en casa con su apoyo**. No es porque no se haya visto el tema en clase: cada calaverita se revisa en lo individual, para comprobar que rime y que cumpla los requisitos mínimos de su grado.",
+  pasosArmado: [
+    "Revisen en el cuaderno hasta qué verso llegó.",
+    "Toquen **Ver cómo se arma**: ahí está el ejemplo del maestro y la pieza que va en cada verso.",
+    "En el **Armador** elijan las tarjetas de los versos que faltan y cópienlos en el cuaderno, en orden, uno por renglón. ✎ **Algo propio** lo escribe su hija o hijo con sus palabras.",
+    "Revisen juntos la lista: que cada pareja de versos rime y que cumpla todo lo de su grado."
+  ],
+  pasos1: [
+    "Revisen en el cuaderno qué tarjetas pegó y qué le falta.",
+    "Toquen **Ver los recortables y la guía** para ver cómo va cada tarjeta.",
+    "Completen el pareado: «La Calaca llegó por ___ / y ___» con una palabra que rime. Su hija o hijo puede dictarle.",
+    "Agreguen el título, ✎ mi detalle, un dibujo de la Calaca y sus iniciales."
+  ],
+  revisar1: ["Aparece la Calaca.", "Las dos palabras del final riman.", "Da risa sin burlarse de nadie.", "Tiene título, mi detalle e iniciales."],
+  entrega: "Traigan el cuaderno a la escuela el **jueves 29** para revisarla.",
+  nota: "No se copia de internet ni de la IA: las tarjetas, el ejemplo y el Armador son el apoyo. Si tienen dudas, acérquense al Profr. Eduardo Kantún Martínez, Promotor de Lectura."
 };
 
