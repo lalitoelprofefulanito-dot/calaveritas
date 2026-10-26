@@ -88,6 +88,14 @@ Después siguen «Leo a mi pareja» y «Reviso, paso en limpio y leo» en las do
 
 **Textos que ya no dicen «no es tarea».** Los avisos «Si faltó», los requisitos («Tu voz» y «Fecha límite») y la presentación del sitio explican que quien faltó o no terminó concluye en casa con apoyo de la familia.
 
+## Actualización del 26 de octubre (tarde): rimas de sexto, esquemas de rima y paso en limpio
+
+- **Sexto: primera cuarteta pareada, segunda alterna.** En la clase del 22 de octubre la primera cuarteta se armó con rima pareada (el verso 1 con el 2 y el 3 con el 4: AABB); la segunda cuarteta lleva rima alterna (el 5 con el 7 y el 6 con el 8: CDCD). Se cambió en el sitio (esquema, páginas del cuaderno del 22 y del 26, ajuste de 6.° A y lista de revisión) y en el Armador de la herramienta, que ahora revisa esas parejas y marca las letras A A B B C D C D. Las tarjetas no cambiaron: son las mismas de la hoja impresa.
+- **Ejemplo nuevo del maestro de sexto: «La visita más famosa».** Los tres ejemplos del Armador de sexto se rehicieron con las tarjetas existentes; la segunda cuarteta conserva la de cada ejemplo, salvo «La Copetona del callejón», que cambió los versos 6 y 8 para no repetir «cajita».
+- **Características de las rimas (todos los grados).** El apartado de los tres esquemas (pareada, alterna o cruzada y abrazada) aparece en «Lo que debe tener la calaverita» de «Lo que aprendimos» y en la tarjeta «Para terminar la calaverita». Se edita en `datos.js`, en `window.PROYECTO.esquemasRima`.
+- **Única tarea para casa (todos los grupos):** pasar en limpio la calaverita en una hoja blanca, con título, iniciales del nombre, grado y grupo. Está en la tarjeta del cierre (`window.PROYECTO.cierre.tarea`) y como requisito «Paso en limpio en casa».
+- **Firma solo con iniciales.** Requisitos, listas de revisión y firmas de 4.° a 6.° (sitio y herramienta) dicen ahora «iniciales, grado y grupo» en lugar de seudónimo.
+
 ## Actualización del 26 de octubre: formato de la herramienta y calaveritas armadas
 
 **Mismo formato y estilo que la herramienta.** El sitio usa ahora el diseño de «Panteón de versos · Sesiones de octubre»: encabezado morado fijo con botones tipo píldora (Grupo, Sesiones, Cuaderno, Guía) y papel picado naranja, tarjetas blancas con sombra, botones naranjas y **un color por grado** (el mismo de la herramienta para 2.° a 6.°; verde olivo para 1.°). Los días se ven como las tarjetas de la Agenda, con su línea de pasos. La hoja de raya del cuaderno se conserva. Todo el tema está al final de `estilos.css`, en el bloque «TEMA PANTEÓN DE VERSOS».
@@ -180,7 +188,7 @@ GitHub Pages no cuenta visitas por sí mismo. `contador.js` usa **GoatCounter**,
 
 - **Tres pestañas, tres momentos de la clase.** *Lo que trabajamos* recupera la experiencia (hacer); *Lo que anotamos* muestra el registro que produjo el propio estudiante; *Lo que aprendimos* nombra el aprendizaje y abre la metacognición en casa («¿qué aprendiste hoy?», con algo concreto que mirar juntos).
 - **Una cosa a la vez.** Un día y una pestaña abiertos; dentro, una herramienta y un juego a la vez. Así se reduce la carga cognitiva para familias que consultan desde el celular.
-- **Faltar no se castiga.** Cada sesión dice qué hacer si el estudiante faltó y que se pone al día en la escuela. La calaverita no es tarea: se escribe en clase, con apoyos.
+- **Faltar no se castiga.** Cada sesión dice qué hacer si el estudiante faltó y que se pone al día en la escuela. La calaverita se escribe en clase, con apoyos; la única tarea para casa es pasarla en limpio en una hoja blanca.
 - **Diseño Universal para el Aprendizaje (DUA).** Varias formas de acceder al mismo contenido: lectura en voz alta (🔊), emojis en 1.° y 2.°, colores para ver las rimas y las piezas de la calaverita, juegos para practicarlas, letra base grande (18 px) y texto secundario oscuro para que se lea bien.
 - **Corresponsabilidad escuela–familia.** «Para platicar en casa» propone conversaciones opcionales (cómo se celebra el Día de Muertos en la familia), sin exigir materiales ni tareas.
 - **Privacidad.** No se piden ni se guardan datos personales; las páginas del cuaderno no llevan nombres de estudiantes. El navegador solo recuerda el último grupo elegido, y el conteo de visitas es anónimo y sin cookies.

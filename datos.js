@@ -430,10 +430,10 @@ window.PROYECTO = {
     "acuerdos"
    ],
    "apuntes": {
-    "hicimos": "Revisamos la calaverita con la lista de cotejo, la pasamos en limpio con título y seudónimo, la decoramos y la leímos en voz alta. Las calaveritas quedan en el muro de la escuela.",
-    "aprendimos": "Firmamos con seudónimo o iniciales, grado y grupo: nunca con apellidos.",
+    "hicimos": "Revisamos la calaverita con la lista de cotejo, la pasamos en limpio con título e iniciales, la decoramos y la leímos en voz alta. Las calaveritas quedan en el muro de la escuela.",
+    "aprendimos": "Firmamos con las iniciales de nuestro nombre, grado y grupo: nunca con apellidos.",
     "faltaste": "Si faltó, termine la calaverita en casa con su hija o hijo a más tardar el miércoles 28 y traiga el cuaderno a la escuela para revisarla.",
-    "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con seudónimo."
+    "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con iniciales, grado y grupo."
    }
   },
   "algopropio": {
@@ -506,10 +506,10 @@ window.PROYECTO = {
     "acuerdos"
    ],
    "apuntes": {
-    "hicimos": "Después de la ceremonia cívica pasamos en limpio la calaverita ya revisada, con título, seudónimo, grado y grupo, y la decoramos para el muro de la escuela.",
-    "aprendimos": "Pasar en limpio es la última revisión: letra clara, versos completos y la rima en su lugar. Firmamos con seudónimo o iniciales, grado y grupo; nunca con apellidos.",
+    "hicimos": "Después de la ceremonia cívica pasamos en limpio la calaverita ya revisada, con título, iniciales, grado y grupo, y la decoramos para el muro de la escuela.",
+    "aprendimos": "Pasar en limpio es la última revisión: letra clara, versos completos y la rima en su lugar. Firmamos con las iniciales de nuestro nombre, grado y grupo; nunca con apellidos.",
     "faltaste": "Acércate al maestro de biblioteca: buscamos un momento para que pases en limpio tu calaverita y llegue al muro.",
-    "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con seudónimo."
+    "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con iniciales, grado y grupo."
    }
   }
  },
@@ -709,7 +709,11 @@ window.PROYECTO = {
   ],
   [
    "Firma protegida",
-   "Título, seudónimo (o iniciales) y grado y grupo. Sin apellidos ni otros datos"
+   "Título, las iniciales de tu nombre, grado y grupo. Sin apellidos ni otros datos"
+  ],
+  [
+   "Paso en limpio en casa",
+   "Es la única tarea para casa en todos los grupos: pasar en limpio la calaverita en una hoja blanca, con su título, las iniciales del nombre, el grado y el grupo"
   ],
   [
    "Fecha límite",
@@ -3255,8 +3259,8 @@ window.CUADERNO = {
       ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · AABBCCDD). Hoy armamos la calaverita completa."],
       ["tiras", "Ejemplo del maestro: «El día que llegó la Muerte»", 4, 1, 8],
       ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
-      ["lista", "Reviso ✓", ["¿Tiene 8 versos en cuatro pareados?", "¿Cada pareja termina igual, o suena parecido (≈)?", "¿El verso 5 termina con el nombre de la Muerte?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño?", "¿Firmé con mi seudónimo?"], "plana"],
-      ["p", "**Firma:** Mi seudónimo y 4.° A"]
+      ["lista", "Reviso ✓", ["¿Tiene 8 versos en cuatro pareados?", "¿Cada pareja termina igual, o suena parecido (≈)?", "¿El verso 5 termina con el nombre de la Muerte?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño?", "¿Firmé con mis iniciales, grado y grupo?"], "plana"],
+      ["p", "**Firma:** Mis iniciales y 4.° A"]
     ]}
   ],
   "5A": [
@@ -3308,8 +3312,8 @@ window.CUADERNO = {
       ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas AABB). Hoy armamos la calaverita completa."],
       ["tiras", "Ejemplo del maestro: «La Muerte se quedó a cenar»", 5, 1, 8],
       ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
-      ["lista", "Reviso ✓", ["¿Tiene dos cuartetas de 4 versos?", "¿Las rayas del diálogo abren y cierran bien?", "¿Cada pareja rima igual o suena parecido?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño, sin burlarse de nadie?", "¿Firmé con mi seudónimo?"], "plana"],
-      ["p", "**Firma:** Mi seudónimo y 5.° A"]
+      ["lista", "Reviso ✓", ["¿Tiene dos cuartetas de 4 versos?", "¿Las rayas del diálogo abren y cierran bien?", "¿Cada pareja rima igual o suena parecido?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño, sin burlarse de nadie?", "¿Firmé con mis iniciales, grado y grupo?"], "plana"],
+      ["p", "**Firma:** Mis iniciales y 5.° A"]
     ]}
   ],
   "6A": [
@@ -3342,17 +3346,17 @@ window.CUADERNO = {
         ["Su rival o su compañero", "Con quién pelea o con quién anda.", ""]
       ]],
       ["tit", "2. Mis primeros versos · Cuarteta 1"],
-      ["p", "Con la herramienta digital «Panteón de versos de sexto grado grupo A» armamos con tarjetas los **pasos 1 a 4**: quién descansa aquí, qué hacía, ✎ Algo propio y una exageración. En sexto la rima es **cruzada**: el verso 1 rima con el 3 y el 2 con el 4."],
-      ["tiras", "Ejemplo del maestro: «Epitafio con pan de muerto»", 6, 1, 4],
+      ["p", "Con la herramienta digital «Panteón de versos de sexto grado grupo A» armamos con tarjetas los **pasos 1 a 4**: quién descansa aquí, qué hacía, ✎ Algo propio y una exageración. En esta primera cuarteta la rima es **pareada**: el verso 1 rima con el 2 y el 3 con el 4 (AABB)."],
+      ["tiras", "Ejemplo del maestro: «La visita más famosa»", 6, 1, 4],
       ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio. **La cuarteta 2 la armamos el lunes 26, en la lectura.**"]
     ]},
     { f: "2026-10-26", fecha: "Lunes 26 de octubre de 2026", b: [
       ["tit", "Termino de armar mi calaverita · versos 5 a 8"],
-      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas ABAB)."],
-      ["tiras", "Ejemplo del maestro: «Epitafio con pan de muerto»", 6, 5, 8],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · cuarteta 1 pareada AABB y cuarteta 2 alterna CDCD). En esta segunda cuarteta la rima es **alterna**: el verso 5 rima con el 7 y el 6 con el 8."],
+      ["tiras", "Ejemplo del maestro: «La visita más famosa»", 6, 5, 8],
       ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
-      ["lista", "Reviso ✓", ["¿Riman el 1 con el 3 y el 2 con el 4 (y el 5 con el 7, el 6 con el 8)?", "¿Cada verso tiene entre 7 y 11 sílabas?", "¿Usé una exageración o comparación?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño, sin burlarse de nadie?", "¿Firmé con mi seudónimo?"], "plana"],
-      ["p", "**Firma:** Mi seudónimo y 6.° A"]
+      ["lista", "Reviso ✓", ["¿Riman el 1 con el 2 y el 3 con el 4 (pareada), y el 5 con el 7 y el 6 con el 8 (alterna)?", "¿Cada verso tiene entre 7 y 11 sílabas?", "¿Usé una exageración o comparación?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño, sin burlarse de nadie?", "¿Firmé con mis iniciales, grado y grupo?"], "plana"],
+      ["p", "**Firma:** Mis iniciales y 6.° A"]
     ]}
   ]
 };
@@ -3389,7 +3393,7 @@ window.PROYECTO.ajustes = {
       titulo: "Ficha de mi personaje y mis primeros versos",
       hicimos: "Respondimos en el cuaderno las seis preguntas de las tarjetas rosas para conocer a nuestro personaje: quién es, de qué historia, serie o cómic viene, por qué es famoso, qué objeto, poder o frase lo identifica, qué hace siempre y quién es su rival o su compañero. Después, con la herramienta digital «Panteón de versos de sexto grado grupo A» y el acompañamiento del maestro, armamos con tarjetas los primeros versos.",
       avance: "La calaverita **todavía no está terminada**. Cada quien tiene la ficha respondida y la **cuarteta 1 (versos 1 a 4)**. La cuarteta 2 (llega la Muerte, algo le pasa, una exageración y el final) la armamos el **lunes 26**, en la lectura.",
-      aprendimos: "Antes de armar versos conviene saber bien de quién vamos a escribir: las respuestas de la ficha son la materia prima de ✎ Algo propio. En sexto la rima es cruzada: el verso 1 rima con el 3 y el 2 con el 4.",
+      aprendimos: "Antes de armar versos conviene saber bien de quién vamos a escribir: las respuestas de la ficha son la materia prima de ✎ Algo propio. En la primera cuarteta de sexto la rima es pareada: el verso 1 rima con el 2 y el 3 con el 4.",
       faltaste: "Respondes la ficha y armas tu primera cuarteta al inicio de la lectura del lunes 26, con ayuda del maestro. Si todavía falta algo, se termina en casa con apoyo de la familia a más tardar el miércoles 28. No se copia de internet ni de la IA.",
       casa: "Si quieren, pidan que les cuente lo que sabe de su personaje y que les lea sus primeros cuatro versos.",
       herramientas: ["armado", "digital", "recortables", "rimas"]
@@ -3744,7 +3748,7 @@ window.PROYECTO.armado = {
   ],
   "cuartetas": false,
   "letras": false,
-  "firma": "Mi seudónimo y 4.° A",
+  "firma": "Mis iniciales y 4.° A",
   "pasos": [
    [
     "Aquí yace…",
@@ -3886,7 +3890,7 @@ window.PROYECTO.armado = {
    "¿El verso 5 termina con el nombre de la Muerte?",
    "¿Tiene Algo propio y un final sorpresa?",
    "¿Humor con cariño?",
-   "¿Firmé con mi seudónimo?"
+   "¿Firmé con mis iniciales, grado y grupo?"
   ],
   "moldes": [
    [
@@ -3951,7 +3955,7 @@ window.PROYECTO.armado = {
   ],
   "cuartetas": true,
   "letras": false,
-  "firma": "Mi seudónimo y 5.° A",
+  "firma": "Mis iniciales y 5.° A",
   "pasos": [
    [
     "Aquí yace…",
@@ -4093,7 +4097,7 @@ window.PROYECTO.armado = {
    "¿Cada pareja rima igual o suena parecido?",
    "¿Tiene Algo propio y un final sorpresa?",
    "¿Humor con cariño, sin burlarse de nadie?",
-   "¿Firmé con mi seudónimo?"
+   "¿Firmé con mis iniciales, grado y grupo?"
   ],
   "moldes": [
    [
@@ -4147,16 +4151,16 @@ window.PROYECTO.armado = {
   ]
  },
  "6": {
-  "esquema": "8 versos · 2 cuartetas ABAB",
-  "reto": "Rima cruzada y ritmo",
+  "esquema": "8 versos · cuarteta pareada AABB + cuarteta alterna CDCD",
+  "reto": "Rima pareada y alterna, y ritmo",
   "N": 8,
   "pares": [
    [
     1,
-    3
+    2
    ],
    [
-    2,
+    3,
     4
    ],
    [
@@ -4175,7 +4179,7 @@ window.PROYECTO.armado = {
   ],
   "cuartetas": true,
   "letras": true,
-  "firma": "Mi seudónimo y 6.° A",
+  "firma": "Mis iniciales y 6.° A",
   "pasos": [
    [
     "Aquí yace…",
@@ -4227,45 +4231,45 @@ window.PROYECTO.armado = {
    ]
   ],
   "ejemplo": {
-   "titulo": "Epitafio con pan de muerto",
+   "titulo": "La visita más famosa",
    "versos": [
     [
      [
-      "Aquí descansa",
+      "Aquí yace",
       "titulo"
      ],
      [
-      "el panadero",
+      "mi hermana",
       "porquien"
      ]
     ],
     [
      [
-      "que hacía pan de",
+      "que bailaba danzón en",
       "hacia"
      ],
      [
-      "canela",
+      "la ventana",
       "rima"
      ]
     ],
     [
      [
-      "Siempre silbaba,",
+      "Siempre cantaba,",
       "algo"
      ],
      [
-      "con su sombrero",
+      "en la cocina",
       "cierre"
      ]
     ],
     [
      [
-      "y era más famoso que",
+      "y roncaba como",
       "figura"
      ],
      [
-      "la escuela",
+      "una gallina",
       "rima"
      ]
     ],
@@ -4312,12 +4316,12 @@ window.PROYECTO.armado = {
    ]
   },
   "revisar": [
-   "¿Riman el 1 con el 3 y el 2 con el 4 (y el 5 con el 7, el 6 con el 8)?",
+   "¿Riman el 1 con el 2 y el 3 con el 4 (pareada), y el 5 con el 7 y el 6 con el 8 (alterna)?",
    "¿Cada verso tiene entre 7 y 11 sílabas?",
    "¿Usé una exageración o comparación?",
    "¿Tiene Algo propio y un final sorpresa?",
    "¿Humor con cariño, sin burlarse de nadie?",
-   "¿Firmé con mi seudónimo?"
+   "¿Firmé con mis iniciales, grado y grupo?"
   ],
   "moldes": [
    [
@@ -4407,6 +4411,21 @@ window.PROYECTO.recortables["6A"].mesa = {
 };
 
 /* ============================================================
+   ESQUEMAS DE RIMA · se muestran en todos los grados, en «Lo que aprendimos»
+   (dentro de «Lo que debe tener la calaverita») y en la tarjeta «Para terminar la calaverita».
+   ============================================================ */
+window.PROYECTO.esquemasRima = {
+  titulo: "Características de las rimas en las calaveritas",
+  intro: "Por lo tanto, en una calaverita:",
+  lista: [
+    "1.º con 2.º → AA → rima pareada",
+    "1.º con 3.º → ABAB → rima alterna o cruzada",
+    "1.º con 4.º → ABBA → rima abrazada"
+  ],
+  cierre: "Son los tres esquemas de rima más comunes que se estudian en poesía."
+};
+
+/* ============================================================
    CIERRE DE LA SEMANA · tarjeta «Para terminar la calaverita»
    Aparece arriba en cuanto la familia elige su grupo (llegan por el QR) y se oculta sola
    después de mostrarHasta. Puede editar cualquier texto; **negritas** con dos asteriscos.
@@ -4429,7 +4448,8 @@ window.PROYECTO.cierre = {
     "Agreguen el título, ✎ mi detalle, un dibujo de la Calaca y sus iniciales."
   ],
   revisar1: ["Aparece la Calaca.", "Las dos palabras del final riman.", "Da risa sin burlarse de nadie.", "Tiene título, mi detalle e iniciales."],
-  entrega: "Traigan el cuaderno a la escuela el **jueves 29** para revisarla.",
+  tarea: "**La única tarea para casa, en todos los grupos:** pasar en limpio la calaverita en una **hoja blanca**, con su título, las **iniciales del nombre**, el **grado** y el **grupo**. Sin apellidos ni otros datos.",
+  entrega: "Traigan el cuaderno y la hoja blanca a la escuela el **jueves 29**.",
   nota: "No se copia de internet ni de la IA: las tarjetas, el ejemplo y el Armador son el apoyo. Si tienen dudas, acérquense al Profr. Eduardo Kantún Martínez, Promotor de Lectura."
 };
 

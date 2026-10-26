@@ -74,7 +74,7 @@
       if (A.cuartetas && n === 1) filas.push('<div class="qhead">Cuarteta 1</div>');
       if (A.cuartetas && n === 5) filas.push('<div class="qhead">Cuarteta 2</div>');
       const v = A.ejemplo.versos[n - 1];
-      filas.push(`<div class="strip"><span class="num">${n}${A.letras ? "ABABCDCD"[n - 1] : ""}</span>${v.map(([t, c]) => `<span class="seg cat-${c}">${esc(t)}</span>`).join("")}</div>`);
+      filas.push(`<div class="strip"><span class="num">${n}${A.letras ? "AABBCDCD"[n - 1] : ""}</span>${v.map(([t, c]) => `<span class="seg cat-${c}">${esc(t)}</span>`).join("")}</div>`);
     }
     return filas.join("");
   }
@@ -178,6 +178,13 @@
     const lista = entradasDe(g).filter((e) => !e.extra && estadoDe(e, ahora) !== "futura" && herramientasDe(e, g).some((t) => t[0] === h));
     return lista.length ? lista[lista.length - 1].md : null;
   }
+  /* Esquemas de rima (pareada, alterna, abrazada): iguales para todos los grados. */
+  function esquemasHTML(etiqueta) {
+    const E = D.esquemasRima;
+    if (!E) return "";
+    return `<${etiqueta} class="sub">${esc(E.titulo)}</${etiqueta}><p>${esc(E.intro)}</p><ul class="receta">${E.lista.map((t) => `<li>${esc(t)}</li>`).join("")}</ul><p>${esc(E.cierre)}</p>`;
+  }
+
   function pintarCierre() {
     const sec = $("#cierre"), g = grupoActual(), K = D.cierre;
     const vigente = K && new Date() <= new Date(K.mostrarHasta + "T23:59:59");
@@ -193,8 +200,9 @@
     sec.innerHTML = `<h2 id="t-cierre" class="paso"><span class="num" aria-hidden="true">📌</span> Para terminar la calaverita de ${esc(g.nombre)}</h2>
       <p class="cierre-fecha"><strong>Fecha límite: ${esc(K.limite)}.</strong> ${marcas(K.ceremonia)}</p>
       <p>${marcas(K.porque)}</p>
+      ${K.tarea ? `<p>${marcas(K.tarea)}</p>` : ""}
       <div class="cierre-grid">
-        <div><h3>Lo que debe tener la calaverita de ${esc(g.nombre)}</h3><ul class="receta">${requisitos.map((r) => `<li>${esc(r)}</li>`).join("")}</ul></div>
+        <div><h3>Lo que debe tener la calaverita de ${esc(g.nombre)}</h3><ul class="receta">${requisitos.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>${esquemasHTML("h3")}</div>
         <div><h3>Cómo terminarla en casa</h3><ol class="receta">${pasos.map((t) => `<li>${marcas(t)}</li>`).join("")}<li>${marcas(K.entrega)}</li></ol>
           <div class="fila">${dia ? `<button type="button" class="boton principal" data-abrir-dia="${dia}" data-abrir-herr="${herr}">${A ? "🃏 Ver cómo se arma (ejemplo y piezas)" : "✂️ Ver los recortables y la guía"}</button>` : ""}
           ${A && d && d.url ? `<a class="boton" href="${esc(d.url)}" target="_blank" rel="noopener">Abrir el Armador de ${esc(g.nombre)} ↗</a>` : ""}</div>
@@ -554,7 +562,7 @@
     return `<p class="lead">${esc(rellenar(a.aprendimos, g))}</p>
       <div class="caja faltaste"><h4>Si faltó a esta clase</h4><p>${esc(rellenar(a.faltaste, g))}</p></div>
       ${a.casa ? `<div class="caja casa"><h4>Para platicar en casa (opcional)</h4><p>${esc(a.casa)}</p></div>` : ""}
-      <details class="repaso"><summary>Lo que debe tener la calaverita de ${esc(g.nombre)}</summary><ul class="receta">${requisitos}</ul></details>`;
+      <details class="repaso"><summary>Lo que debe tener la calaverita de ${esc(g.nombre)}</summary><ul class="receta">${requisitos}</ul>${esquemasHTML("h4")}</details>`;
   }
 
   /* ---------- Pintar todo ---------- */
