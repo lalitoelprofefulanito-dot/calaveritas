@@ -37,6 +37,7 @@
     juntos: ["receta", "🧁", "La receta de la calaverita"],
     recursos: ["recursos", "✨", "Recursos de poeta"],
     recortables: ["recortables", "✂️", "Los recortables de la clase"],
+    armado: ["armado", "🃏", "Así se arma la calaverita"],
     mesa: ["mesa", "📇", "La hoja de la mesa: recursos y rimas"],
     digital: ["digital", "💻", "La herramienta digital de la clase"]
   };
@@ -65,6 +66,18 @@
     .replace(/\{modelo\}/g, modeloDe(g).id)
     .replace(/\{ext\}/g, D.extension[g.grado].texto)
     .replace(/\{nombre\}/g, g.nombre);
+  /* ---------- Calaveritas armadas (2.° a 6.°): tiras de colores como en el Armador ---------- */
+  const armadoDe = (g) => (D.armado && D.armado[g.grado]) || null;
+  function tirasHTML(A, de = 1, a = A.N) {
+    const filas = [];
+    for (let n = de; n <= a; n++) {
+      if (A.cuartetas && n === 1) filas.push('<div class="qhead">Cuarteta 1</div>');
+      if (A.cuartetas && n === 5) filas.push('<div class="qhead">Cuarteta 2</div>');
+      const v = A.ejemplo.versos[n - 1];
+      filas.push(`<div class="strip"><span class="num">${n}${A.letras ? "ABABCDCD"[n - 1] : ""}</span>${v.map(([t, c]) => `<span class="seg cat-${c}">${esc(t)}</span>`).join("")}</div>`);
+    }
+    return filas.join("");
+  }
 
   function decir(texto) {
     try {
@@ -92,7 +105,7 @@
   /* ---------- Línea del tiempo de cada grupo ---------- */
   function entradasDe(g) {
     let nC = 0, nL = 0;
-    const lista = g.ruta.map(([md, clave]) => {
+    const lista = g.ruta.map(([md, clave, pasos]) => {
       const s = D.sesiones[clave];
       const aj = ajusteDe(g, md);
       const [m, d] = md.split("-").map(Number);
@@ -106,7 +119,7 @@
       const dur = esClase ? 50 : 20;
       const inicio = new Date(2026, m - 1, d, Math.floor(ini / 60), ini % 60);
       return {
-        md, s, aj, inicio, fin: new Date(inicio.getTime() + dur * 60000),
+        md, s, aj, pasos: pasos || "", inicio, fin: new Date(inicio.getTime() + dur * 60000),
         nombre: (esClase ? "Clase " : "Lectura ") + num, titulo: (aj && aj.titulo) || s.titulo,
         cuando: `${hora(ini)}–${hora(ini + dur)} · ${esClase ? "clase de 50 minutos" : "lectura de 20 minutos"}`
       };
@@ -162,7 +175,7 @@
   /* ---------- Paso 1: grupos ---------- */
   function pintarGrupos() {
     $("#grupos").innerHTML = D.grupos.map((g) =>
-      `<button type="button" data-grupo="${g.id}" aria-pressed="${g.id === est.grupo}">${esc(g.nombre)}</button>`).join("");
+      `<button type="button" class="g${g.grado}" data-grupo="${g.id}" aria-pressed="${g.id === est.grupo}">${esc(g.nombre)}</button>`).join("");
   }
 
   /* ---------- Paso 2: días ---------- */
@@ -184,6 +197,7 @@
         <span class="dia-fecha">${fechaCorta(e.inicio)}${hayCuaderno ? ' <span title="Hay apunte en el cuaderno" aria-label="con apunte en el cuaderno">📒</span>' : ""}</span>
         <span class="dia-nombre">${esc(e.nombre)}</span>
         <span class="dia-tit">${esc(e.titulo)}</span>
+        ${e.pasos ? `<span class="dia-meta">${esc(e.pasos)}</span>` : ""}
         <span class="chip ${st}">${ETIQUETA[st]}</span></button></li>`;
     }).join("");
   }
@@ -203,6 +217,7 @@
       <header class="dia-cab">
         <p class="dia-cuando">${fechaLarga(e.inicio)} · ${esc(e.cuando)}</p>
         <h3 id="dia-titulo">${esc(e.nombre)}: ${esc(e.titulo)}</h3>
+        ${e.pasos ? `<p class="dia-meta">${esc(e.pasos)}</p>` : ""}
         ${aviso}
       </header>
       <div class="pestanas" role="tablist" aria-label="Apuntes del día">
@@ -218,6 +233,7 @@
 
   /* ----- Pestaña 1: lo que trabajamos ----- */
   function disponible(h, g) {
+    if (h === "armado") return !!armadoDe(g);
     if (h === "mesa") return !!(D.recortables && D.recortables[g.id] && D.recortables[g.id].mesa);
     if (h === "digital") return !!(D.digital && D.digital[g.id]);
     return true;
@@ -247,7 +263,7 @@
       <div class="herramientas" role="group" aria-label="Herramientas y juegos de la clase">
         ${hs.map(([id, ic, t]) => `<button type="button" class="herr" data-herramienta="${id}" aria-pressed="${est.herramienta === id}"><span aria-hidden="true">${ic}</span> ${t}</button>`).join("")}
       </div>
-      <div class="herr-panel">${{ modelo: verModelo, rimas: verRimas, juegos: verJuegos, acuerdos: verAcuerdos, receta: verReceta, recursos: verRecursos, recortables: verRecortables, mesa: verMesa, digital: verDigital }[est.herramienta](g)}</div>` : ""}`;
+      <div class="herr-panel">${{ modelo: verModelo, rimas: verRimas, juegos: verJuegos, acuerdos: verAcuerdos, receta: verReceta, recursos: verRecursos, recortables: verRecortables, mesa: verMesa, digital: verDigital, armado: verArmado }[est.herramienta](g)}</div>` : ""}`;
   }
 
   function modeloHTML(m, modo) {
@@ -440,6 +456,19 @@
       <div class="recortes">${m.hojas.map(figura).join("")}</div>
       <p class="leyenda">En la biblioteca está impresa en un porta servilletas que gira sobre la mesa. No hace falta imprimirla en casa.</p>`;
   }
+  function verArmado(g) {
+    const A = armadoDe(g);
+    const d = D.digital && D.digital[g.id];
+    return `<p class="guia">En ${esc(g.nombre)} la calaverita <strong>se arma con tarjetas</strong>: cada verso lleva una tarjeta de inicio y una final, y las finales de cada pareja de versos riman. Lo único que se escribe es <strong>✎ Algo propio</strong>, lo que solo el niño sabe de la persona a quien la dedica.</p>
+      <div class="row"><span class="gchip">${esc(g.nombre)}</span><span class="pill">${esc(A.esquema)}</span><span class="pill">${esc(A.reto)}</span></div>
+      <div class="cuad"><h4>Ejemplo del maestro: «${esc(A.ejemplo.titulo)}»</h4>${tirasHTML(A)}
+        <p class="cuad-firma">— ${esc(A.firma)}</p></div>
+      <h4 class="sub">Las piezas, verso por verso</h4>
+      <ol class="pasos-arm">${A.pasos.map(([a, b, ca, cb], i) => `<li><span class="seg cat-${ca}">${esc(a)}</span><span class="seg cat-${cb}">${esc(b)}</span>${A.corte && i + 1 === A.corte ? ` <span class="pill">${esc(A.etiquetas[1])}</span>` : ""}</li>`).join("")}</ol>
+      ${A.moldes.length ? `<h4 class="sub">Moldes para escribir ✎ Algo propio</h4><ul class="receta">${A.moldes.map(([m, ideas]) => `<li><strong>${esc(m)}</strong>${ideas.length ? ` <em>por ejemplo: ${esc(ideas.join(", "))}</em>` : ""}</li>`).join("")}</ul>` : ""}
+      <details class="repaso"><summary>Lista de revisión de ${esc(g.nombre)}</summary><ul class="receta">${A.revisar.map((c) => `<li>${esc(c)}</li>`).join("")}</ul></details>
+      ${d && d.url ? `<div class="fila"><a class="boton principal" href="${esc(d.url)}" target="_blank" rel="noopener">🃏 Abrir el armador de ${esc(g.nombre)}</a></div>` : ""}`;
+  }
   function verDigital(g) {
     const d = D.digital[g.id];
     return `<h4 class="sub">${esc(d.titulo)}</h4>
@@ -459,6 +488,7 @@
     if (t === "lista") return `${a ? `<p class="cd-sub">${marcas(a)}</p>` : ""}<ul class="cd-lista ${c || ""}">${b.map((x) => `<li>${marcas(x)}</li>`).join("")}</ul>`;
     if (t === "ficha") return `<div class="cd-ficha">${a ? `<p class="cd-ficha-cab">${marcas(a)}</p>` : ""}${b.map(([q, ay, r]) => `<div class="cd-preg"><p class="cd-q"><strong>${marcas(q)}</strong>${ay ? ` <span class="cd-ayuda">${marcas(ay)}</span>` : ""}</p>${r ? `<p class="cd-r">${marcas(r)}</p>` : '<p class="cd-r cd-vacio"><span class="sr">Sin respuesta escrita</span></p>'}</div>`).join("")}</div>`;
     if (t === "img") return `<figure class="cd-img ${d || ""}"><a href="${esc(a)}" target="_blank" rel="noopener" title="Abrir la imagen en grande"><img src="${esc(a)}" alt="${esc(b)}" loading="lazy"></a>${c ? `<figcaption>${esc(c)}</figcaption>` : ""}</figure>`;
+    if (t === "tiras") { const A = D.armado && D.armado[b]; return A ? `<div class="cd-tiras">${a ? `<p class="cd-verso-tit">${marcas(a)}</p>` : ""}${tirasHTML(A, c || 1, d || A.N)}</div>` : ""; }
     if (t === "enlace") return `<p><a class="cd-enlace" href="${esc(b)}" target="_blank" rel="noopener">${esc(a)}</a></p>`;
     return "";
   }
@@ -498,6 +528,8 @@
 
   /* ---------- Pintar todo ---------- */
   function pintar() {
+    const ga = grupoActual();
+    document.body.dataset.grado = ga ? ga.grado : "";
     pintarGrupos();
     pintarDias();
     pintarDia();

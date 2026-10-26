@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panteón de versos · Sesiones</title>
+<style>
+:root{
+  --bg:#faf5ec; --surface:#ffffff; --surface2:#f4ede1; --ink:#2a2233; --muted:#6b6175; --line:#e4d9c8;
+  --head:#2d1b3d; --head-ink:#fff7ea; --accent:#e8740c; --accent-ink:#ffffff; --accent2:#8a2f86;
+  --ok:#2f7d4f; --ok-bg:#e3f3e8; --warn:#9a4a05; --warn-bg:#fdf0dc; --bad:#a82a1e; --bad-bg:#fbe5e2;
+  --card-ink:#2a2233; --shadow:0 1px 2px rgba(40,20,50,.08),0 4px 14px rgba(40,20,50,.06);
+  --c-titulo:#e4e1dc; --c-quien:#dccff0; --c-porquien:#f9d0e1; --c-hacia:#fbe8a0; --c-remate:#fbd6b4;
+  --c-algo:#ffffff; --c-cierre:#d9f1d0; --c-paso:#cde2f7; --c-final:#fcc794; --c-rima:#a7dbaf;
+  --c-dialogo:#bde7e4; --c-figura:#f5c0cd; --c-reto:#fde68a;
+  --g2:#0f8b8d; --g3:#2f6fb3; --g4:#6b3fa0; --g5:#d4630b; --g6:#b0306f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16111b; --surface:#211a29; --surface2:#2a2233; --ink:#f2ecf6; --muted:#b8acc3; --line:#3b3148;
+    --head:#100b15; --ok-bg:#183a26; --warn-bg:#3d2a10; --bad-bg:#3d1a17; --ok:#7fd3a0; --warn:#f3b46a; --bad:#f08a80;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16111b; --surface:#211a29; --surface2:#2a2233; --ink:#f2ecf6; --muted:#b8acc3; --line:#3b3148;
+  --head:#100b15; --ok-bg:#183a26; --warn-bg:#3d2a10; --bad-bg:#3d1a17; --ok:#7fd3a0; --warn:#f3b46a; --bad:#f08a80;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+input,textarea{font:inherit;color:var(--ink)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 16px}
+/* Encabezado */
+header.top{background:var(--head);color:var(--head-ink);position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding-top:10px;padding-bottom:10px}
+.brand{display:flex;flex-direction:column;min-width:0}
+.brand b{font-family:Georgia,serif;font-size:1.25rem;letter-spacing:.2px}
+.brand span{font-size:.78rem;opacity:.8}
+nav.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.tabs button{background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px;color:var(--head-ink);font-size:.92rem}
+nav.tabs button[aria-current="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.picado{height:10px;background:
+  radial-gradient(circle at 10px -2px,transparent 7px,var(--accent) 7.5px) 0 0/20px 10px repeat-x}
+main{padding:20px 0 60px}
+.view{display:none}.view.on{display:block}
+.card-box{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px}
+.muted{color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 14px;font-size:.94rem}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.btn.sm{padding:4px 10px;font-size:.84rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.gchip{color:#fff;border-radius:8px;padding:2px 9px;font-weight:700;font-size:.85rem;white-space:nowrap}
+.g2{--gc:var(--g2)}.g3{--gc:var(--g3)}.g4{--gc:var(--g4)}.g5{--gc:var(--g5)}.g6{--gc:var(--g6)}
+.gchip{background:var(--gc)}
+/* Agenda */
+.hero{display:grid;gap:16px;grid-template-columns:1.2fr 1fr;margin-bottom:22px}
+.hero h1{font-size:1.7rem;margin-bottom:6px}
+.today-list{display:grid;gap:10px;margin-top:12px}
+.timeline{display:grid;gap:18px}
+.day{display:grid;grid-template-columns:120px 1fr;gap:14px}
+.day-h{padding-top:6px}
+.day-h b{display:block;font-family:Georgia,serif;font-size:1.15rem;text-transform:capitalize}
+.day-h small{color:var(--muted)}
+.day.past .day-h b{color:var(--muted)}
+.day.today .day-h b{color:var(--accent)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;border-radius:6px;padding:1px 7px;margin-top:4px}
+.tag.today{background:var(--accent);color:#fff}
+.tag.past{background:var(--surface2);color:var(--muted)}
+.day-s{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.scard{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--gc);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.scard.done{opacity:.72}
+.scard h3{font-size:1.02rem;font-family:inherit;font-weight:700}
+.scard .meta{font-size:.85rem;color:var(--muted)}
+.scard .row{margin-top:auto;padding-top:6px}
+.done-mark{font-size:.8rem;color:var(--ok);font-weight:700}
+/* Sesión */
+.sess-head{border-left:8px solid var(--gc);display:flex;flex-wrap:wrap;gap:10px 22px;align-items:flex-end;justify-content:space-between}
+.sess-head h1{font-size:1.6rem}
+.sess-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;margin-top:18px}
+.mom-rail{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
+.mom-rail button{flex:0 0 auto;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:6px 12px;font-size:.86rem;text-align:left}
+.mom-rail button[aria-current="true"]{background:var(--gc);border-color:var(--gc);color:#fff}
+.mom-rail button small{display:block;opacity:.75;font-size:.74rem}
+.mom h2{font-size:1.4rem;margin-bottom:4px}
+.mom ul{margin:8px 0 0;padding-left:20px}
+.mom li{margin:4px 0}
+.box{border-radius:12px;padding:12px 14px;margin-top:14px}
+.box.group{background:var(--surface2);border:1px dashed var(--line)}
+.box.why{background:var(--warn-bg);color:var(--ink)}
+.box h4{margin:0 0 6px;font-size:.8rem;letter-spacing:.5px;text-transform:uppercase;color:var(--muted)}
+.timer{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.timer .clock{font:700 2.2rem/1 ui-monospace,Menlo,Consolas,monospace;min-width:5.2ch}
+.timer .clock.end{color:var(--bad)}
+.bar{height:6px;border-radius:999px;background:var(--surface2);overflow:hidden;flex:1 1 140px}
+.bar i{display:block;height:100%;background:var(--accent);width:0}
+.side h3{font-size:1.05rem;margin-bottom:8px}
+.side .card-box+.card-box{margin-top:14px}
+.chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:.94rem}
+.chk input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent)}
+.tira{border:1px dashed var(--line);border-radius:8px;padding:6px 10px;margin:6px 0;background:var(--c-reto);color:var(--card-ink);font-size:.92rem}
+.ex{font-family:Georgia,serif;font-size:1.05rem}
+.ex p{margin:2px 0}
+.ex .dim{opacity:.45}
+.exs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.exs .ex{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+#proj .exs .ex{background:transparent;border-color:rgba(255,255,255,.2);font-size:clamp(.95rem,1.6vw,1.3rem)}
+.ideas{display:block;font-size:.74rem;line-height:1.3;opacity:.75;font-style:italic;margin-top:2px}
+.ideas-box{font-size:.8rem;color:var(--muted);margin-top:6px;font-style:italic}
+.tc.extra::before{content:"＋";position:absolute;top:-7px;left:-6px;background:var(--accent2);color:#fff;font-size:.62rem;font-weight:700;border-radius:999px;width:15px;height:15px;display:flex;align-items:center;justify-content:center}
+.legend-x{font-size:.78rem;color:var(--muted);margin-top:10px}
+.legend-x b{display:inline-flex;width:15px;height:15px;border-radius:999px;background:var(--accent2);color:#fff;font-size:.62rem;align-items:center;justify-content:center}
+/* Armador */
+.arm-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.gtabs{display:flex;gap:6px;flex-wrap:wrap}
+.gtabs button{border:2px solid var(--gc);background:var(--surface);color:var(--ink);border-radius:10px;padding:5px 14px;font-weight:700}
+.gtabs button[aria-current="true"]{background:var(--gc);color:#fff}
+.banner{background:var(--warn-bg);border-radius:10px;padding:8px 12px;margin-bottom:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;font-size:.94rem}
+.arm{display:grid;grid-template-columns:170px minmax(0,1fr) 380px;gap:16px;align-items:start}
+.rail{display:flex;flex-direction:column;gap:4px;position:sticky;top:86px}
+.rail button{display:flex;align-items:center;gap:8px;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:6px 10px;font-size:.9rem}
+.rail button[aria-current="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.rail button.inrange{background:var(--warn-bg)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line);flex:0 0 auto}
+.dot.half{background:linear-gradient(90deg,var(--accent) 50%,var(--line) 50%)}
+.dot.full{background:var(--ok)}
+.rail .cut{font-size:.74rem;color:var(--muted);border-top:2px dashed var(--line);padding-top:4px;margin-top:4px}
+.step h2{font-size:1.3rem}
+.step .q{color:var(--muted);margin:4px 0 12px}
+.lbl{font-weight:700;font-size:.9rem;margin:14px 0 6px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.grid{display:flex;flex-wrap:wrap;gap:8px}
+.tc{position:relative;border:1.5px solid rgba(0,0,0,.14);border-radius:9px;padding:8px 12px;min-height:44px;color:var(--card-ink);font-size:1rem;text-align:left;display:flex;flex-direction:column;justify-content:center;gap:1px;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.tc small.h{font-size:.78rem;opacity:.75}
+.tc small.rc{font-size:.72rem;opacity:.7}
+.tc[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:1px}
+.tc.fits::after{content:"✓ rima";position:absolute;top:-8px;right:-6px;background:var(--ok);color:#fff;font-size:.68rem;font-weight:700;border-radius:999px;padding:1px 6px}
+.tc.algo{border-style:dashed}
+.cat-titulo{background:var(--c-titulo)}.cat-quien{background:var(--c-quien)}.cat-porquien{background:var(--c-porquien)}
+.cat-hacia{background:var(--c-hacia)}.cat-remate{background:var(--c-remate)}.cat-algo{background:var(--c-algo)}
+.cat-cierre{background:var(--c-cierre)}.cat-paso{background:var(--c-paso)}.cat-final{background:var(--c-final)}
+.cat-rima{background:var(--c-rima)}.cat-dialogo{background:var(--c-dialogo)}.cat-figura{background:var(--c-figura)}
+.cat-reto{background:var(--c-reto)}
+.algo-in{width:100%;border:2px dashed var(--accent);background:var(--surface);border-radius:10px;padding:10px 12px;font-size:1.05rem}
+.preview{margin-top:16px;background:var(--surface2);border-radius:12px;padding:12px 14px;font-family:Georgia,serif;font-size:1.15rem;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.fb{margin-top:10px;border-radius:10px;padding:9px 12px;font-size:.95rem}
+.fb.ok{background:var(--ok-bg);color:var(--ok)}
+.fb.aso{background:var(--warn-bg);color:var(--warn)}
+.fb.no{background:var(--bad-bg);color:var(--bad)}
+.fb.info{background:var(--surface2);color:var(--ink)}
+.mini{display:inline-block;background:var(--c-titulo);color:var(--card-ink);border:1px solid rgba(0,0,0,.2);border-radius:6px;padding:0 8px;font-weight:700}
+.nav2{display:flex;justify-content:space-between;gap:8px;margin-top:18px;flex-wrap:wrap}
+.cuad{position:sticky;top:86px;max-height:calc(100vh - 100px);overflow:auto;background:var(--surface);background-image:repeating-linear-gradient(transparent 0 31px,var(--line) 31px 32px);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
+.cuad h3{font-size:1.05rem;margin-bottom:2px}
+.cuad .sub{font-size:.82rem;color:var(--muted);margin-bottom:10px}
+.strip{display:flex;flex-wrap:wrap;margin:6px 0;border-radius:8px;overflow:hidden;cursor:pointer;border:1px solid rgba(0,0,0,.12);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.strip .seg{padding:5px 9px;color:var(--card-ink);font-size:.95rem}
+.strip .num{background:var(--surface2);color:var(--muted);font-size:.72rem;font-weight:700;padding:6px 6px;display:flex;align-items:center}
+.strip.empty{border:1.5px dashed var(--line);background:transparent;color:var(--muted);padding:5px 9px;font-size:.88rem}
+.strip .syl{margin-left:auto;font-size:.72rem;padding:6px 8px;background:var(--surface2);color:var(--muted)}
+.strip .syl.bad{color:var(--bad);font-weight:700}
+.star{font-size:.82rem;color:var(--ok);margin:2px 0 8px;font-weight:600}
+.cutline{border-top:2px dashed var(--muted);margin:10px 0 4px;padding-top:2px;font-size:.76rem;color:var(--muted)}
+.qhead{font-family:Georgia,serif;font-weight:700;font-size:.9rem;margin-top:8px}
+/* Guía */
+.guide{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.guide h2{font-size:1.25rem;margin-bottom:8px}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
+th{font-size:.78rem;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+.sw{display:inline-block;width:18px;height:18px;border-radius:4px;border:1px solid rgba(0,0,0,.2);vertical-align:middle}
+.tablewrap{overflow-x:auto}
+/* Proyección */
+#proj{position:fixed;inset:0;background:#120c18;color:#fff7ea;z-index:100;display:none;flex-direction:column;padding:24px 32px}
+#proj.on{display:flex}
+#proj .ph{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:1rem;opacity:.85}
+#proj .pbody{flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px;max-width:1100px;margin:0 auto;width:100%}
+#proj h2{font-size:clamp(2rem,5vw,3.6rem);color:#ffb35c}
+#proj .pg{font-size:clamp(1.3rem,3vw,2.2rem);line-height:1.45}
+#proj .pg ol,#proj .pg ul{margin:0;padding-left:1.2em}
+#proj .pclock{font:700 clamp(3rem,9vw,7rem)/1 ui-monospace,Menlo,Consolas,monospace}
+#proj .pclock.end{color:#ff7a6b}
+#proj .pf{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+#proj .btn{background:transparent;color:#fff7ea;border-color:rgba(255,255,255,.3);font-size:1.1rem}
+#proj .btn.pri{background:var(--accent);border-color:var(--accent)}
+.flash{animation:fl 1s ease 3}
+@keyframes fl{50%{background:#5a1d1d}}
+@media (max-width:1100px){
+  .arm{grid-template-columns:150px minmax(0,1fr)}
+  .cuad{grid-column:1/-1;position:static;max-height:none}
+  .sess-grid{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr}
+  .day{grid-template-columns:1fr;gap:6px}
+  .arm{grid-template-columns:1fr}
+  .rail{position:static;flex-direction:row;overflow-x:auto}
+  .rail button{flex:0 0 auto}
+  .rail .cut{border-top:0;border-left:2px dashed var(--line);padding:4px 6px;margin:0;white-space:nowrap}
+  nav.tabs{margin-left:0}
+}
+@media print{
+  header.top,.view:not(#v-arm),.arm-top,.banner,.rail,.step,#proj{display:none!important}
+  body{background:#fff;color:#000}
+  .arm{display:block}
+  .cuad{position:static;max-height:none;box-shadow:none;border:0;background-image:none}
+  .strip{break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <b>Panteón de versos · Sesiones de octubre</b>
+      <span>Biblioteca · Escuela Primaria «Molino de Rosas» · C.C.T. 09DPR1858N · Promotoría de Lectura · Ciclo 2026-2027</span>
+    </div>
+    <nav class="tabs" aria-label="Secciones">
+      <button data-act="nav" data-v="agenda">Agenda</button>
+      <button data-act="nav" data-v="sess">Sesión</button>
+      <button data-act="nav" data-v="arm">Armador</button>
+      <button data-act="nav" data-v="guia">Guía</button>
+    </nav>
+  </div>
+  <div class="picado"></div>
+</header>
+
+<main class="wrap">
+  <section id="v-agenda" class="view"></section>
+  <section id="v-sess" class="view"></section>
+  <section id="v-arm" class="view"></section>
+  <section id="v-guia" class="view"></section>
+</main>
+
+<div id="proj" role="dialog" aria-modal="true" aria-label="Modo proyección"></div>
+
+<script>
+/* =====================================================================
+   1. DATOS · tomados de las hojas imprimibles por grado (2.° a 6.° A).
+   Cada tarjeta final lleva tras «|» la pista que trae la hoja:
+   2.° símbolo · 3.° símbolo y terminación · 4.° terminación · 5.° nada · 6.° sílabas.
+   ===================================================================== */
+const L = s => s.split(';').map(x => x.trim()).filter(Boolean);
+const S = (a, b, ca, cb, ini, fin, extra) => Object.assign({ a, b, ca, cb, ini: L(ini), fin: L(fin) }, extra || {});
+const A = (a, b, moldes, fin) => ({ a, b, ca: 'algo', cb: 'cierre', algo: true, ini: L(moldes), fin: L(fin) });
+
+const TIRAS = [
+  'Y colorín colorado, este cuento se ha acabado.',
+  'Y aquí termina la historia de esta calaca sin memoria.',
+  'Pon un pan en el altar y la Calaca vendrá a cenar.',
+  'Que viva el Día de Muertos con los ojos bien abiertos.',
+  'Si la Muerte vuelve a pasar, ¡que se quede a merendar!',
+  'Y con esta me despido: ¡la Calaca se ha dormido!'
+];
+
+const G = {
+  2: {
+    name: '2.° A', N: 4, pairs: [[1, 2], [3, 4]], hint: 'sym', pista: true, stars: [2, 4], cut: null, quart: false, abcd: false,
+    firma: 'Mis iniciales y 2.° A', lab: ['✂ Clase · mar 27'],
+    sets: {
+      orig: { titles: L('¡Ya llegó la Calaca!;La Calaca y mi familia;Una visita de huesos;La Calaca glotona;+La Dientona en mi casa;+¡Ahí viene la Huesuda!'), steps: [
+      S('¿Quién llega?', '¿Por quién?', 'quien', 'porquien',
+        'La Calaca llegó por;La Flaca llegó por;La Pelona llegó por;La Catrina llegó por;+La Huesuda llegó por;+La Calavera llegó por;+La Tilica llegó por;+La Dientona llegó por;+La Copetona llegó por;+La Chimuela llegó por',
+        'mi mamá|☀;mi papá|☀;mi abuelita|☾;mi abuelito|✦;mi hermana|♥;mi hermano|◆;mi tía|♪;mi tío|⚑;el gato|♣;el ratón|★;mi mascota|●;mi vecina|✿;+mi abuela|■;+mi gatito|✦'),
+      S('¿Qué hacía?', 'Rima', 'hacia', 'rima',
+        'que estaba comiendo;que jugaba con;que dormía con;que bailaba con;que se escondió con;que cantaba con;que se reía con;que platicaba con;+que estaba regando;+que veía la tele con',
+        'el sofá|☀;su papá|☀;una galletita|☾;su pelotita|☾;un pajarito|✦;un perrito|✦;una manzana|♥;la campana|♥;un gusano|◆;el piano|◆;una sandía|♪;la lotería|♪;el río|⚑;su primo Darío|⚑;un pato|♣;un zapato|♣;un balón|★;un camión|★;la pelota|●;una bota|●;la cocina|✿;una gallina|✿;una estrellita|☾;un burrito|✦;+la cazuela|■;+una vela|■'),
+      A('✎ Algo propio', '¿Cómo cierra?',
+        'Le gusta|,|bailar en la cocina/contar chistes/jugar futbol;Siempre|,|me abraza fuerte/canta en la regadera/llega con pan;Me enseñó a|,|andar en bici/hacer tortillas/atarme las agujetas;+Su comida favorita es|,|los tamales/el pozole/las quesadillas;+Cuando se ríe|,|cierra los ojos/suena como trompeta/le tiembla la panza',
+        '¡qué emoción!|★;todo el día|♪;sin parar|✚;con su sombrero|▲;con mucho amor|♦;en la cocina|✿;a cada rato|♣;con su pelota|●;+en el balcón|★;+cada día|♪'),
+      S('¿Cómo termina?', 'Rima', 'final', 'rima',
+        'y se fue bailando con;y se llevó por error;y se quedó a jugar con;y se fue de fiesta con;+y se fue cantando con;+y se fue en bicicleta con;+y se puso a bailar con;+y salió corriendo con',
+        'el ratón|★;un dragón|★;su tía|♪;la alegría|♪;el mar|✚;el altar|✚;el panadero|▲;el bombero|▲;el tambor|♦;el doctor|♦;la gallina|✿;la Catrina|✿;un zapato|♣;el plato|♣;una bota|●;la gota|●;+un balón|★')
+    ] },
+      ninos: { titles: L('¡Ya llegó la Calaca!;¡Qué onda, Calaca!;Una visita súper chida;La Calaca bien glotona;+La Dientona en mi casa;+¡Ahí viene la Huesuda!'), steps: [
+      S('¿Quién llega?', '¿Por quién?', 'quien', 'porquien',
+        'La Calaca llegó por;¡Ups! La Flaca llegó por;La Pelona chida va por;La Catrina fresa va por;+La Huesuda llegó por;+La Calavera llegó por;+La Tilica llegó por;+La Dientona llegó por;+La Copetona llegó por;+La Chimuela llegó por',
+        'mi mamá|☀;mi papá|☀;mi abuelita|☾;mi abuelito|✦;mi hermana|♥;mi hermano|◆;mi tía|♪;mi tío|⚑;el gato|♣;el ratón|★;mi mascota|●;mi bestie Cristina|✿;+mi vecina|✿;+mi abuela|■;+mi gatito|✦'),
+      S('¿Qué hacía?', 'Rima', 'hacia', 'rima',
+        'que estaba comiendo;que jugaba Roblox con;que dormía bien chill con;que bailaba chido con;que echaba relajo con;que cantaba rap con;que se reía con;que veía caricaturas con;+que estaba regando;+que veía la tele con;+que platicaba con',
+        'el sofá|☀;la tablet de papá|☀;una galletita|☾;su pelotita|☾;un pajarito|✦;un perrito|✦;una manzana|♥;la campana|♥;un gusano|◆;el piano|◆;una sandía|♪;la lotería|♪;el río|⚑;su primo Darío|⚑;un pato|♣;un zapato|♣;un balón|★;un súper camión|★;la pelota|●;una bota|●;la cocina|✿;una gallina|✿;una estrellita|☾;un Pokémon chiquito|✦;+la cazuela|■;+una vela|■'),
+      A('✎ Algo propio', '¿Cómo cierra?',
+        'Le gusta|,|bailar en la cocina/contar chistes/jugar futbol;Neta, siempre|,|me abraza fuerte/canta en la regadera/llega con pan;Me enseñó, bien chido, a|,|andar en bici/hacer tortillas/atarme las agujetas;+Su comida favorita es|,|los tamales/el pozole/las quesadillas;+Cuando se ríe|,|cierra los ojos/suena como trompeta/le tiembla la panza',
+        '¡qué emoción!|★;¡súper, todo el día!|♪;bien chido, sin parar|✚;con gorro vaquero|▲;con mucho amor|♦;chido en la cocina|✿;¡ups!, a cada rato|♣;con su pelota|●;+a cada rato|♣;+en el balcón|★;+cada día|♪'),
+      S('¿Cómo termina?', 'Rima', 'final', 'rima',
+        'y se fue bailando con;¡ups!, se llevó por error;y se quedó a chillear con;y se fue al reventón con;+y se fue cantando con;+y se fue en bicicleta con;+y se puso a bailar con;+y salió corriendo con',
+        'el ratón|★;un dragón bien cañón|★;su tía|♪;la alegría|♪;su celular|✚;el altar|✚;el panadero|▲;el bombero|▲;el tambor|♦;el doctor|♦;la gallina|✿;la Catrina|✿;un zapato|♣;el plato|♣;una bota|●;la gota|●;+un balón|★')
+    ], exs: [
+        { t: '¡Ya llegó la Calaca!', v: [['La Calaca llegó por', 'mi abuelita'], ['que estaba comiendo', 'una galletita'], ['Le gusta', 'contar cuentos', '¡qué emoción!'], ['y se fue bailando con', 'el ratón']] },
+        { t: 'La Dientona en mi casa', v: [['La Dientona llegó por', 'mi abuela'], ['que estaba comiendo', 'la cazuela'], ['Su comida favorita es', 'los tamales', 'cada día'], ['y se fue al reventón con', 'su tía']] },
+        { t: '¡Ahí viene la Huesuda!', v: [['La Huesuda llegó por', 'mi gatito'], ['que dormía bien chill con', 'un pajarito'], ['Cuando se ríe', 'le tiembla la panza', 'en el balcón'], ['y se fue bailando con', 'un dragón bien cañón']] }
+      ] }
+    },
+    exs: [
+      { t: '¡Ya llegó la Calaca!', v: [['La Calaca llegó por', 'mi abuelita'], ['que estaba comiendo', 'una galletita'], ['Le gusta', 'contar cuentos', '¡qué emoción!'], ['y se fue bailando con', 'el ratón']] },
+      { t: 'La Dientona en mi casa', v: [['La Dientona llegó por', 'mi abuela'], ['que estaba comiendo', 'la cazuela'], ['Su comida favorita es', 'los tamales', 'cada día'], ['y se fue de fiesta con', 'su tía']] },
+      { t: '¡Ahí viene la Huesuda!', v: [['La Huesuda llegó por', 'mi gatito'], ['que dormía con', 'un pajarito'], ['Cuando se ríe', 'le tiembla la panza', 'en el balcón'], ['y se fue bailando con', 'un dragón']] }
+    ],
+    check: ['¿Pegué los 4 versos en orden?', '¿Cada pareja tiene el mismo símbolo?', '¿Escribí mi Algo propio?', '¿Da risa sin burlarse?', '¿Puse mis iniciales y 2.° A?'],
+    dua: 'Mismos colores que en primero. Imagen o símbolo en cada tarjeta, letra grande y lectura en voz alta del maestro. El molde ✎ admite escritura o dictado. Con una tarjeta rosa en blanco, el maestro ayuda a buscar la rima.',
+    rule: 'Busca el <b>mismo símbolo</b> (★ ☾ ♥…) en los dos versos de cada pareja.'
+  },
+  3: {
+    name: '3.° A', N: 6, pairs: [[1, 2], [3, 4], [5, 6]], hint: 'symend', pista: true, stars: [2, 4, 6], cut: 5, quart: false, abcd: false,
+    firma: 'Mis iniciales y 3.° A', lab: ['✂ Clase 1 · jue 22', '✂ Clase 2 · jue 29'],
+    titles: L('Una visita de miedo;La Calaca en mi casa;¡Toc, toc! Es la Calaca;Calaverita para mi familia;La Calaca despistada;+La Copetona en el barrio;+La Dientona y la cazuela'),
+    steps: [
+      S('¿Quién llega?', '¿Por quién?', 'quien', 'porquien',
+        'La Flaca llegó a la casa de;La Pelona tocó la puerta de;La Catrina fue a buscar a;La Calaca se metió al cuarto de;La Huesuda visitó a;La Calavera fue por;+La Tilica se asomó a la casa de;+La Dientona tocó la ventana de;+La Copetona fue a visitar a;+La Chimuela le cantó a;+La Parca fue a saludar a;+La Flaquita fue a despertar a',
+        'mi mamá|☀ -a;mi papá|☀ -a;mi abuelita|☾ -ita;mi abuelito|✦ -ito;mi hermana|♥ -ana;mi hermano|◆ -ano;mi tía|♪ -ia;mi tío|⚑ -io;mi amigo|✧ -igo;mi mascota|● -ota;+mi vecina|✿ -ina;+mi abuela|■ -ela;+mi gatito|✦ -ito;+el panadero|▲ -ero;+el despertador|♦ -or'),
+      S('¿Qué hacía?', 'Rima', 'hacia', 'rima',
+        'que estaba tocando;que jugaba con;que se comía;que dormía abrazando;que platicaba con;que se escondió detrás de;que soñaba con;que bailaba con;+que estaba regando;+que se reía con;+que veía la tele con;+que barría con',
+        'el sofá|☀ -a;su papá|☀ -a;una galletita|☾ -ita;una estrellita|☾ -ita;un pajarito|✦ -ito;un burrito|✦ -ito;una manzana|♥ -ana;la ventana|♥ -ana;el piano|◆ -ano;un gusano|◆ -ano;una sandía|♪ -ia;la lotería|♪ -ia;el río|⚑ -io;su primo Darío|⚑ -io;un higo|✧ -igo;su abrigo|✧ -igo;la pelota|● -ota;una bota|● -ota;+la cocina|✿ -ina;+una gallina|✿ -ina;+la cazuela|■ -ela;+una vela|■ -ela;+su sombrero|▲ -ero;+el dinero|▲ -ero;+el tambor|♦ -or;+el tractor|♦ -or'),
+      A('✎ Algo propio', '¿Cómo cierra?',
+        'Le encanta|,|cantar rancheras/armar rompecabezas/hacer pasteles;Siempre|,|se come mis papas/llega tarde/me cuenta cuentos;Nunca deja de|,|silbar/hablar por teléfono/regar sus plantas;Me enseñó a|,|nadar/hacer la tarea/cuidar a mi perro;+Todos saben que|,|ronca muy fuerte/baila muy chistoso/le encantan los dulces;+Se pone feliz cuando|,|gana su equipo/come elote/llueve',
+        '¡qué emoción!|★ -on;todo el día|♪ -ia;sin parar|✚ -ar;con su sombrero|▲ -ero;con mucho amor|♦ -or;en la cocina|✿ -ina;a cada rato|♣ -ato;con mucha canela|■ -ela;+con su pelota|● -ota;+en el balcón|★ -on;+cada día|♪ -ia'),
+      S('¿Qué le pasó?', 'Rima', 'paso', 'rima',
+        'pero la Calaca se tropezó con;pero se asustó con;pero se distrajo con;pero se resbaló en;pero se quedó dormida en;+pero la Tilica se atoró en;+pero la Pelona se enredó con;+pero la Huesuda se sentó en;+pero la Catrina se espantó con',
+        'un ratón|★ -on;el colchón|★ -on;su melodía|♪ -ia;la sandía|♪ -ia;el mar|✚ -ar;el altar|✚ -ar;un agujero|▲ -ero;el ropero|▲ -ero;el ventilador|♦ -or;la gallina|✿ -ina;una golosina|✿ -ina;un zapato|♣ -ato;el plato|♣ -ato;una vela|■ -ela;la cazuela|■ -ela;+una bota|● -ota;+la gota|● -ota;+el elevador|♦ -or;+el sillón|★ -on'),
+      S('¿Y luego?', 'Rima', 'final', 'rima',
+        'y del susto salió corriendo hasta;y muy enojada se fue a;y sin pensarlo se metió a;y de puntitas se fue a;+y bailando se fue a;+y en bicicleta se fue a;+y cantando se fue a',
+        'la cocina|✿ -ina;la piscina|✿ -ina;la escuela|■ -ela;la abuela|■ -ela;el gallinero|▲ -ero;el basurero|▲ -ero;la ventana|♥ -ana;la campana|♥ -ana;el panteón|★ -on;el salón|★ -on;la panadería|♪ -ia;la juguetería|♪ -ia;+la tortillería|♪ -ia;+el comedor|♦ -or;+el elevador|♦ -or'),
+      S('¿Cómo termina?', 'Rima', 'final', 'rima',
+        'y se quedó a vivir en;y se hizo amiga de;y ahora baila en;y prometió volver a;+y se fue a bailar a;+y se quedó dormida en;+y se llevó de recuerdo',
+        'la esquina|✿ -ina;la gallina|✿ -ina;la escuela|■ -ela;la cazuela|■ -ela;el sombrero|▲ -ero;el agujero|▲ -ero;la ventana|♥ -ana;la campana|♥ -ana;el panteón|★ -on;el salón|★ -on;la panadería|♪ -ia;la juguetería|♪ -ia;+la dulcería|♪ -ia;+el tambor|♦ -or;+el tractor|♦ -or')
+    ],
+    exs: [
+      { t: 'Una visita de miedo', v: [['La Huesuda visitó a', 'mi hermano'], ['que estaba tocando', 'el piano'], ['Siempre', 'se come mis papas', 'todo el día'], ['pero se asustó con', 'su melodía'], ['y del susto salió corriendo hasta', 'la cocina'], ['y se hizo amiga de', 'la gallina']] },
+      { t: 'La Dientona y la cazuela', v: [['La Dientona tocó la ventana de', 'mi abuela'], ['que se comía', 'la cazuela'], ['Siempre', 'llega con pan', 'a cada rato'], ['pero se asustó con', 'un zapato'], ['y en bicicleta se fue a', 'la tortillería'], ['y ahora baila en', 'la dulcería']] },
+      { t: 'La Copetona en el barrio', v: [['La Copetona fue a visitar a', 'mi vecina'], ['que bailaba con', 'una gallina'], ['Todos saben que', 'ronca muy fuerte', 'en el balcón'], ['pero se resbaló en', 'el colchón'], ['y cantando se fue a', 'el comedor'], ['y ahora baila en', 'el tractor']] }
+    ],
+    check: ['¿Tiene 6 versos en tres pareados?', '¿Coinciden símbolo y terminación en cada pareja?', '¿Usé «al» o «del» si quedó «a el» o «de el»?', '¿Escribí mi Algo propio?', '¿Da risa sin burlarse?'],
+    dua: 'Las tarjetitas «al» y «del» se pegan encima de «a el» y «de el»: un apoyo de gramática sin corregir con rojo. El símbolo sigue siendo la pista principal y la terminación escrita prepara la lectura de cuarto.',
+    rule: 'Busca el <b>mismo símbolo y la misma terminación</b> (★ -ón) en cada pareja.'
+  },
+  4: {
+    name: '4.° A', N: 8, pairs: [[1, 2], [3, 4], [5, 6], [7, 8]], hint: 'end', pista: true, stars: [2, 4, 6, 8], cut: 7, quart: false, abcd: false,
+    firma: 'Mi seudónimo y 4.° A', lab: ['✂ Clase · mié 28', '✂ Lectura · vie 30'],
+    titles: L('La calaverita de mi familia;El día que llegó la Muerte;Una visita muy despistada;La Muerte y mi casa;+La Chimuela en la cocina;+La Descarnada despistada'),
+    steps: [
+      S('Aquí yace…', '¿Por quién?', 'titulo', 'porquien',
+        'Aquí yace;Aquí descansa;Aquí quedó;Bajo esta tumba está;+En este panteón está;+Aquí reposa;+Cuentan que aquí duerme',
+        'mi mamá|-a;mi papá|-a;mi abuelita|-ita;mi abuelito|-ito;mi tía|-ia;mi tío|-io;mi hermano|-ano;mi hermana|-ana;mi amigo|-igo;mi amiga|-iga;mi mascota|-ota;el despertador|-or;la mochila|-ila;el recreo|-eo;el dragón|-on;el panadero|-ero;+mi vecina|-ina;+mi abuela|-ela;+la doctora|-ora'),
+      S('¿Qué hacía?', 'Rima', 'hacia', 'rima',
+        'que se pasaba el día en;que roncaba más fuerte que;que jugaba futbol con;que cantaba en;que se comía;que soñaba con;que nunca soltaba;que hacía la tarea con;+que vendía tamales en;+que bailaba cumbia con;+que se escondía en',
+        'el sofá|-a;su papá|-a;una galletita|-ita;la cajita|-ita;un pajarito|-ito;un mosquito|-ito;la sandía|-ia;la lotería|-ia;el río|-io;un lío|-io;el piano|-ano;un gusano|-ano;la ventana|-ana;una manzana|-ana;un higo|-igo;su abrigo|-igo;una hormiga|-iga;su barriga|-iga;la pelota|-ota;la gota|-ota;el tractor|-or;el tambor|-or;la fila|-ila;una pila|-ila;el paseo|-eo;el museo|-eo;el balón|-on;un ratón|-on;el sombrero|-ero;el dinero|-ero;≈ el camino|≈ suena parecido;≈ la casa|≈ suena parecido;≈ el perro|≈ suena parecido;+la cocina|-ina;+una gallina|-ina;+la cazuela|-ela;+una vela|-ela;+la licuadora|-ora;+la aspiradora|-ora'),
+      A('✎ Algo propio', '¿Cómo cierra?',
+        'Le encantaba|,|contar chistes/bailar danzón/comer chicharrón;Nunca dejaba de|,|cantar en la ducha/regar sus plantas/hablar con su perico;Todos sabían que|,|roncaba como tractor/hacía el mejor mole/coleccionaba tazas;Siempre decía: «|»,|¡No corras!/¡Ya merito!/¡Ay, qué caray!;+Era famoso por|,|sus tamales/su risa/sus bigotes;+Su lugar favorito era|,|el mercado/la azotea/el parque',
+        'a cada rato|-ato;de corazón|-on;sin parar|-ar;con mucho sabor|-or;¡qué alegría!|-ia;con su sombrero|-ero;en la cocina|-ina;como un elote|-ote;¡qué barbaridad!|-ad;+a toda hora|-ora;+en el balcón|-on'),
+      S('¿Qué más hacía?', 'Rima', 'remate', 'rima',
+        'y por eso siempre traía;y hasta se ponía al revés;y le gustaba bailar con;y le cantaba a;+y llevaba en la bolsa;+y le daba de comer a;+y hasta bailaba con',
+        'el zapato|-ato;un gato|-ato;un plato|-ato;el ratón|-on;un camión|-on;el mar|-ar;el altar|-ar;el doctor|-or;el comedor|-or;su tía|-ia;la policía|-ia;el bombero|-ero;el cartero|-ero;la gallina|-ina;su vecina|-ina;el papalote|-ote;su bigote|-ote;la ciudad|-ad;la Navidad|-ad;+la señora|-ora;+una cantimplora|-ora;+un salero|-ero;+un collar|-ar'),
+      S('¿Quién llega?', '¿Cuál Muerte?', 'quien', 'quien',
+        'Una noche llegó;Muy de prisa llegó;Sin avisar llegó;Por la ventana entró;+Muy tarde llegó;+Bailando llegó;+Cantando llegó;+Con su rebozo llegó',
+        'la Calaca|-aca;la Flaca|-aca;la Pelona|-ona;la Huesuda|-uda;la Catrina|-ina;la Calavera|-era;la Parca|-arca;la Muerte|-erte;+la Dientona|-ona;+la Copetona|-ona;+la Chimuela|-ela;+la Descarnada|-ada;+la Garbancera|-era;+la Flaquita|-ita'),
+      S('¿Qué le pasó?', 'Rima', 'paso', 'rima',
+        'pero se quedó muy;pero resultó ser muy;pero se tropezó con;pero se enredó con;pero se cayó en;+pero se sentó en;+pero se escondió en;+pero se volvió muy',
+        'la hamaca|-aca;la vaca|-aca;la matraca|-aca;la butaca|-aca;dormilona|-ona;comelona|-ona;la corona|-ona;gritona|-ona;peluda|-uda;barbuda|-uda;la gallina|-ina;una golosina|-ina;la cortina|-ina;la escalera|-era;la regadera|-era;la bandera|-era;la barca|-arca;la charca|-arca;fuerte|-erte;la suerte|-erte;+mandona|-ona;+la cazuela|-ela;+la escuela|-ela;+despistada|-ada;+la almohada|-ada;+la limonada|-ada;+la cafetera|-era;+muy chiquita|-ita;+la sillita|-ita'),
+      S('¿Y luego?', 'Rima', 'final', 'rima',
+        'y en vez de llevárselo se puso a;y de pronto empezó a;y muerta de risa se puso a;+y en lugar de asustar se puso a;+y con su sombrero se puso a;+y toda la noche se puso a',
+        'bailar|-ar;cantar|-ar;jugar|-ar;roncar|-ar;comer|-er;leer|-er;correr|-er;reír|-ir;dormir|-ir;aplaudir|-ir;+brincar|-ar;+saltar|-ar;+escribir|-ir'),
+      S('¿Cómo termina?', 'Rima', 'final', 'rima',
+        'y se fue feliz a;y prometió volver a;y regresó contenta a;y se quedó con ganas de;+y nunca dejó de;+y aprendió a;+y se fue de nuevo a',
+        'cenar|-ar;descansar|-ar;festejar|-ar;beber|-er;barrer|-er;aprender|-er;vivir|-ir;salir|-ir;sonreír|-ir;+platicar|-ar;+merendar|-ar;+volver|-er;+compartir|-ir')
+    ],
+    exs: [
+      { t: 'El día que llegó la Muerte', v: [['Aquí yace', 'mi tío'], ['que se pasaba el día en', 'el río'], ['Le encantaba', 'contar chistes', 'a cada rato'], ['y hasta se ponía al revés', 'el zapato'], ['Una noche llegó', 'la Pelona'], ['pero resultó ser muy', 'dormilona'], ['y de pronto empezó a', 'bailar'], ['y prometió volver a', 'cenar']] },
+      { t: 'La Chimuela en la cocina', v: [['Aquí descansa', 'mi abuela'], ['que hacía la tarea con', 'una vela'], ['Era famoso por', 'sus tamales', 'a toda hora'], ['y le daba de comer a', 'la señora'], ['Con su rebozo llegó', 'la Chimuela'], ['pero se escondió en', 'la cazuela'], ['y toda la noche se puso a', 'brincar'], ['y se quedó con ganas de', 'merendar']] },
+      { t: 'La Descarnada despistada', v: [['Bajo esta tumba está', 'la doctora'], ['que se comía', 'la licuadora'], ['Siempre decía: «', '¡Ya merito!', 'sin parar'], ['y por eso siempre traía', 'un collar'], ['Bailando llegó', 'la Descarnada'], ['pero se volvió muy', 'despistada'], ['y en lugar de asustar se puso a', 'saltar'], ['y prometió volver a', 'platicar']] }
+    ],
+    check: ['¿Tiene 8 versos en cuatro pareados?', '¿Cada pareja termina igual, o suena parecido (≈)?', '¿El verso 5 termina con el nombre de la Muerte?', '¿Tiene Algo propio y un final sorpresa?', '¿Humor con cariño?', '¿Firmé con mi seudónimo?'],
+    dua: 'Se conserva la estructura de la hoja anterior de 4.° A, sin la carga de redactar los versos. Las tarjetas de acción (bailar, comer, reír) muestran la idea de «cosa» y «acción» sin explicar gramática.',
+    rule: 'Busca la <b>misma terminación</b> (-ío, -ona…). Las tarjetas ≈ «suenan parecido»: también se valen.'
+  },
+  5: {
+    name: '5.° A', N: 8, pairs: [[1, 2], [3, 4], [5, 6], [7, 8]], hint: 'none', pista: false, stars: [4, 8], cut: 7, quart: true, abcd: false,
+    firma: 'Mi seudónimo y 5.° A', lab: ['✂ Clase · mié 28', '✂ Lectura · vie 30'],
+    sets: {
+      orig: { titles: L('La visita inesperada;—¡Ya te toca!—;La Muerte se quedó a cenar;Calaverita con diálogo;—¡Toc, toc, soy yo!—;La Pelona en la panadería;+La Chimuela pide posada;+—¡Ha llegado el día!—'), steps: [
+      S('Aquí yace…', '¿Por quién?', 'titulo', 'porquien',
+        'Aquí descansa;Aquí yace;En este panteón está;Cuentan que aquí duerme;+Aquí reposa;+Bajo esta tumba está;+Dicen que aquí ronca',
+        'mi abuelita;mi abuelito;mi mamá;mi papá;mi tía;mi tío;mi hermana;mi hermano;mi mejor amiga;mi mejor amigo;mi mascota;el panadero;la doctora;el cartero;el bombero;la cocinera;el despertador;mi vecina;mi abuela;el carpintero;+la tortillera;+el doctor'),
+      S('¿Qué hacía?', 'Rima', 'hacia', 'rima',
+        'que horneaba pan con;que se pasaba el día en;que roncaba más fuerte que;que cantaba boleros con;que vendía tamales en;que siempre traía;que bailaba cumbia con;que se escondía en;que regaba sus flores con;que barría la calle con;que vendía elotes en;que platicaba horas con',
+        'una galletita;la cajita;un pajarito;un perrito;el sofá;su papá;la sandía;la panadería;el río;un lío;la ventana;la campana;el piano;el verano;una hormiga;su barriga;su abrigo;un higo;la pelota;la gota;su sombrero;el ropero;la licuadora;la aspiradora;el tractor;el tambor;la escalera;la regadera;≈ la casa;≈ el perro;≈ el camino;la cocina;una gallina;la cazuela;una vela'),
+      A('✎ Algo propio', '¿Cómo cierra?',
+        'Le encantaba|,|cantar boleros/jugar dominó/hacer chistes malos;Era famoso por|,|su mole/su silbido/sus bigotes;Nunca dejaba de|,|leer el periódico/bailar cumbia/regar sus plantas;Siempre decía: «|»,|¡Ahorita vengo!/¡Échale ganas!/¡No hay que rendirse!;Su mayor secreto era|,|que bailaba a escondidas/que le daban miedo los ratones/que no sabía silbar;Cada domingo|,|hacía tamales/iba al tianguis/visitaba a su familia',
+        'a cada rato;de corazón;sin parar;con mucho sabor;¡qué alegría!;con su sombrero;a toda hora;¡qué barbaridad!;como un elote;+en el balcón;+cada día;+a todo vapor;+sin tardar;+como un papalote'),
+      S('¿Qué más hacía?', 'Rima', 'remate', 'rima',
+        'y hasta le daba pan a;y por eso siempre traía;y le cantaba a;y llevaba en la bolsa;+y bailaba danzón con;+y hasta platicaba con;+y le regalaba flores a',
+        'un gato;el zapato;un ratón;un camión;el mar;un collar;el doctor;un tambor;su tía;una sandía;el bombero;un salero;la señora;una cantimplora;la ciudad;la Navidad;su bigote;un elote;un melón;el pastor;+la policía'),
+      S('¿Qué dice la Muerte?', '¿Cuál Muerte?', 'dialogo', 'quien',
+        '—¡Ya llegó tu hora!— dijo;—¡Vámonos, ya es tarde!— gritó;—¡Te vengo a buscar!— cantó;—¡Sorpresa!— susurró;—¡Ándale, ya vámonos!— dijo;—¡Toc, toc, soy yo!— dijo;+—¡Ha llegado el día!— gritó;+—¡Se acabó el recreo!— cantó',
+        'la Calaca;la Flaca;la Pelona;la Huesuda;la Catrina;la Calavera;la Parca;la Muerte;la Dientona;la Copetona;+la Chimuela;+la Descarnada;+la Garbancera;+la Flaquita'),
+      S('¿Qué le pasó?', 'Rima', 'paso', 'rima',
+        'pero se quedó muy;pero resultó ser muy;pero se resbaló en;pero se enredó con;pero se distrajo con;pero se sentó en;pero se volvió muy;pero se asustó con',
+        'la hamaca;la matraca;la butaca;dormilona;comelona;la lona;la corona;peluda;barbuda;la cortina;una golosina;la piscina;la escalera;la regadera;la charca;la barca;fuerte;la suerte;la vaca;la alpaca;mandona;gritona;una dona;orejuda;la cocina;la gelatina;la tina;la cafetera;la carretera;la pecera;+la cazuela;+la escuela;+despistada;+la almohada;+la limonada;+muy chiquita;+la sillita'),
+      S('¿Qué contesta?', 'Rima', 'dialogo', 'rima',
+        '—¡Mejor quédate a;—¡Espérate tantito, vamos a;—¡Primero ayúdame a;—¡Ni lo pienses, ponte a;+—¡Mejor siéntate a;+—¡Ven conmigo a;+—¡Ni modo, ayúdame a',
+        'cenar!—;bailar!—;jugar!—;comer!—;barrer!—;leer!—;dormir!—;reír!—;+platicar!—;+merendar!—;+correr!—;+escribir!—'),
+      S('¿Cómo termina?', 'Rima', 'final', 'rima',
+        'y la Muerte se quedó a;y al final se puso a;y hasta la fecha no deja de;y prometió volver a;+y la Muerte aprendió a;+y desde entonces no para de;+y se quedó toda la noche a',
+        'cantar;festejar;descansar;aprender;beber;correr;aplaudir;sonreír;vivir;+bailar;+jugar;+comer;+escribir')
+    ] },
+      ninos: { titles: L('¡No manches, la Calaca!;—¡Ya te toca, bro!—;La Muerte se quedó a cenar;Calaverita en modo diálogo;La Pelona más chida del barrio;Una visita bien random;+La Chimuela pide posada;+—¡Ha llegado el día!—'), steps: [
+      S('Aquí yace…', '¿Por quién?', 'titulo', 'porquien',
+        'Aquí descansa;Aquí yace, la neta,;Aquí, bien chill, está;Cuentan que aquí duerme;+Aquí reposa;+Bajo esta tumba está;+Dicen que aquí ronca',
+        'mi abuelita;mi abuelito;mi mamá;mi papá;mi tía;mi tío;mi hermana;mi hermano;mi mejor amiga;mi mejor amigo;mi mascota;el panadero;la doctora;mi bestie Susana;mi bro Mariano;la cocinera;el despertador;mi vecina;mi abuela;el carpintero;+la tortillera;+el doctor'),
+      S('¿Qué hacía?', 'Rima', 'hacia', 'rima',
+        'que horneaba pan con;que se pasaba el día en;que roncaba más cañón que;que cantaba boleros con;que vendía tamales en;que siempre traía;que bailaba cumbia, bien random, con;que se escondía, neta, en;que hacía TikToks con;que jugaba videojuegos con;que vendía elotes en;que se echaba la siesta en;+que regaba sus flores con;+que barría la calle con',
+        'una galletita;la cajita;un Pokémon chiquito;un perrito;el sofá;su papá;la sandía;la batería;el río;un lío;la ventana;la campana;el piano;la playlist del verano;una hormiga;su barriga;su abrigo;un higo;la pelota;la gota;su sombrero;su gorro rapero;la licuadora;la aspiradora;el tractor;el tambor;la escalera;la regadera;≈ la casa;≈ el perro;≈ el camino;la cocina;una gallina;la cazuela;una vela'),
+      A('✎ Algo propio', '¿Cómo cierra?',
+        'Le encantaba|,|cantar boleros/jugar dominó/hacer chistes malos;Era bien famoso por|,|su mole/su silbido/sus bigotes;Neta, nunca dejaba de|,|leer el periódico/bailar cumbia/regar sus plantas;Siempre decía: «|»,|¡Ahorita vengo!/¡Échale ganas!/¡No hay que rendirse!;Su mayor secreto era|,|que bailaba a escondidas/que le daban miedo los ratones/que no sabía silbar;Cada domingo, bien chill,|,|hacía tamales/iba al tianguis/visitaba a su familia;+Cada domingo|,|hacía tamales/iba al tianguis/visitaba a su familia',
+        'a cada rato;de corazón;¡qué chido, sin parar!;con flow y sabor;¡neta, qué alegría!;con su sombrero;a toda hora;¡bro, qué barbaridad!;como un elote;+en el balcón;+cada día;+a todo vapor;+sin tardar;+como un papalote'),
+      S('¿Qué más hacía?', 'Rima', 'remate', 'rima',
+        'y hasta le daba pan a;y por eso siempre traía;y le hacía un TikTok a;y llevaba en la mochila;+y bailaba danzón con;+y hasta platicaba con;+y le regalaba flores a',
+        'un gato;el zapato;un ratón;un campeón;el mar;su celular;un youtuber de humor;un tambor;su tía;una sandía;el bombero;un salero;la señora;una cantimplora;toda la comunidad;la Navidad;su bigote;el emoji del elote;un melón;el pastor;+la policía'),
+      S('¿Qué dice la Muerte?', '¿Cuál Muerte?', 'dialogo', 'quien',
+        '—¡Ya llegó tu hora!— dijo;—¡Vámonos, bro, ya es tarde!— gritó;—¡Te vengo a buscar, neta!— cantó;—¡Sorpresa, no manches!— susurró;—¡Ándale, ya vámonos!— dijo;—¡Aguas, que ahí voy!— dijo;+—¡Ha llegado el día!— gritó;+—¡Se acabó el recreo!— cantó;+—¡Toc, toc, soy yo!— dijo',
+        'la Calaca;la Flaca;la Pelona;la Huesuda;la Catrina;la Calavera;la Parca;la Muerte;la Dientona;la Copetona;+la Chimuela;+la Descarnada;+la Garbancera;+la Flaquita'),
+      S('¿Qué le pasó?', 'Rima', 'paso', 'rima',
+        'pero, neta, se quedó muy;pero resultó ser bien;pero se resbaló en;pero se enredó con;pero se distrajo con;pero se quedó bugueada en;pero se volvió bien;pero, qué oso, se asustó con;+pero se sentó en;+pero se volvió muy;+pero se asustó con',
+        'la hamaca;la matraca;la butaca;dormilona;comelona;chillona;la corona;peluda;greñuda;la cortina;una golosina;la piscina;la escalera;la regadera;la charca;la barca;fuerte;la suerte;la vaca;la alpaca;mandona;gritona;una dona;orejuda;la cocina;la gelatina;la tina;la cafetera;la carretera;la pecera;+la cazuela;+la escuela;+despistada;+la almohada;+la limonada;+muy chiquita;+la sillita'),
+      S('¿Qué contesta?', 'Rima', 'dialogo', 'rima',
+        '—¡Mejor quédate a;—¡Espérate tantito, bro, vamos a;—¡Neta, primero ayúdame a;—¡Ni lo pienses, ponte a;+—¡Mejor siéntate a;+—¡Ven conmigo a;+—¡Ni modo, ayúdame a',
+        'cenar!—;bailar!—;jugar!—;comer!—;barrer!—;leer!—;dormir!—;reír!—;chismear!—;chillear!—;+platicar!—;+merendar!—;+correr!—;+escribir!—'),
+      S('¿Cómo termina?', 'Rima', 'final', 'rima',
+        'y la Muerte se quedó a;y al final se puso a;y hasta la fecha, neta, no deja de;y prometió volver, bien chill, a;+y la Muerte aprendió a;+y desde entonces no para de;+y se quedó toda la noche a',
+        'cantar;festejar;descansar;aprender;beber;correr;aplaudir;sonreír;vivir;bailar;+jugar;+comer;+escribir')
+    ], exs: [
+        { t: 'La Muerte se quedó a cenar', v: [['Aquí descansa', 'el panadero'], ['que horneaba pan con', 'su sombrero'], ['Le encantaba', 'cantar boleros', 'de corazón'], ['y hasta le daba pan a', 'un ratón'], ['—¡Ya llegó tu hora!— dijo', 'la Parca'], ['pero se resbaló en', 'la charca'], ['—¡Mejor quédate a', 'cenar!—'], ['y al final se puso a', 'cantar']] },
+        { t: 'La Chimuela pide posada', v: [['Aquí reposa', 'mi abuela'], ['que vendía tamales en', 'la cazuela'], ['Cada domingo, bien chill,', 'iba al tianguis', 'sin tardar'], ['y llevaba en la mochila', 'su celular'], ['—¡Toc, toc, soy yo!— dijo', 'la Chimuela'], ['pero se sentó en', 'la escuela'], ['—¡Ven conmigo a', 'merendar!—'], ['y desde entonces no para de', 'bailar']] },
+        { t: '—¡Ha llegado el día!—', v: [['Dicen que aquí ronca', 'el carpintero'], ['que bailaba cumbia, bien random, con', 'su sombrero'], ['Su mayor secreto era', 'que bailaba a escondidas', 'en el balcón'], ['y bailaba danzón con', 'un melón'], ['—¡Ha llegado el día!— gritó', 'la Descarnada'], ['pero se volvió bien', 'despistada'], ['—¡Mejor siéntate a', 'platicar!—'], ['y la Muerte aprendió a', 'festejar']] }
+      ] }
+    },
+    exs: [
+      { t: 'La Muerte se quedó a cenar', v: [['Aquí descansa', 'el panadero'], ['que horneaba pan con', 'su sombrero'], ['Le encantaba', 'cantar boleros', 'de corazón'], ['y hasta le daba pan a', 'un ratón'], ['—¡Ya llegó tu hora!— dijo', 'la Parca'], ['pero se resbaló en', 'la charca'], ['—¡Mejor quédate a', 'cenar!—'], ['y al final se puso a', 'cantar']] },
+      { t: 'La Chimuela pide posada', v: [['Aquí reposa', 'mi abuela'], ['que vendía tamales en', 'la cazuela'], ['Cada domingo', 'iba al tianguis', 'sin tardar'], ['y llevaba en la bolsa', 'un collar'], ['—¡Toc, toc, soy yo!— dijo', 'la Chimuela'], ['pero se sentó en', 'la escuela'], ['—¡Ven conmigo a', 'merendar!—'], ['y desde entonces no para de', 'bailar']] },
+      { t: '—¡Ha llegado el día!—', v: [['Dicen que aquí ronca', 'el carpintero'], ['que bailaba cumbia con', 'su sombrero'], ['Su mayor secreto era', 'que bailaba a escondidas', 'en el balcón'], ['y bailaba danzón con', 'un melón'], ['—¡Ha llegado el día!— gritó', 'la Descarnada'], ['pero se volvió muy', 'despistada'], ['—¡Mejor siéntate a', 'platicar!—'], ['y la Muerte aprendió a', 'festejar']] }
+    ],
+    check: ['¿Tiene dos cuartetas de 4 versos?', '¿Las rayas del diálogo abren y cierran bien?', '¿Cada pareja rima igual o suena parecido?', '¿Tiene Algo propio y un final sorpresa?', '¿Humor con cariño, sin burlarse de nadie?', '¿Firmé con mi seudónimo?'],
+    dua: 'Actividad previa de 10 minutos para clasificar las rimas por su sonido. Quien lo necesite conserva la hoja de familias de cuarto como apoyo. El diálogo se lee en voz alta a dos voces con la pareja.',
+    rule: 'Las tarjetas ya no traen pistas: <b>lee los dos versos en voz alta</b> y escucha si terminan igual o parecido.'
+  },
+  6: {
+    name: '6.° A', N: 8, pairs: [[1, 3], [2, 4], [5, 7], [6, 8]], hint: 'syl', pista: false, stars: [4, 8], cut: 5, quart: true, abcd: true,
+    firma: 'Mi seudónimo y 6.° A', lab: ['✂ Clase 1 · jue 22', '✂ Clase 2 · jue 29'],
+    titles: L('Epitafio con pan de muerto;La Muerte en la biblioteca;Rima cruzada para mi familia;La visita más famosa;+La Tilica en el jardín;+La Copetona del callejón'),
+    steps: [
+      S('Aquí yace…', '¿Por quién?', 'titulo', 'porquien',
+        'Aquí descansa|5;Aquí yace|4;En esta tumba reposa|8;Bajo estas flores está|7;+Aquí reposa|5;+Cuentan que aquí duerme|6;+En este panteón está|7',
+        'mi abuelita|4;mi abuelito|4;mi mamá|3;mi papá|3;mi tía|3;mi tío|3;mi hermana|3;mi hermano|3;mi mejor amigo|6;mi mascota|4;el panadero|5;la doctora|4;el bombero|4;el bibliotecario|6;+mi vecina|4;+la cocinera|5;+mi mejor amiga|6;+el carpintero|5'),
+      S('¿Qué hacía?', 'Rima', 'hacia', 'rima',
+        'que hacía pan de|5;que leía de noche junto a|9;que se pasaba la vida en|8;que cantaba rancheras en|8;que coleccionaba|6;que se quedaba dormido en|8;+que vendía tamales en|8;+que bailaba danzón en|7;+que roncaba como|6',
+        'canela|3;la escuela|3;una vela|4;la cazuela|4;el panteón|4;un camión|3;el colchón|3;un dragón|3;un elote|4;un papalote|5;un camote|4;el tambor|3;el comedor|4;la cocina|4;una golosina|6;una paleta|5;la maleta|4;una bicicleta|6;+la ventana|3;+una cajita|4;+el balcón|3'),
+      A('✎ Algo propio', '¿Cómo cierra?',
+        'Siempre|,|silbaba/llegaba con pan/leía el periódico;Le encantaba|,|el futbol/cantar ópera/coser vestidos;Era famoso por|,|su mole/sus bromas/sus bigotes;Todos sabían que|,|odiaba el brócoli/bailaba bonito/era valiente;+Jamás olvidaba|,|su sombrero/un buen chiste/regar las plantas;+Cada domingo|,|hacía tamales/iba al mercado/arreglaba la bici',
+        'con su risita|5;muy bonita|4;muy tempranito|5;con su gorrito|5;de aquí para allá|5;hasta el sofá|4;todo el día|4;con alegría|5;aunque hiciera frío|6;junto al río|4;cada mañana|5;toda la semana|6;en el verano|5;de la mano|4;conmigo|3;con su abrigo|4;con una pelota|6;nota por nota|5;con su sombrero|5;con su dinero|5;a toda hora|4;con su licuadora|6;a diario|3;con su diccionario|6;+en la cocina|5;+a su manera|5;+con una hormiga|6;+con su perrito|5'),
+      S('¡Exagera!', 'Rima', 'figura', 'rima',
+        'y era más famoso que|7;y comía más que|6;y roncaba como|6;y era tan veloz como|7;y sabía más que|6;+y bailaba más que|6;+y era más fuerte que|6;+y gritaba como|6',
+        'la escuela|3;una abuela|4;la cazuela|4;el panteón|4;un camión|3;un dragón|3;un elote|4;un camote|4;un papalote|5;un tambor|3;el comedor|4;un tractor|3;la cocina|4;una gallina|5;una maleta|5;una bicicleta|6;+una manzana|4;+una galletita|6;+una trompeta|5;+la vitrina|4'),
+      S('¿Quién llega?', 'Rima', 'quien', 'rima',
+        'La Parca llegó al|5;La Catrina entró al|5;La Pelona se coló en el|8;La Calaca apareció en el|8;+La Huesuda llegó al|6;+La Tilica entró al|5;+La Chimuela se coló en el|8;+La Copetona entró al|6;+La Dientona apareció en el|8',
+        'mercado|3;salón|2;comedor|3;panteón|3;+jardín|2;+callejón|3;+elevador|4'),
+      S('¿Qué le pasó?', 'Rima', 'paso', 'rima',
+        'con hambre de|4;buscando a|3;pero se perdió en|5;y se asustó con|5;+soñando con|4;+bailando con|4;+con ganas de|4',
+        'un elote|4;un papalote|5;una vela|4;la cazuela|4;una galletita|6;su abuelita|4;la cocina|4;una golosina|6;una paleta|5;una bicicleta|6;+una manzana|5;+la panadería|5'),
+      S('¡Exagera!', 'Rima', 'figura', 'rima',
+        'y comió hasta quedar|6;y bailó hasta quedar|6;y se rió hasta quedar|6;y lloró hasta quedar|6;+y cantó hasta quedar|6;+y brincó hasta quedar|6;+y corrió hasta quedar|6',
+        'inflado|3;mareado|4;agotado|4;panzón|2;dormilón|3;chillón|2;sin color|3;de mal humor|4;+chiquitín|3;+bailarín|3;+cansado|3;+asustado|4;+empachado|4;+comelón|3;+de buen humor|4'),
+      S('¿Cómo termina?', 'Rima', 'final', 'rima',
+        'y se fue volando en|6;y se llevó de recuerdo|8;y regresó a su tumba en|7;y ahora vive dentro de|8;+y se escondió debajo de|8;+y se quedó a vivir en|7',
+        'un papalote|5;un camote|4;una vela|4;la escuela|3;una cajita|5;una botellita|6;la cocina|4;la vitrina|4;una maleta|5;una bicicleta|6;+la ventana|4;+la dulcería|5')
+    ],
+    exs: [
+      { t: 'Epitafio con pan de muerto', v: [['Aquí descansa', 'el panadero'], ['que hacía pan de', 'canela'], ['Siempre', 'silbaba', 'con su sombrero'], ['y era más famoso que', 'la escuela'], ['La Parca llegó al', 'mercado'], ['con hambre de', 'un elote'], ['y comió hasta quedar', 'inflado'], ['y se fue volando en', 'un papalote']] },
+      { t: 'La Tilica en el jardín', v: [['Aquí yace', 'mi vecina'], ['que se pasaba la vida en', 'la ventana'], ['Siempre', 'cantaba', 'en la cocina'], ['y comía más que', 'una manzana'], ['La Tilica entró al', 'jardín'], ['bailando con', 'un elote'], ['y bailó hasta quedar', 'chiquitín'], ['y se fue volando en', 'un papalote']] },
+      { t: 'La Copetona del callejón', v: [['Aquí descansa', 'la cocinera'], ['que bailaba danzón en', 'el balcón'], ['Siempre', 'cosía', 'a su manera'], ['y era más fuerte que', 'un camión'], ['La Copetona entró al', 'callejón'], ['soñando con', 'una galletita'], ['y corrió hasta quedar', 'comelón'], ['y se fue volando en', 'una cajita']] }
+    ],
+    check: ['¿Riman el 1 con el 3 y el 2 con el 4 (y el 5 con el 7, el 6 con el 8)?', '¿Cada verso tiene entre 7 y 11 sílabas?', '¿Usé una exageración o comparación?', '¿Tiene Algo propio y un final sorpresa?', '¿Humor con cariño, sin burlarse de nadie?', '¿Firmé con mi seudónimo?'],
+    dua: 'Hoja de margen con las letras A, B, C y D para quien se pierda en la rima cruzada. Si el reto es excesivo, se permite armar la cuarteta como pareados (AABB): el número de sílabas y la figura siguen siendo el reto.',
+    rule: 'Rima <b>cruzada</b>: el 1 con el 3 y el 2 con el 4. <b>Suma las sílabas</b> de las dos tarjetas: entre 7 y 11.'
+  }
+};
+
+/* 2.° A y 5.° A tienen dos juegos de tarjetas, iguales a sus dos PDF de recortables:
+   «orig» = Alumno_<grado>_Calaverita_armada_con_tarjetas_extra.pdf · «ninos» = Alumno_<grado>_Calaverita_armada_palabras_de_los_ninos.pdf */
+const VARS = { orig: 'Hoja original', ninos: 'Palabras de los niños' };
+const VAR_GRADES = Object.keys(G).map(Number).filter(g => G[g].sets);
+VAR_GRADES.forEach(g => { G[g].sets.orig.exs = G[g].exs; });
+function applyVar(g, v) { const x = G[g].sets[v] ? v : 'orig'; Object.assign(G[g], G[g].sets[x]); return x; }
+const varHTML = g => `<div class="row" role="group" aria-label="Versión de las tarjetas de ${G[g].name}">${Object.entries(VARS).map(([k, t]) => `<button class="btn sm ${ui.vars[g] === k ? 'pri' : ''}" data-act="var" data-g="${g}" data-v="${k}" aria-pressed="${ui.vars[g] === k}">${t}</button>`).join('')}</div>`;
+
+/* Los nombres de la Muerte: glosario para leer y comentar con el grupo. */
+const NOMBRES = [
+  ['la Calaca', 'calavera, esqueleto; el nombre más usado en las calaveritas'],
+  ['la Flaca · la Flaquita · la Tilica', 'porque no tiene carne: está «tilica y flaca»'],
+  ['la Pelona', 'porque no tiene pelo'],
+  ['la Huesuda · la Descarnada', 'puros huesos, sin carne'],
+  ['la Dientona · la Chimuela', 'sonríe con todos los dientes… o le faltan algunos'],
+  ['la Copetona', 'presumida, con copete o sombrero elegante'],
+  ['la Catrina · la Garbancera', 'la calavera elegante que grabó José Guadalupe Posada; él la llamó «Calavera Garbancera» y después se le conoció como Catrina'],
+  ['la Parca', 'viene de las Parcas, que en los mitos romanos tejían y cortaban el hilo de la vida'],
+  ['la Calavera · la Muerte', 'los nombres más directos']
+];
+
+const CAT = {
+  titulo: ['Título · Arranque', 'gris'], quien: ['¿Quién llega? · Nombre de la Muerte', 'lila'], porquien: ['¿Por quién? / ¿A quién?', 'rosa'],
+  hacia: ['¿Qué hacía?', 'amarillo'], remate: ['Remate', 'durazno'], algo: ['✎ Algo propio (se escribe)', 'blanco'],
+  cierre: ['Cierre de Algo propio', 'verde claro'], paso: ['¿Qué le pasó a la Muerte?', 'azul'], final: ['¿Y luego? · Final', 'naranja'],
+  rima: ['Rima', 'verde'], dialogo: ['Diálogo (5.°)', 'turquesa'], figura: ['Figura: exageración o comparación (6.°)', 'coral']
+};
+
+/* =====================================================================
+   2. SESIONES · fechas tomadas de cada hoja (✂ Clase / ✂ Lectura) y de
+   la indicación «el Algo propio que pensaste el vie 23» (2.°, 4.° y 5.°).
+   ===================================================================== */
+const SESS = [
+  { id: 'g3c1', g: 3, date: '2026-10-22', kind: 'clase1', label: 'Clase 1', min: 50, from: 1, to: 4,
+    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Hojas 2 y 3 · Recortables de la Clase 1: 1 juego por alumno', 'Hoja 5 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras'] },
+  { id: 'g6c1', g: 6, date: '2026-10-22', kind: 'clase1', label: 'Clase 1', min: 50, from: 1, to: 4,
+    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Hojas 2 y 3 · Recortables de la Clase 1: 1 juego por alumno', 'Hoja 5 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras', 'Hoja de margen con letras A, B, C y D (apoyo DUA, opcional)'] },
+  { id: 'g2p', g: 2, date: '2026-10-23', kind: 'prep', label: 'Lectura · Pienso mi Algo propio', min: 20, from: 0, to: 0, next: 'mar 27',
+    print: ['Sin recortables. Opcional: proyectar la hoja 1 para mostrar dónde irá la tarjeta blanca ✎'] },
+  { id: 'g4p', g: 4, date: '2026-10-23', kind: 'prep', label: 'Lectura · Pienso mi Algo propio', min: 20, from: 0, to: 0, next: 'mié 28',
+    print: ['Sin recortables. Opcional: proyectar la hoja 1 para mostrar dónde irá la tarjeta blanca ✎'] },
+  { id: 'g5p', g: 5, date: '2026-10-23', kind: 'prep', label: 'Lectura · Pienso mi Algo propio', min: 20, from: 0, to: 0, next: 'mié 28',
+    print: ['Sin recortables. Opcional: proyectar la hoja 1 para mostrar dónde irá la tarjeta blanca ✎'] },
+  { id: 'g2c', g: 2, date: '2026-10-27', kind: 'unica', label: 'Clase', min: 50, from: 1, to: 4,
+    print: ['Elige la versión impresa: «con tarjetas extra» (lenguaje original) o «palabras de los niños»; el botón de la sesión y del armador muestra la misma', 'Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Hojas 2 y 3 · Recortables: 1 juego por alumno', 'Hoja 4 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras'] },
+  { id: 'g4c', g: 4, date: '2026-10-28', kind: 'unica', label: 'Clase', min: 50, from: 1, to: 6,
+    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Hojas 2, 3 y 4 · Recortables de la clase: 1 juego por alumno', 'Hoja 6 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras'] },
+  { id: 'g5c', g: 5, date: '2026-10-28', kind: 'unica5', label: 'Clase', min: 50, from: 1, to: 6,
+    print: ['Hoja 1 · «Así organizo mi cuaderno» (no se recorta): 1 por alumno', 'Elige la versión impresa: «con tarjetas extra» (lenguaje original) o «palabras de los niños»; el botón de la sesión y del armador muestra la misma', 'Hojas 2, 3 y 4 · Recortables de la clase: 1 juego por alumno', 'Hoja 6 · Tiras de reto: 1 por cada 12 alumnos, cortada en tiras', 'Colores o marcatextos por equipo (para clasificar rimas sin recortar)'] },
+  { id: 'g3c2', g: 3, date: '2026-10-29', kind: 'clase2', label: 'Clase 2', min: 50, from: 5, to: 6,
+    print: ['Hoja 4 · Recortables de la Clase 2: 1 por alumno', 'Tiras de reto que hayan sobrado de la Clase 1 (hoja 5)'] },
+  { id: 'g6c2', g: 6, date: '2026-10-29', kind: 'clase2', label: 'Clase 2', min: 50, from: 5, to: 8,
+    print: ['Hoja 4 · Recortables de la Clase 2: 1 por alumno', 'Tiras de reto que hayan sobrado de la Clase 1 (hoja 5)', 'Hoja de margen A, B, C, D (quien la usó en la Clase 1)'] },
+  { id: 'g4l', g: 4, date: '2026-10-30', kind: 'lectura', label: 'Lectura', min: 20, from: 7, to: 8,
+    print: ['Hoja 5 · Recortables de la lectura: 1 por alumno', 'Tiras de reto que hayan sobrado (hoja 6)'] },
+  { id: 'g5l', g: 5, date: '2026-10-30', kind: 'lectura', label: 'Lectura', min: 20, from: 7, to: 8,
+    print: ['Usa la misma versión impresa que en la clase del mié 28', 'Hoja 5 · Recortables de la lectura: 1 por alumno', 'Tiras de reto que hayan sobrado (hoja 6)'] }
+];
+
+/* =====================================================================
+   3. MOMENTOS DE CADA SESIÓN · secuencia de 50 min del documento base,
+   ajustada a cada tipo de sesión (clase 1, clase 2, clase única, lectura de 20 min).
+   ===================================================================== */
+const moldeHTML = g => '<ul>' + G[g].steps[2].ini.map(raw => { const m = molde(raw); return `<li>${esc(m.show)}${m.ideas.length ? `<small class="ideas">Por ejemplo: ${esc(m.ideas.join(' · '))}… o lo que solo tú sabes</small>` : ''}</li>`; }).join('') + '</ul>';
+const checkHTML = g => '<ul>' + G[g].check.map(c => '<li>' + esc(c) + '</li>').join('') + '</ul>';
+const LEGEND_X = '<p class="legend-x"><b>＋</b> Tarjeta extra de este archivo: no viene en la hoja impresa. Úsala en pantalla o escríbela en una tarjeta en blanco.</p>';
+const RULE4 = '<ol><li>Elige una tarjeta</li><li>Léela en voz alta</li><li>Recorta solo esa</li><li>Pégala en tu cuaderno</li></ol>';
+
+function moments(s) {
+  const g = s.g, D = G[g], rng = s.from ? `pasos ${s.from}–${s.to}` : '';
+  const M = {
+    escuchar: (t, part) => ({
+      t, title: 'Escuchar', key: 'escuchar',
+      teacher: [
+        part ? 'Lee en voz alta la parte de las calaveritas modelo que se trabaja hoy (lo ya hecho aparece tenue, como recordatorio).' : 'Lee en voz alta las 3 calaveritas modelo del grado; cada una llama a la Muerte de forma distinta. El botón carga cualquiera en el armador para proyectarla.',
+        '¿Cómo le dicen a la Muerte en cada calaverita? ¿Por qué creen que le dicen así? (la Guía trae el significado de cada nombre).',
+        'Pregunta «¿Qué la hace chistosa?» y guía la respuesta: la Muerte se tropieza, se asusta o se queda a bailar.',
+        'Deja dicha la regla del grupo: da risa sin burlarse de nadie.'
+      ],
+      group: () => exampleHTML(g, part ? s.from : 1),
+      why: 'Escuchar el modelo antes de producir instala el patrón sonoro de la rima y el ritmo, y hace visible el criterio de éxito antes de empezar: el niño sabe hacia dónde va antes de tomar las tijeras.',
+      act: G[g].exs.map((e, i) => [`Cargar «${e.t}» en el armador`, 'example', i])
+    }),
+    destinatario: t => ({
+      t, title: 'Elegir destinatario y Algo propio', key: 'dest',
+      teacher: [
+        'Cada niño decide a quién dedica su calaverita: alguien de su familia, una mascota, un objeto o un oficio.',
+        'No se dedican a compañeros del grupo, salvo en pareja y con acuerdo de ambos.',
+        'Piensan su Algo propio con los moldes ✎ del grado y lo comentan en pareja.'
+      ],
+      group: () => `<p><b>¿A quién dedico mi calaverita?</b><br>¿Qué sé de esa persona que nadie más sabe?</p>${moldeHTML(g)}`,
+      why: 'Algo propio es la única parte que se escribe. Pensarlo primero en voz alta con la pareja baja la carga de escritura y lo vuelve un acto de memoria afectiva, no de ortografía.'
+    }),
+    recordar: (t, day) => ({
+      t, title: 'Recordar mi Algo propio', key: 'rec',
+      teacher: [
+        `Cada niño le dice a su pareja el Algo propio que pensó el ${day}.`,
+        'Quien faltó o no lo recuerda lo piensa ahora con los moldes ✎ (puede dictarlo).',
+        'Recuerda que en esta clase el Algo propio se escribe en la tarjeta blanca del paso 3.'
+      ],
+      group: () => `<p><b>Le digo a mi pareja mi Algo propio.</b></p>${moldeHTML(g)}`,
+      why: 'Recuperar la idea en voz alta antes de escribirla aprovecha el efecto de práctica de recuperación: lo que se evoca se consolida mejor que lo que solo se relee.'
+    }),
+    clasificar: t => ({
+      t, title: 'Clasificar las rimas', key: 'clas',
+      teacher: [
+        'Equipos de 4. Sin recortar: en la hoja de recortables encierran con el mismo color las tarjetas verdes de Rima que suenan igual al final.',
+        'Leen en voz alta cada tarjeta antes de decidir la familia.',
+        'Quien lo necesite usa la hoja de familias de 4.° como apoyo; también puedes proyectar el armador con «Pistas» encendidas.'
+      ],
+      group: () => '<p><b>Leemos en voz alta y juntamos las que suenan igual al final.</b></p><p>sombrero · ropero · bombero → ¡misma familia!</p><p>Sin recortar: marcamos con el mismo color.</p>',
+      why: 'En 5.° las tarjetas ya no traen pistas: la rima se reconoce de oído. Clasificar antes convierte la discriminación auditiva en una tarea explícita y compartida. Marcar con color en lugar de recortar respeta la regla «sin piezas sueltas».'
+    }),
+    armar: t => ({
+      t, title: 'Recortar y armar', key: 'armar',
+      teacher: [
+        `Hoy toca: ${rng}. Cada niño ubica en su hoja 1 dónde va cada tarjeta.`,
+        'Regla: 1 elige · 2 lee en voz alta · 3 recorta solo esa · 4 pégala en el cuaderno.',
+        D.rule.replace(/<[^>]+>/g, ''),
+        g >= 3 ? 'Si queda «a el» o «de el», se pega encima la tarjetita gris «al» o «del».' : 'Si alguien se atora, una tarjeta rosa en blanco y tu ayuda para buscar el símbolo.',
+        'La ★ de la hoja marca dónde ya hay una calaverita completa: quien va más lento puede parar ahí sin quedar «incompleto».',
+        'Quien termine antes recibe una tira de reto (pareado de remate).'
+      ],
+      group: () => `${RULE4}<p style="margin-top:.6em">${D.rule}</p><p><b>Hoy:</b> ${rng}</p>`,
+      why: 'Armar con tarjetas separa dos cargas: decidir qué contar y producir la forma (rima, ortografía, trazo). Al liberar la memoria de trabajo de la forma, el niño puede atender al sentido y a la sonoridad; la escritura se concentra en Algo propio, donde más vale.',
+      act: [[`Abrir armador en ${rng}`, 'armador']]
+    }),
+    revisar: (t, partial) => ({
+      t, title: 'Revisar en pareja', key: 'rev',
+      teacher: [
+        'Cada quien lee su calaverita a su pareja, en voz alta.',
+        partial ? 'Recorren la lista «Reviso con mi pareja» solo en lo que ya aplica a los versos pegados hoy.' : 'Recorren la lista «Reviso con mi pareja» completa.',
+        'La pregunta «¿da risa sin burlarse?» es obligatoria en todos los grados.',
+        'Marcan en su hoja de recortables «Me quedé en el paso».'
+      ],
+      group: () => checkHTML(g),
+      why: 'La revisión entre pares con criterios explícitos es metacognición en acción: el niño compara su texto con un estándar compartido, no con la aprobación del maestro, y aprende a sostener ese juicio.'
+    }),
+    compartir: (t, final) => ({
+      t, title: final ? 'Compartir y firmar' : 'Compartir', key: 'comp',
+      teacher: [
+        'Lectura voluntaria en voz alta: nadie lee obligado.',
+        final ? `Firman con ${g <= 3 ? 'sus iniciales' : 'su seudónimo'} y grupo. Las calaveritas terminadas pueden pasar al Panteón de versos de la biblioteca o a la ofrenda escolar.` : 'Las calaveritas pueden pasar al Panteón de versos de la biblioteca o a la ofrenda escolar cuando estén completas.',
+        'Recoge las tarjetas que hayan quedado sueltas antes de salir.'
+      ],
+      group: () => '<p><b>¿Quién quiere leer su calaverita?</b></p><p>Escuchamos con respeto. Humor con cariño.</p>',
+      why: 'Leer para una audiencia real da sentido social a la escritura; la voluntariedad protege a quien todavía no se siente seguro, sin quitarle el modelo de sus compañeros.'
+    }),
+    releer: (t, extra) => ({
+      t, title: 'Releer lo que ya pegué', key: 'rel',
+      teacher: ['En pareja, cada quien lee en voz alta lo que pegó en la sesión anterior.'].concat(extra || []),
+      group: () => '<p><b>Leo en voz alta lo que ya pegué en mi cuaderno.</b></p><p>¿De quién trata mi calaverita? ¿Qué le va a pasar a la Muerte?</p>',
+      why: 'Retomar con lectura en voz alta reactiva el texto propio en la memoria de trabajo antes de continuarlo; sin este paso, la segunda parte suele escribirse desconectada de la primera.'
+    }),
+    pensar: t => ({
+      t, title: 'Pensar mi Algo propio', key: 'pens',
+      teacher: [
+        'Muestra los moldes ✎ del grado (en pantalla).',
+        'En pareja: uno pregunta «¿Qué hace siempre? ¿Qué le encanta? ¿Qué frase dice?» y el otro contesta; luego cambian.',
+        `Lo importante hoy es la idea, no escribirla: el ${s.next} la escriben en la tarjeta blanca del paso 3.`
+      ],
+      group: () => `<p><b>¿Qué sé de mi persona que nadie más sabe?</b></p>${moldeHTML(g)}`,
+      why: 'Separar el momento de generar la idea del momento de escribirla reduce la carga cognitiva y da tiempo de incubación: el día de la clase el niño llega con algo que decir.'
+    }),
+    guardar: t => ({
+      t, title: 'Guardar la idea', key: 'guard',
+      teacher: [
+        'Cada niño dice su Algo propio en una frase completa, usando un molde.',
+        'Quien quiera lo anota con lápiz en la última hoja del cuaderno; quien lo necesite lo dicta y tú lo registras en una lista del grupo.',
+        'Puente con familias (opcional): pedir en casa una anécdota de la persona elegida, para enriquecer el Algo propio.'
+      ],
+      group: () => '<p><b>Digo mi Algo propio en una frase.</b></p><p>«Le encantaba cantar boleros…»</p>',
+      why: 'Decir la idea completa la fija en la memoria. La anécdota pedida en casa conecta la escritura escolar con la memoria familiar: la escuela abre el tema y la familia aporta el contenido que solo ella tiene.'
+    })
+  };
+  switch (s.kind) {
+    case 'clase1': return [M.escuchar(5), M.destinatario(5), M.armar(20), M.revisar(10, true), M.compartir(10)];
+    case 'unica': return [M.escuchar(5), M.recordar(5, 'vie 23'), M.armar(20), M.revisar(10, g === 4), M.compartir(10, g === 2)];
+    case 'unica5': return [M.clasificar(10), M.escuchar(5), M.armar(20), M.revisar(10, true), M.compartir(5)];
+    case 'clase2': return [M.releer(5, g === 6 ? ['Señalan al margen las letras A y B de la cuarteta 1: hoy toca C y D (5 con 7, 6 con 8).'] : ['Cuentan a su pareja qué le pasó a la Muerte hasta ahora.']), M.escuchar(5, true), M.armar(20), M.revisar(10), M.compartir(10, true)];
+    case 'lectura': return [M.releer(4, g === 5 ? ['Ensayan a dos voces el diálogo: uno es la Muerte y otro el personaje.'] : ['Leen en voz alta el verso 6: ¿qué le pasó a la Muerte?']), M.armar(10), M.revisar(4), M.compartir(2, true)];
+    case 'prep': return [M.escuchar(5), M.destinatario(5), M.pensar(7), M.guardar(3)];
+  }
+  return [];
+}
+
+/* =====================================================================
+   4. DETECTOR DE RIMA · núcleo silábico, sílaba tónica y comparación
+   consonante (igual desde la vocal tónica) o asonante (mismas vocales).
+   ===================================================================== */
+const VOW = 'aeiouáéíóúü', STRONG = 'aeoáéó', ACC = 'áéíóú';
+const deac = s => s.replace(/[áàä]/g, 'a').replace(/[éè]/g, 'e').replace(/[íì]/g, 'i').replace(/[óò]/g, 'o').replace(/[úùü]/g, 'u');
+function lastWord(t) {
+  const w = t.toLowerCase().replace(/[≈¡!¿?—«»,.;:"()]/g, ' ').trim().split(/\s+/);
+  return w[w.length - 1] || '';
+}
+function nuclei(w) {
+  const out = []; let prev = false;
+  for (let i = 0; i < w.length; i++) {
+    const c = w[i]; let isV = VOW.includes(c);
+    if (c === 'u' && i > 0 && (w[i - 1] === 'q' || (w[i - 1] === 'g' && 'eiéí'.includes(w[i + 1] || '')))) isV = false;
+    if (c === 'y' && i === w.length - 1 && i > 0 && VOW.includes(w[i - 1])) isV = true;
+    if (!isV) { prev = false; continue; }
+    if (prev) {
+      const p = w[i - 1];
+      const split = (STRONG.includes(p) && STRONG.includes(c)) || ('íú'.includes(c) && STRONG.includes(p)) || ('íú'.includes(p) && STRONG.includes(c));
+      if (!split) { out[out.length - 1].e = i; continue; }
+    }
+    out.push({ s: i, e: i }); prev = true;
+  }
+  return out;
+}
+function rhymeOf(text) {
+  const w = lastWord(text); const n = nuclei(w); if (!n.length) return null;
+  let k = n.findIndex(x => { for (let i = x.s; i <= x.e; i++) if (ACC.includes(w[i])) return true; return false; });
+  if (k < 0) k = ('aeiouns'.includes(w[w.length - 1]) && n.length > 1) ? n.length - 2 : n.length - 1;
+  const x = n[k]; let pos = -1;
+  for (let i = x.s; i <= x.e; i++) if (ACC.includes(w[i])) pos = i;
+  if (pos < 0) { for (let i = x.s; i <= x.e; i++) if (STRONG.includes(w[i])) pos = i; if (pos < 0) pos = x.e; }
+  const vs = [deac(w[pos])];
+  for (let j = k + 1; j < n.length; j++) {
+    const y = n[j]; let sp = -1;
+    for (let i = y.s; i <= y.e; i++) if (STRONG.includes(w[i])) sp = i;
+    vs.push(deac(w[sp < 0 ? y.e : sp]));
+  }
+  return { word: w, cons: deac(w.slice(pos)), aso: vs.join('-') };
+}
+function compareRhyme(a, b) {
+  const r1 = rhymeOf(a), r2 = rhymeOf(b); if (!r1 || !r2) return { kind: 'no' };
+  if (r1.word === r2.word) return { kind: 'same', r1, r2 };
+  if (r1.cons === r2.cons) return { kind: 'cons', r1, r2 };
+  if (r1.aso === r2.aso) return { kind: 'aso', r1, r2 };
+  return { kind: 'no', r1, r2 };
+}
+const sylCount = t => t.toLowerCase().replace(/[^a-záéíóúüñy\s]/g, ' ').split(/\s+/).filter(Boolean).reduce((a, w) => a + Math.max(1, nuclei(w).length), 0);
+
+/* =====================================================================
+   5. ESTADO · se guarda en este navegador (si el navegador lo permite).
+   ===================================================================== */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { } }
+};
+let doneS = store.get('pv-oct-done', {});
+const calas = {};
+const ckey = g => 'pv-oct-cala-' + g + (ui.vars[g] === 'ninos' ? '-ninos' : '');
+function cala(g) { const k = ckey(g); if (!calas[k]) calas[k] = store.get(k, null) || blank(); return calas[k]; }
+function blank() { return { title: null, v: {}, firma: '', reto: null, checks: {} }; }
+function saveCala(g) { store.set(ckey(g), calas[ckey(g)]); }
+const ui = { view: 'agenda', sess: null, mom: 0, g: 2, step: 't', range: null, pistas: {}, exi: {} };
+ui.vars = {}; VAR_GRADES.forEach(g => { ui.vars[g] = applyVar(g, store.get('pv-oct-var' + g, 'orig')); });
+function pistaOn(g) { return ui.pistas[g] !== undefined ? ui.pistas[g] : G[g].pista; }
+
+/* =====================================================================
+   6. UTILIDADES
+   ===================================================================== */
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+const card = raw => { const x = raw.startsWith('+'), r = x ? raw.slice(1) : raw, i = r.indexOf('|'); return i < 0 ? { t: r, h: '', x } : { t: r.slice(0, i), h: r.slice(i + 1), x }; };
+const molde = raw => { const x = raw.startsWith('+'), [pre, post, ideas] = (x ? raw.slice(1) : raw).split('|'); return { pre, post, ideas: ideas ? ideas.split('/') : [], x, show: pre + (pre.endsWith('«') ? '' : ' ') + '✎ ______' + post }; };
+const clean = t => t.replace(/^≈\s*/, '');
+const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+function dObj(iso) { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d); }
+function fmtDay(iso) { const d = dObj(iso); return DIAS[d.getDay()] + ' ' + d.getDate() + ' de ' + MESES[d.getMonth()]; }
+function todayISO() { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+const pairOf = (D, n) => { for (const p of D.pairs) { if (p[0] === n) return p[1]; if (p[1] === n) return p[0]; } return null; };
+const needsContr = (ini, fin) => /(^|\s)(a|de)$/.test(ini.trim()) && /^el\s/.test(fin.trim());
+function findCard(list, text) { return list.find(r => clean(card(r).t) === text || card(r).t === text) || null; }
+
+function verse(g, n) {
+  const D = G[g], st = cala(g), v = st.v[n] || {}, step = D.steps[n - 1];
+  if (step.algo) {
+    if (!v.m && !v.f && !v.txt) return null;
+    const { pre, post } = molde(v.m || '____|,'); const txt = (v.txt || '').trim();
+    const sp = pre.endsWith('«') ? '' : ' ';
+    const cierre = v.f ? card(v.f).t : '____';
+    const syl = (D.hint === 'syl' && v.m && txt && v.f) ? sylCount(pre + ' ' + txt) + (+card(v.f).h || 0) : null;
+    return { done: !!(v.m && txt && v.f), segs: [[pre + sp + (txt || '✎ ____') + post, 'algo'], [cierre, D.steps[n - 1].cb]], text: pre + sp + (txt || '____') + post + ' ' + cierre, rhyme: v.f ? card(v.f).t : null, syl };
+  }
+  if (!v.i && !v.f) return null;
+  let ini = v.i ? card(v.i).t : '____', fin = v.f ? clean(card(v.f).t) : '____';
+  const contr = !!(v.contr && v.i && v.f && needsContr(ini, fin));
+  if (contr) { ini = ini.replace(/(a|de)$/, m => m === 'a' ? 'al' : 'del'); fin = fin.replace(/^el\s+/, ''); }
+  const syl = (D.hint === 'syl' && v.i && v.f) ? (+card(v.i).h || 0) + (+card(v.f).h || 0) - (contr ? 1 : 0) : null;
+  return { done: !!(v.i && v.f), segs: [[ini, step.ca], [fin, step.cb]], text: ini + ' ' + fin, rhyme: v.f ? clean(card(v.f).t) : null, syl, contr };
+}
+function stepStatus(g, n) { const x = verse(g, n); return !x ? '' : (x.done ? 'full' : 'half'); }
+function reached(g) { let k = 0; for (let n = 1; n <= G[g].N; n++) { if (verse(g, n) && verse(g, n).done) k = n; else break; } return k; }
+function stepLab(D, n) { return D.cut && n >= D.cut ? D.lab[1] : D.lab[0]; }
+function letter(D, n) { return D.abcd ? ' · ' + 'ABABCDCD'[n - 1] : ''; }
+
+function exampleHTML(g, from) {
+  const D = G[g];
+  return '<div class="exs">' + D.exs.map(ex => {
+    const lines = ex.v.map((v, i) => {
+      const n = i + 1, t = v.length === 3 ? v[0] + (v[0].endsWith('«') ? '' : ' ') + v[1] + (v[0].endsWith('«') ? '»,' : ',') + ' ' + v[2] : v[0] + ' ' + v[1];
+      return `<p class="${n < from ? 'dim' : ''}">${n}${letter(D, n)} · ${esc(t)}</p>`;
+    }).join('');
+    return `<div class="ex"><p><b>«${esc(ex.t)}»</b></p>${lines}</div>`;
+  }).join('') + '</div>';
+}
+
+/* =====================================================================
+   7. VISTA · AGENDA
+   ===================================================================== */
+function sessCard(s) {
+  const D = G[s.g];
+  return `<article class="scard g${s.g} ${doneS[s.id] ? 'done' : ''}">
+    <div class="row"><span class="gchip">${D.name}</span><span class="muted" style="font-size:.85rem">${s.min} min</span>${doneS[s.id] ? '<span class="done-mark">✓ Realizada</span>' : ''}</div>
+    <h3>${esc(s.label)}</h3>
+    <div class="meta">${s.from ? `Pasos ${s.from}–${s.to} de ${D.N} · ${esc(stepLab(D, s.from))}` : `Preparación sin recortar · la clase es el ${esc(s.next)}`}</div>
+    <div class="row"><button class="btn pri sm" data-act="open-sess" data-id="${s.id}">Abrir sesión</button>
+    <button class="btn sm" data-act="toggle-done" data-id="${s.id}">${doneS[s.id] ? 'Desmarcar' : 'Marcar realizada'}</button></div>
+  </article>`;
+}
+function renderAgenda() {
+  const today = todayISO();
+  const days = [...new Set(SESS.map(s => s.date))].sort();
+  const todays = SESS.filter(s => s.date === today);
+  const upcoming = SESS.filter(s => s.date > today);
+  const nextDay = upcoming.length ? upcoming[0].date : null;
+  const focus = todays.length ? todays : (nextDay ? SESS.filter(s => s.date === nextDay) : []);
+  const total = SESS.length, hechas = SESS.filter(s => doneS[s.id]).length;
+  document.getElementById('v-agenda').innerHTML = `
+  <div class="hero">
+    <div class="card-box">
+      <h1>Calaveritas armadas · octubre</h1>
+      <p class="muted">Hoy es <b style="text-transform:capitalize">${fmtDay(today)}</b>. ${todays.length ? 'Estas sesiones son de hoy:' : nextDay ? 'Próxima fecha con sesiones: <b>' + fmtDay(nextDay) + '</b>.' : 'Ya no quedan sesiones programadas en octubre.'}</p>
+      <div class="today-list">${focus.map(sessCard).join('')}</div>
+    </div>
+    <div class="card-box">
+      <h2 style="font-size:1.2rem;margin-bottom:6px">Cómo usar este archivo</h2>
+      <ol style="margin:0;padding-left:20px">
+        <li><b>Agenda</b>: las ${total} sesiones en orden de fecha, de 2.° a 6.° A.</li>
+        <li><b>Sesión</b>: la secuencia minuto a minuto con temporizador, qué hace el maestro, qué ve el grupo y el porqué. El botón <b>Proyectar</b> lleva cada momento a pantalla completa.</li>
+        <li><b>Armador</b>: el rompecabezas del grado con las mismas tarjetas de las hojas; revisa la rima, las sílabas (6.°) y el «al/del».</li>
+        <li><b>Guía</b>: principios, progresión y cuidados de convivencia.</li>
+      </ol>
+      <p class="muted" style="margin-top:10px">Avance: <b>${hechas} de ${total}</b> sesiones marcadas como realizadas (se guarda en este navegador).</p>
+    </div>
+  </div>
+  <div class="timeline">${days.map(d => {
+    const cls = d < today ? 'past' : d === today ? 'today' : '';
+    return `<div class="day ${cls}"><div class="day-h"><b>${fmtDay(d).replace(' de octubre', '')}</b><small>octubre</small><br>${d === today ? '<span class="tag today">Hoy</span>' : d < today ? '<span class="tag past">Pasada</span>' : ''}</div>
+    <div class="day-s">${SESS.filter(s => s.date === d).map(sessCard).join('')}</div></div>`;
+  }).join('')}</div>`;
+}
+
+/* =====================================================================
+   8. VISTA · SESIÓN
+   ===================================================================== */
+function curSess() { return SESS.find(s => s.id === ui.sess); }
+function renderSess() {
+  const el = document.getElementById('v-sess'); const s = curSess();
+  if (!s) {
+    el.innerHTML = `<div class="card-box"><h2>Elige una sesión</h2><p class="muted">Abre una sesión desde la Agenda o aquí:</p><div class="day-s">${SESS.map(sessCard).join('')}</div></div>`;
+    return;
+  }
+  const D = G[s.g], ms = moments(s), m = ms[ui.mom];
+  const sum = ms.reduce((a, x) => a + x.t, 0);
+  el.innerHTML = `
+  <div class="card-box sess-head g${s.g}">
+    <div><div class="row"><span class="gchip">${D.name}</span><span class="pill" style="background:var(--surface2)">${s.min} min</span>${s.from ? `<span class="pill" style="background:var(--surface2)">${esc(stepLab(D, s.from))}</span>` : ''}</div>
+      <h1 style="margin-top:6px">${esc(s.label)} · <span style="text-transform:capitalize">${fmtDay(s.date)}</span></h1>
+      <p class="muted" style="margin:4px 0 0">${s.from ? `Pasos ${s.from} a ${s.to} de ${D.N} versos.` : `Preparación del Algo propio para la clase del ${esc(s.next)}.`} Secuencia: ${ms.length} momentos · ${sum} min.</p></div>
+    <div class="row"><button class="btn" data-act="sess-prev">◀ Sesión anterior</button><button class="btn" data-act="sess-next">Sesión siguiente ▶</button>
+    <button class="btn pri" data-act="proj-open">⛶ Proyectar</button></div>
+    ${G[s.g].sets ? `<div style="flex-basis:100%"><span class="muted" style="font-size:.85rem">Tarjetas de ${D.name}:</span> ${varHTML(s.g)}</div>` : ''}
+  </div>
+  <div class="sess-grid">
+    <div class="card-box mom g${s.g}">
+      <div class="mom-rail">${ms.map((x, i) => `<button data-act="mom" data-i="${i}" aria-current="${i === ui.mom}">${i + 1}. ${esc(x.title)}<small>${x.t} min</small></button>`).join('')}</div>
+      <h2>${ui.mom + 1}. ${esc(m.title)} <span class="muted" style="font-size:1rem;font-family:system-ui">· ${m.t} min</span></h2>
+      <div class="timer" style="margin-top:10px">
+        <span class="clock" data-clock>--:--</span>
+        <button class="btn sm pri" data-act="t-toggle" data-tbtn>▶ Iniciar</button>
+        <button class="btn sm" data-act="t-reset">↺ Reiniciar</button>
+        <div class="bar"><i data-bar></i></div>
+      </div>
+      <div class="box" style="background:transparent;padding:0"><h4>Qué hace el maestro</h4><ul>${m.teacher.map(x => '<li>' + esc(x) + '</li>').join('')}</ul></div>
+      ${m.act ? `<div class="row" style="margin-top:12px">${m.act.map(a => `<button class="btn" data-act="m-${a[1]}"${a[2] !== undefined ? ` data-i="${a[2]}"` : ''}>${esc(a[0])}</button>`).join('')}</div>` : ''}
+      <div class="box group"><h4>Lo que ve y escucha el grupo (también en Proyectar)</h4>${m.group()}</div>
+      <div class="box why"><h4>¿Por qué así?</h4>${esc(m.why)}</div>
+      <div class="nav2"><button class="btn" data-act="mom-prev" ${ui.mom === 0 ? 'disabled' : ''}>◀ Momento anterior</button>
+      ${ui.mom < ms.length - 1 ? '<button class="btn pri" data-act="mom-next">Siguiente momento ▶</button>' : `<button class="btn pri" data-act="toggle-done" data-id="${s.id}">${doneS[s.id] ? '✓ Sesión realizada' : 'Marcar sesión como realizada'}</button>`}</div>
+    </div>
+    <aside class="side">
+      <div class="card-box"><h3>Antes de empezar</h3>
+        ${s.print.map((p, i) => `<label class="chk"><input type="checkbox" data-act="prep" data-k="${s.id}-${i}" ${store.get('pv-oct-prep', {})[s.id + '-' + i] ? 'checked' : ''}><span>${esc(p)}</span></label>`).join('')}
+        <label class="chk"><input type="checkbox" data-act="prep" data-k="${s.id}-mat" ${store.get('pv-oct-prep', {})[s.id + '-mat'] ? 'checked' : ''}><span>Tijeras, pegamento, lápiz y cuaderno por alumno.</span></label>
+      </div>
+      ${s.from ? `<div class="card-box"><h3>Reviso con mi pareja · ${D.name}</h3>${checkHTML(s.g)}</div>` : ''}
+      <div class="card-box"><h3>Ajustes DUA · ${D.name}</h3><p style="margin:0">${esc(D.dua)}</p></div>
+      ${s.from ? `<div class="card-box"><h3>Tiras de reto</h3><p class="muted" style="margin:0 0 6px;font-size:.9rem">Para quien termine antes: pega la tira completa al final de su calaverita (dos versos que ya riman).</p>${TIRAS.map(t => `<div class="tira">${esc(t)}</div>`).join('')}</div>` : ''}
+      <div class="card-box"><h3>Cuidado de convivencia</h3><p style="margin:0">La calaverita es un juego con la muerte, no con las personas: el humor recae en la Muerte, que se tropieza, se asusta o se queda a bailar. «¿Da risa sin burlarse?» es pregunta obligatoria.</p></div>
+    </aside>
+  </div>`;
+  syncTimer(s, ms);
+}
+
+/* ---------- Temporizador ---------- */
+const timer = { key: null, left: 0, total: 0, id: null };
+function syncTimer(s, ms) {
+  const key = s.id + ':' + ui.mom;
+  if (timer.key !== key) { stopTimer(); timer.key = key; timer.total = ms[ui.mom].t * 60; timer.left = timer.total; }
+  paintTimer();
+}
+function startTimer() {
+  if (timer.id || timer.left <= 0) return;
+  timer.id = setInterval(() => { timer.left--; if (timer.left <= 0) { timer.left = 0; stopTimer(); ring(); } paintTimer(); }, 1000);
+  paintTimer();
+}
+function stopTimer() { if (timer.id) { clearInterval(timer.id); timer.id = null; } paintTimer(); }
+function paintTimer() {
+  const mm = String(Math.floor(timer.left / 60)).padStart(2, '0'), ss = String(timer.left % 60).padStart(2, '0');
+  document.querySelectorAll('[data-clock]').forEach(e => { e.textContent = mm + ':' + ss; e.classList.toggle('end', timer.left === 0); });
+  document.querySelectorAll('[data-bar]').forEach(e => e.style.width = (timer.total ? (100 * (timer.total - timer.left) / timer.total) : 0) + '%');
+  document.querySelectorAll('[data-tbtn]').forEach(e => e.textContent = timer.id ? '❚❚ Pausar' : (timer.left === timer.total ? '▶ Iniciar' : '▶ Continuar'));
+}
+function ring() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [0, .35, .7].forEach(d => { const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = 660; g.gain.setValueAtTime(.15, ctx.currentTime + d); g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + d + .3); o.connect(g).connect(ctx.destination); o.start(ctx.currentTime + d); o.stop(ctx.currentTime + d + .32); });
+  } catch (e) { }
+  const p = document.getElementById('proj'); p.classList.remove('flash'); void p.offsetWidth; p.classList.add('flash');
+}
+
+/* ---------- Proyección ---------- */
+function renderProj() {
+  const s = curSess(); if (!s) return; const ms = moments(s), m = ms[ui.mom], D = G[s.g];
+  document.getElementById('proj').innerHTML = `
+    <div class="ph"><span>${D.name} · ${esc(s.label)} · <span style="text-transform:capitalize">${fmtDay(s.date)}</span></span><span>Momento ${ui.mom + 1} de ${ms.length}</span><button class="btn" data-act="proj-close">✕ Salir (Esc)</button></div>
+    <div class="pbody"><h2>${esc(m.title)}</h2><div class="pg">${m.group()}</div><div class="pclock" data-clock>--:--</div></div>
+    <div class="pf"><button class="btn" data-act="mom-prev">◀ Anterior</button><button class="btn pri" data-act="t-toggle" data-tbtn>▶ Iniciar</button><button class="btn" data-act="t-reset">↺</button><button class="btn" data-act="mom-next">Siguiente ▶</button></div>`;
+  paintTimer();
+}
+
+/* =====================================================================
+   9. VISTA · ARMADOR
+   ===================================================================== */
+function hintHTML(g, n, raw, k) {
+  const D = G[g], c = card(raw); if (!c.h) return '';
+  if (D.hint === 'syl') return `<small class="h">(${esc(c.h)})</small>`;
+  let extra = '';
+  if (D.hint === 'sym' && k === 'f') {
+    const p = pairOf(D, n);
+    if (p && p < n) { const pl = D.steps[p - 1].fin.filter(r => card(r).h === c.h).map(r => clean(card(r).t)); if (pl.length) extra = `<small class="rc">rima con: ${esc(pl.join(', '))}</small>`; }
+  }
+  return `<small class="h">${esc(c.h)}</small>${extra}`;
+}
+function partnerRhyme(g, n) { const p = pairOf(G[g], n); if (!p || p > n) return null; const x = verse(g, p); return x && x.rhyme ? { p, w: x.rhyme } : null; }
+
+function renderArm() {
+  const g = ui.g, D = G[g], st = cala(g);
+  const rail = [['t', 'Título', st.title ? 'full' : '']];
+  for (let n = 1; n <= D.N; n++) rail.push([n, 'Paso ' + n, stepStatus(g, n)]);
+  rail.push(['r', '★ Reto', st.reto ? 'full' : ''], ['c', '✓ Revisar', '']);
+  const inR = k => ui.range && ui.range.g === g && typeof k === 'number' && k >= ui.range.from && k <= ui.range.to;
+  document.getElementById('v-arm').innerHTML = `
+  <div class="arm-top">
+    <div class="gtabs">${[2, 3, 4, 5, 6].map(x => `<button class="g${x}" data-act="grade" data-g="${x}" aria-current="${x === g}">${G[x].name}</button>`).join('')}</div>
+    ${G[g].sets ? varHTML(g) : ''}
+    <div class="row">
+      <button class="btn sm" data-act="pista">${pistaOn(g) ? '💡 Pistas: sí' : '💡 Pistas: no'}</button>
+      <button class="btn sm" data-act="example">Cargar ejemplo ${(ui.exi[g] || 0) + 1} de ${D.exs.length}</button>
+      <button class="btn sm" data-act="reset">Nueva calaverita</button>
+    </div>
+  </div>
+  ${ui.range && ui.range.g === g ? `<div class="banner"><span>Hoy toca: <b>pasos ${ui.range.from}–${ui.range.to}</b> · ${esc(ui.range.label)}</span><button class="btn sm" data-act="clear-range">Quitar marca</button></div>` : ''}
+  <div class="arm">
+    <nav class="rail" aria-label="Pasos">${rail.map(([k, l, s]) => `${D.cut && k === D.cut ? `<div class="cut">${esc(D.lab[1])}</div>` : ''}<button data-act="step" data-k="${k}" aria-current="${String(ui.step) === String(k)}" class="${inR(k) ? 'inrange' : ''}"><span class="dot ${s}"></span>${l}${typeof k === 'number' ? '<span class="muted" style="font-size:.75rem;margin-left:auto">' + 'ABABCDCD'[k - 1].replace(/./, D.abcd ? '$&' : '') + '</span>' : ''}</button>`).join('')}</nav>
+    <section class="card-box step" id="stepbox"></section>
+    <aside class="cuad" id="cuad"></aside>
+  </div>`;
+  renderStep(); renderCuad();
+}
+
+function renderStep() {
+  const g = ui.g, D = G[g], st = cala(g), box = document.getElementById('stepbox'); if (!box) return;
+  const k = ui.step;
+  if (k === 't') {
+    box.innerHTML = `<h2>Título</h2><p class="q">Elige el título de tu calaverita. ${esc(D.lab[0])}</p>
+      <div class="grid">${D.titles.map((t, i) => `<button class="tc cat-titulo ${card(t).x ? 'extra' : ''}" data-act="pick" data-k="t" data-i="${i}" aria-pressed="${st.title === card(t).t}">${esc(card(t).t)}</button>`).join('')}</div>${LEGEND_X}
+      <div class="nav2"><span></span><button class="btn pri" data-act="go" data-k="1">Paso 1 ▶</button></div>`;
+    return;
+  }
+  if (k === 'r') {
+    box.innerHTML = `<h2>★ Reto · Pareado de remate</h2><p class="q">Si te sobra tiempo: dos versos más para cerrar tu calaverita. Ya riman; se pegan completos al final.</p>
+      <div class="grid">${TIRAS.map((t, i) => `<button class="tc cat-reto" data-act="pick" data-k="r" data-i="${i}" aria-pressed="${st.reto === t}">${esc(t)}</button>`).join('')}</div>
+      <div class="nav2"><button class="btn" data-act="go" data-k="${D.N}">◀ Paso ${D.N}</button><button class="btn pri" data-act="go" data-k="c">Revisar ▶</button></div>`;
+    return;
+  }
+  if (k === 'c') {
+    box.innerHTML = `<h2>✓ Reviso con mi pareja</h2><p class="q">Lean la calaverita completa en voz alta y marquen cada criterio.</p>
+      ${D.check.map((c, i) => `<label class="chk"><input type="checkbox" data-act="check" data-i="${i}" ${st.checks[i] ? 'checked' : ''}><span>${esc(c)}</span></label>`).join('')}
+      <div class="lbl">Firma · ${esc(D.firma)}</div>
+      <input class="algo-in" id="firma" value="${esc(st.firma)}" placeholder="${esc(D.firma)}" autocomplete="off">
+      <div class="row" style="margin-top:14px"><button class="btn" data-act="speak-all">🔊 Escuchar mi calaverita</button><button class="btn pri" data-act="print">🖨 Imprimir mi calaverita</button></div>
+      <div class="nav2"><button class="btn" data-act="go" data-k="r">◀ Reto</button><span></span></div>`;
+    return;
+  }
+  const n = +k, step = D.steps[n - 1], v = st.v[n] || {}, pr = partnerRhyme(g, n);
+  const fitList = r => pr && pistaOn(g) && ['cons', 'aso'].includes(compareRhyme(card(r).t, pr.w).kind);
+  const iniHTML = step.algo
+    ? step.ini.map((raw, i) => { const m = molde(raw); return `<button class="tc cat-algo algo ${m.x ? 'extra' : ''}" data-act="pick" data-k="m" data-i="${i}" aria-pressed="${v.m === raw}">${esc(m.show)}${m.ideas.length ? `<small class="ideas">Por ejemplo: ${esc(m.ideas.join(' · '))}</small>` : ''}</button>`; }).join('')
+    : step.ini.map((r, i) => `<button class="tc cat-${step.ca} ${card(r).x ? 'extra' : ''}" data-act="pick" data-k="i" data-i="${i}" aria-pressed="${v.i === r}">${esc(card(r).t)}${hintHTML(g, n, r, 'i')}</button>`).join('');
+  const finHTML = step.fin.map((r, i) => `<button class="tc cat-${step.cb} ${fitList(r) ? 'fits' : ''} ${card(r).x ? 'extra' : ''}" data-act="pick" data-k="f" data-i="${i}" aria-pressed="${v.f === r}">${esc(card(r).t)}${hintHTML(g, n, r, 'f')}</button>`).join('');
+  const mSel = step.algo && v.m ? molde(v.m) : null;
+  const prevK = n === 1 ? 't' : n - 1, nextK = n === D.N ? 'r' : n + 1;
+  box.innerHTML = `
+    <div class="row" style="justify-content:space-between"><h2>Paso ${n} · Verso ${n}${letter(D, n)}</h2><span class="pill" style="background:var(--surface2)">${esc(stepLab(D, n))}</span></div>
+    <p class="q">${esc(step.a)} + ${esc(step.b)}${pairOf(D, n) ? ` · rima con el verso ${pairOf(D, n)}` : ''}</p>
+    <div class="lbl"><span class="sw cat-${step.ca}"></span>Empieza con…${step.algo ? ' (elige un molde y escribe tu Algo propio)' : ''}</div>
+    <div class="grid">${iniHTML}</div>
+    ${step.algo ? `<input class="algo-in" id="algoTxt" style="margin-top:10px" value="${esc(v.txt || '')}" placeholder="✎ Escribe aquí tu Algo propio (también se puede dictar)" autocomplete="off"><div class="ideas-box">${mSel && mSel.ideas.length ? `Para darte una idea: ${mSel.ideas.map(i => esc(mSel.pre + (mSel.pre.endsWith('«') ? '' : ' ') + i + (mSel.pre.endsWith('«') ? '»' : '') + '…')).join(' · ')} Pero escribe lo que <b>solo tú</b> sabes de tu persona.` : 'Elige un molde: debajo de cada uno hay ideas en letra pequeña para inspirarte.'}</div>` : ''}
+    <div class="lbl"><span class="sw cat-${step.cb}"></span>Termina con…${pr ? ` (la que rima con el verso ${pr.p}: «${esc(pr.w)}»)` : ''}</div>
+    <div class="grid">${finHTML}</div>${LEGEND_X}
+    <div id="pv"></div>
+    <div class="nav2"><button class="btn" data-act="go" data-k="${prevK}">◀ ${prevK === 't' ? 'Título' : 'Paso ' + prevK}</button><button class="btn pri" data-act="go" data-k="${nextK}">${nextK === 'r' ? 'Reto ★' : 'Paso ' + nextK} ▶</button></div>`;
+  renderPreview();
+}
+
+function feedbackHTML(g, n) {
+  const D = G[g], x = verse(g, n); if (!x) return '';
+  const out = [];
+  const step = D.steps[n - 1], v = cala(g).v[n] || {};
+  if (!step.algo && v.i && v.f && needsContr(card(v.i).t, clean(card(v.f).t))) {
+    out.push(x.contr
+      ? `<div class="fb info">Pegaste la tarjetita <span class="mini">${/de$/.test(card(v.i).t) ? 'del' : 'al'}</span> encima de «${/de$/.test(card(v.i).t) ? 'de el' : 'a el'}». <button class="btn sm" data-act="contr">Quitarla</button></div>`
+      : `<div class="fb aso">Quedó «${/de$/.test(card(v.i).t) ? 'de el' : 'a el'}». En español se junta: <button class="btn sm" data-act="contr">Pegar la tarjetita «${/de$/.test(card(v.i).t) ? 'del' : 'al'}»</button></div>`);
+  }
+  const p = pairOf(D, n);
+  if (p && x.rhyme) {
+    const y = verse(g, p);
+    if (y && y.rhyme) {
+      const r = compareRhyme(x.rhyme, y.rhyme);
+      const showEnd = pistaOn(g) || g <= 4;
+      if (r.kind === 'cons') out.push(`<div class="fb ok">✓ Rima con el verso ${p}: «${esc(r.r1.word)}» y «${esc(r.r2.word)}» terminan en <b>-${esc(r.r1.cons)}</b>.</div>`);
+      else if (r.kind === 'aso') out.push(`<div class="fb aso">≈ Suena parecido al verso ${p} (rima asonante: vocales ${esc(r.r1.aso)}). ${g <= 3 ? 'Con el mismo símbolo rimaría completo.' : '¡También se vale!'}</div>`);
+      else if (r.kind === 'same') out.push(`<div class="fb aso">Es la misma palabra que en el verso ${p}. Prueba con otra tarjeta: la rima se luce más con palabras distintas.</div>`);
+      else out.push(`<div class="fb no">Todavía no rima con el verso ${p} («${esc(r.r2 ? r.r2.word : y.rhyme)}»). ${showEnd && r.r2 ? 'Busca una tarjeta que termine en <b>-' + esc(r.r2.cons) + '</b>.' : 'Léelos juntos en voz alta: ¿suenan igual al final? Si lo necesitas, enciende «Pistas».'}</div>`);
+    } else if (p > n) out.push(`<div class="fb info">Este verso rimará con el verso ${p}: ahí buscarás una tarjeta que suene como «${esc(x.rhyme)}».</div>`);
+  }
+  if (x.syl !== null && x.syl !== undefined) {
+    const okS = x.syl >= 7 && x.syl <= 11;
+    out.push(`<div class="fb ${okS ? 'ok' : 'no'}">${okS ? '✓' : '✗'} Este verso suma ≈ <b>${x.syl}</b> sílabas (palmadas)${step.algo ? ', contando tu Algo propio' : ''}. ${okS ? 'Está entre 7 y 11.' : x.syl > 11 ? 'Se pasa de 11: busca una combinación más corta.' : 'Le faltan: busca una combinación más larga.'}</div>`);
+  }
+  if (D.stars.includes(n) && reached(g) >= n) out.push(`<div class="fb ok">★ Al pegar este verso ya tienes una calaverita completa.</div>`);
+  return out.join('');
+}
+function renderPreview() {
+  const pv = document.getElementById('pv'); if (!pv) return; const n = +ui.step, x = verse(ui.g, n);
+  pv.innerHTML = x ? `<div class="preview"><span>${esc(x.text)}</span><button class="btn sm" data-act="speak" data-t="${esc(x.text)}">🔊</button></div>${feedbackHTML(ui.g, n)}` : `<div class="preview muted" style="font-family:inherit;font-size:.95rem">Elige tus tarjetas: el verso aparecerá aquí.</div>`;
+}
+
+function renderCuad() {
+  const g = ui.g, D = G[g], st = cala(g), el = document.getElementById('cuad'); if (!el) return;
+  const rows = [];
+  rows.push(st.title ? `<div class="strip" data-act="step" data-k="t"><span class="seg cat-titulo" style="font-weight:700">${esc(st.title)}</span></div>` : `<div class="strip empty" data-act="step" data-k="t">Título</div>`);
+  for (let n = 1; n <= D.N; n++) {
+    if (D.quart && n === 1) rows.push('<div class="qhead">Cuarteta 1</div>');
+    if (D.cut && n === D.cut) rows.push(`<div class="cutline">${esc(D.lab[1])}: a partir de aquí</div>`);
+    if (D.quart && n === 5) rows.push('<div class="qhead">Cuarteta 2</div>');
+    const x = verse(g, n);
+    if (!x) rows.push(`<div class="strip empty" data-act="step" data-k="${n}">Verso ${n}${letter(D, n)} · ${esc(D.steps[n - 1].a)}</div>`);
+    else rows.push(`<div class="strip" data-act="step" data-k="${n}"><span class="num">${n}${D.abcd ? 'ABABCDCD'[n - 1] : ''}</span>${x.segs.map(s => `<span class="seg cat-${s[1]}">${esc(s[0])}</span>`).join('')}${x.syl ? `<span class="syl ${x.syl < 7 || x.syl > 11 ? 'bad' : ''}">${x.syl} síl.</span>` : ''}</div>`);
+    if (D.stars.includes(n) && reached(g) >= n) rows.push(`<div class="star">★ Hasta aquí ya tienes una calaverita completa.${n === D.N ? ' ¡Felicidades!' : ''}</div>`);
+  }
+  if (st.reto) rows.push(`<div class="strip" data-act="step" data-k="r"><span class="num">★</span><span class="seg cat-reto">${esc(st.reto)}</span></div>`);
+  if (st.firma) rows.push(`<p style="text-align:right;font-family:Georgia,serif;margin:10px 0 0">— ${esc(st.firma)}</p>`);
+  el.innerHTML = `<h3>Mi calaverita literaria · ${D.name}</h3><div class="sub">Me quedé en el paso: <b>${reached(g) || '—'}</b> de ${D.N}</div>${rows.join('')}`;
+}
+
+function loadExample(g, k) {
+  const D = G[g], ex = D.exs[k], st = blank(); st.title = ex.t;
+  ex.v.forEach((v, i) => {
+    const n = i + 1, step = D.steps[i];
+    if (step.algo) st.v[n] = { m: step.ini.find(m => molde(m).pre === v[0]), txt: v[1], f: findCard(step.fin, v[2]) };
+    else { const ini = findCard(step.ini, v[0]), fin = findCard(step.fin, v[1]); st.v[n] = { i: ini, f: fin, contr: !!(ini && fin && needsContr(card(ini).t, clean(card(fin).t))) }; }
+  });
+  calas[ckey(g)] = st; saveCala(g);
+}
+
+/* =====================================================================
+   10. VISTA · GUÍA
+   ===================================================================== */
+function renderGuia() {
+  document.getElementById('v-guia').innerHTML = `<div class="guide">
+  <div class="card-box"><h2>La idea en pocas palabras</h2>
+    <p>En primero, el alumno no redacta versos: los <b>arma</b>. Esta forma de trabajo lleva ese principio de 2.° a 6.° y sube la dificultad por cinco caminos: más versos, más piezas de la calaverita, más vocabulario, menos pistas de rima y esquemas de rima más exigentes, hasta la rima cruzada en sexto.</p>
+    <p>La calaverita de cada niño siempre rima y siempre está completa. El esfuerzo de escritura se concentra en <b>✎ Algo propio</b>: lo que solo él sabe de la persona a quien la dedica.</p></div>
+  <div class="card-box"><h2>Cómo se arma un verso</h2>
+    <p>Cada verso se forma con una tarjeta de <b>inicio</b> (la acción) y una <b>final</b> (la palabra que rima). Las tarjetas finales pertenecen a familias de rima; la regla es una sola: los dos versos de cada pareja usan la misma familia.</p>
+    <p>Algo propio se escribe dentro de un molde ✎ y el verso se completa con una tarjeta de <b>cierre</b> que sí pertenece a una familia. Así lo que escribe el niño nunca rompe la rima.</p></div>
+  <div class="card-box"><h2>Código de colores</h2><div class="tablewrap"><table><thead><tr><th></th><th>Pieza</th><th>Color</th></tr></thead><tbody>
+    ${Object.entries(CAT).map(([k, v]) => `<tr><td><span class="sw cat-${k}"></span></td><td>${esc(v[0])}</td><td class="muted">${esc(v[1])}</td></tr>`).join('')}</tbody></table></div>
+    <p class="muted" style="font-size:.85rem">Los colores de pantalla son aproximados a los de las hojas impresas.</p></div>
+  <div class="card-box" style="grid-column:1/-1"><h2>Progresión de 2.° a 6.°</h2><div class="tablewrap"><table><thead><tr><th>Grado</th><th>Versos y rima</th><th>Pista de rima en la tarjeta</th><th>Reto principal</th><th>Sesiones</th></tr></thead><tbody>
+    <tr><td>2.°</td><td>4 versos · AABB</td><td>Símbolo ★ ☾ ♥ + «rima con»</td><td>Dos pareados seguidos</td><td>vie 23 (Algo propio) · mar 27</td></tr>
+    <tr><td>3.°</td><td>6 versos · AABBCC</td><td>Símbolo + terminación (★ -ón)</td><td>Historia con inicio, problema y final</td><td>jue 22 · jue 29</td></tr>
+    <tr><td>4.°</td><td>8 versos · AABBCCDD</td><td>Solo terminación · ≈ asonante</td><td>Rimar sin símbolos; cosas y acciones</td><td>vie 23 · mié 28 · vie 30</td></tr>
+    <tr><td>5.°</td><td>8 versos · 2 cuartetas AABB</td><td>Ninguna: se clasifica antes</td><td>Diálogo y rima reconocida de oído</td><td>vie 23 · mié 28 · vie 30</td></tr>
+    <tr><td>6.°</td><td>8 versos · 2 cuartetas ABAB</td><td>Ninguna · sílabas en la tarjeta</td><td>Rima cruzada y ritmo</td><td>jue 22 · jue 29</td></tr>
+  </tbody></table></div></div>
+  <div class="card-box"><h2>El armador y sus pistas</h2>
+    <p>El armador usa las mismas tarjetas de cada hoja. Comprueba la rima con un detector que compara la terminación desde la vocal tónica (rima consonante) o solo las vocales (asonante, «suena parecido»).</p>
+    <p>El botón <b>Pistas</b> marca con «✓ rima» las tarjetas que encajan con su pareja. Viene encendido en 2.° a 4.° y apagado en 5.° y 6.°, como en las hojas; encenderlo es un ajuste DUA para quien lo necesite, no un atajo.</p></div>
+  <div class="card-box"><h2>Dos versiones de las tarjetas de 2.° y 5.°</h2>
+    <p><b>Hoja original</b>: las tarjetas del PDF «con tarjetas extra», que conserva el lenguaje de la hoja y llena los huecos de cada paso.</p>
+    <p><b>Palabras de los niños</b>: las del PDF «palabras de los niños». En 5.° usan expresiones como <i>neta, bro, bien chido, qué oso, aguas, chill, random</i>; en 2.°, más cortas y sencillas: <i>¡qué onda!, súper, chido, ¡ups!, fresa, echar relajo</i>. Las tarjetas del ejemplo de la hoja 1 no cambian, para que siga sirviendo de guía.</p>
+    <p>El botón en la sesión y en el armador cambia entre las dos. Cada versión guarda su propia calaverita. Las tarjetas <b>＋</b> son extras de pantalla que no vienen impresas.</p></div>
+  <div class="card-box"><h2>Los nombres de la Muerte</h2>
+    <p>En las calaveritas, la Muerte casi nunca se llama «la Muerte». Conocer sus apodos amplía el vocabulario y da más palabras para rimar. Las calaveritas modelo de cada grado usan nombres distintos.</p>
+    <div class="tablewrap"><table><tbody>${NOMBRES.map(([n, d]) => `<tr><td><b>${esc(n)}</b></td><td>${esc(d)}</td></tr>`).join('')}</tbody></table></div></div>
+  <div class="card-box"><h2>Tarjetas extra ＋ e ideas de Algo propio</h2>
+    <p>El armador trae más opciones que las hojas impresas en cada paso: nombres de la Muerte, personajes, acciones, cierres y finales. Se distinguen con el círculo <b>＋</b>. Cada tarjeta extra tiene al menos una pareja que rima en el verso que le corresponde.</p>
+    <p>Bajo cada molde de Algo propio hay ideas en letra pequeña. No se pueden pegar: sirven para destrabar, no para copiar, porque el Algo propio es lo que solo el niño sabe de su persona.</p></div>
+  <div class="card-box"><h2>Cuidados de convivencia</h2>
+    <p>La calaverita es un juego con la muerte, no con las personas. Las tarjetas están pensadas para que el humor recaiga en la Muerte y no en el destinatario. Se dedican a familiares, mascotas, objetos u oficios, y no a compañeros del grupo, salvo en pareja y con acuerdo de ambos.</p>
+    <p>En la revisión, «¿da risa sin burlarse?» es obligatoria en todos los grados.</p></div>
+  <div class="card-box"><h2>Escuela, familia y especialistas</h2>
+    <p>El Algo propio nace de la memoria familiar: la sesión del vie 23 propone pedir en casa una anécdota de la persona elegida. Si en el grupo hay niños con acompañamiento de USAER, los ajustes DUA de cada grado (dictado del Algo propio, pistas encendidas, hoja de margen A-B-C-D) pueden acordarse con el especialista antes de la sesión.</p></div>
+  </div>`;
+}
+
+/* =====================================================================
+   11. NAVEGACIÓN Y EVENTOS
+   ===================================================================== */
+function show(v) {
+  ui.view = v;
+  document.querySelectorAll('.view').forEach(e => e.classList.toggle('on', e.id === 'v-' + v));
+  document.querySelectorAll('nav.tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.v === v));
+  if (v === 'agenda') renderAgenda(); if (v === 'sess') renderSess(); if (v === 'arm') renderArm(); if (v === 'guia') renderGuia();
+  window.scrollTo(0, 0);
+}
+function speak(t) {
+  try { const u = new SpeechSynthesisUtterance(t.replace(/[✎—«»]/g, ' ')); u.lang = 'es-MX'; u.rate = .9; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) { }
+}
+function openArmadorFromSess(s) {
+  ui.g = s.g;
+  if (s.from) { ui.range = { g: s.g, from: s.from, to: s.to, label: s.label + ' · ' + fmtDay(s.date) }; ui.step = s.from; }
+  else { ui.range = null; ui.step = 't'; }
+  closeProj(); show('arm');
+}
+function closeProj() { document.getElementById('proj').classList.remove('on'); }
+function moveSess(d) {
+  const i = SESS.findIndex(s => s.id === ui.sess), j = i + d;
+  if (j >= 0 && j < SESS.length) { ui.sess = SESS[j].id; ui.mom = 0; renderSess(); window.scrollTo(0, 0); }
+}
+function setMom(i) {
+  const s = curSess(); if (!s) return; const ms = moments(s);
+  ui.mom = Math.max(0, Math.min(ms.length - 1, i)); renderSess();
+  if (document.getElementById('proj').classList.contains('on')) renderProj();
+}
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const a = b.dataset.act, g = ui.g, st = cala(g);
+  switch (a) {
+    case 'nav': show(b.dataset.v); break;
+    case 'open-sess': ui.sess = b.dataset.id; ui.mom = 0; show('sess'); break;
+    case 'toggle-done': doneS[b.dataset.id] = !doneS[b.dataset.id]; store.set('pv-oct-done', doneS); show(ui.view); break;
+    case 'sess-prev': moveSess(-1); break;
+    case 'sess-next': moveSess(1); break;
+    case 'mom': setMom(+b.dataset.i); break;
+    case 'mom-prev': setMom(ui.mom - 1); break;
+    case 'mom-next': setMom(ui.mom + 1); break;
+    case 't-toggle': timer.id ? stopTimer() : startTimer(); break;
+    case 't-reset': stopTimer(); timer.left = timer.total; paintTimer(); break;
+    case 'proj-open': document.getElementById('proj').classList.add('on'); renderProj(); break;
+    case 'proj-close': closeProj(); break;
+    case 'm-example': { const s = curSess(); ui.exi[s.g] = +b.dataset.i; loadExample(s.g, +b.dataset.i); ui.g = s.g; ui.step = s.from || 1; ui.range = s.from ? { g: s.g, from: s.from, to: s.to, label: s.label + ' · ' + fmtDay(s.date) } : null; closeProj(); show('arm'); break; }
+    case 'm-armador': openArmadorFromSess(curSess()); break;
+    case 'grade': ui.g = +b.dataset.g; ui.step = (ui.range && ui.range.g === ui.g) ? ui.range.from : 't'; renderArm(); break;
+    case 'step': case 'go': { const k = b.dataset.k; ui.step = /^\d+$/.test(k) ? +k : k; renderArm(); break; }
+    case 'clear-range': ui.range = null; renderArm(); break;
+    case 'pista': ui.pistas[g] = !pistaOn(g); renderArm(); break;
+    case 'var': { const gg = +b.dataset.g; ui.vars[gg] = applyVar(gg, b.dataset.v); store.set('pv-oct-var' + gg, ui.vars[gg]); ui.exi[gg] = 0; show(ui.view); break; }
+    case 'example': { const k = ui.exi[g] || 0, ex = G[g].exs[k]; if (confirm('¿Cargar «' + ex.t + '»? Se reemplaza la calaverita actual de ' + G[g].name + '.')) { loadExample(g, k); ui.exi[g] = (k + 1) % G[g].exs.length; renderArm(); } break; }
+    case 'reset': if (confirm('¿Empezar una calaverita nueva de ' + G[g].name + '?')) { calas[ckey(g)] = blank(); saveCala(g); ui.step = (ui.range && ui.range.g === g) ? ui.range.from : 't'; renderArm(); } break;
+    case 'pick': {
+      const k = b.dataset.k, i = +b.dataset.i, D = G[g];
+      if (k === 't') { const t = card(D.titles[i]).t; st.title = st.title === t ? null : t; }
+      else if (k === 'r') st.reto = st.reto === TIRAS[i] ? null : TIRAS[i];
+      else {
+        const n = +ui.step, step = D.steps[n - 1], v = st.v[n] = st.v[n] || {};
+        const val = (k === 'f' ? step.fin : step.ini)[i];
+        v[k] = v[k] === val ? null : val;
+        if (k !== 'm') { const ini = v.i ? card(v.i).t : '', fin = v.f ? clean(card(v.f).t) : ''; if (!(ini && fin && needsContr(ini, fin))) v.contr = false; }
+        if (k === 'f' || k === 'i' || k === 'm') { const c = card(val).t; if (v[k]) speak(k === 'm' ? molde(val).pre : c); }
+      }
+      saveCala(g); renderArm(); break;
+    }
+    case 'contr': { const v = st.v[+ui.step]; v.contr = !v.contr; saveCala(g); renderPreview(); renderCuad(); break; }
+    case 'check': st.checks[b.dataset.i] = b.checked; saveCala(g); break;
+    case 'prep': { const p = store.get('pv-oct-prep', {}); p[b.dataset.k] = b.checked; store.set('pv-oct-prep', p); break; }
+    case 'speak': speak(b.dataset.t); break;
+    case 'speak-all': { const D = G[g]; const t = [st.title].concat([...Array(D.N)].map((_, i) => { const x = verse(g, i + 1); return x && x.done ? x.text : ''; })).concat([st.reto]).filter(Boolean).join('. '); speak(t || 'Todavía no hay versos.'); break; }
+    case 'print': window.print(); break;
+  }
+});
+document.addEventListener('input', e => {
+  if (e.target.id === 'algoTxt') { const st = cala(ui.g), n = +ui.step; st.v[n] = st.v[n] || {}; st.v[n].txt = e.target.value; saveCala(ui.g); renderPreview(); renderCuad(); document.querySelectorAll('.rail .dot')[n].className = 'dot ' + stepStatus(ui.g, n); }
+  if (e.target.id === 'firma') { cala(ui.g).firma = e.target.value; saveCala(ui.g); renderCuad(); }
+});
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('proj').classList.contains('on')) return;
+  if (e.key === 'Escape') closeProj();
+  else if (e.key === 'ArrowRight') setMom(ui.mom + 1);
+  else if (e.key === 'ArrowLeft') setMom(ui.mom - 1);
+  else if (e.key === ' ') { e.preventDefault(); timer.id ? stopTimer() : startTimer(); }
+});
+
+/* Enlace directo desde el sitio de apuntes: #armador-6 abre el Armador de 6.°;
+   también #agenda, #sesion y #guia. Sin enlace, abre la Agenda como siempre. */
+(function () {
+  const m = /^#(armador|agenda|sesion|guia)(?:-(\d))?$/.exec(location.hash || '');
+  if (m && m[2] && G[+m[2]]) ui.g = +m[2];
+  show(m ? { armador: 'arm', agenda: 'agenda', sesion: 'sess', guia: 'guia' }[m[1]] : 'agenda');
+})();
+</script>
+</body>
+</html>

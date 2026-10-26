@@ -96,11 +96,13 @@ window.PROYECTO = {
     ],
     [
      "10-23",
-     "escribo"
+     "algopropio",
+     "Preparación sin recortar · la clase es el mar 27"
     ],
     [
      "10-27",
-     "pareja"
+     "armo",
+     "Pasos 1–4 de 4"
     ],
     [
      "10-30",
@@ -143,15 +145,13 @@ window.PROYECTO = {
     ],
     [
      "10-22",
-     "escribo"
-    ],
-    [
-     "10-27",
-     "pareja"
+     "armo1",
+     "Pasos 1–4 de 6"
     ],
     [
      "10-29",
-     "reviso"
+     "armo2",
+     "Pasos 5–6 de 6"
     ]
    ]
   },
@@ -190,15 +190,18 @@ window.PROYECTO = {
     ],
     [
      "10-23",
-     "escribo"
+     "algopropio",
+     "Preparación sin recortar · la clase es el mié 28"
     ],
     [
      "10-28",
-     "pareja"
+     "armo",
+     "Pasos 1–6 de 8"
     ],
     [
      "10-30",
-     "reviso"
+     "armofin",
+     "Pasos 7–8 de 8"
     ]
    ]
   },
@@ -238,15 +241,18 @@ window.PROYECTO = {
     ],
     [
      "10-23",
-     "escribo"
+     "algopropio",
+     "Preparación sin recortar · la clase es el mié 28"
     ],
     [
      "10-28",
-     "pareja"
+     "armo",
+     "Pasos 1–6 de 8"
     ],
     [
      "10-30",
-     "reviso"
+     "armofin",
+     "Pasos 7–8 de 8"
     ]
    ]
   },
@@ -286,15 +292,13 @@ window.PROYECTO = {
     ],
     [
      "10-22",
-     "escribo"
-    ],
-    [
-     "10-26",
-     "pareja"
+     "armo1",
+     "Pasos 1–4 de 8"
     ],
     [
      "10-29",
-     "reviso"
+     "armo2",
+     "Pasos 5–8 de 8"
     ]
    ]
   }
@@ -434,6 +438,84 @@ window.PROYECTO = {
     "aprendimos": "Firmamos con seudónimo o iniciales, grado y grupo: nunca con apellidos.",
     "faltaste": "Acércate al maestro de biblioteca: buscamos un momento en la escuela para que termines y tu calaverita llegue al muro.",
     "casa": "Visiten el muro de la escuela. Con su autorización firmada, la calaverita se publica en el sitio de Biblioteca Viva, solo con seudónimo."
+   }
+  },
+  "algopropio": {
+   "tipo": "L",
+   "titulo": "Pienso mi ✎ Algo propio",
+   "herramientas": [
+    "armado",
+    "acuerdos"
+   ],
+   "apuntes": {
+    "hicimos": "Hoy no recortamos. Pensamos a quién le dedicaremos la calaverita y qué sabemos de esa persona que nadie más sabe: qué le gusta, qué hace siempre, qué nos enseñó. Ese detalle es ✎ Algo propio, la única parte de la calaverita que cada quien escribe con sus palabras; los demás versos se arman con tarjetas en la siguiente clase.",
+    "aprendimos": "Una calaverita es nuestra cuando lleva un detalle que solo nosotros conocemos, contado con cariño.",
+    "faltaste": "No pasa nada: al inicio de la clase te ayudamos a pensar tu ✎ Algo propio antes de armar.",
+    "casa": "Si quieren, platiquen a quién se la va a dedicar y qué detalle de esa persona podría contar con cariño."
+   }
+  },
+  "armo": {
+   "tipo": "C",
+   "titulo": "Armo mi calaverita",
+   "herramientas": [
+    "armado",
+    "digital",
+    "rimas",
+    "acuerdos"
+   ],
+   "apuntes": {
+    "hicimos": "Armamos la calaverita con tarjetas, verso por verso: cada verso se forma con una tarjeta de inicio y una tarjeta final, y las tarjetas finales de cada pareja de versos riman. Escribimos ✎ Algo propio con nuestras palabras y lo pegamos en su lugar. Al terminar revisamos con la lista del grado.",
+    "aprendimos": "Dos versos riman cuando sus palabras finales suenan igual; por eso las tarjetas finales vienen en familias de rima y las de cada pareja de versos se eligen de la misma familia. La rima queda asegurada; lo que hace única a la calaverita es ✎ Algo propio.",
+    "faltaste": "Armas tu calaverita en la siguiente sesión de biblioteca, con las mismas tarjetas y con ayuda del maestro. Se arma en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+    "casa": "Si quieren, pidan que les lea su calaverita en voz alta y que les cuente cuál es su ✎ Algo propio."
+   }
+  },
+  "armo1": {
+   "tipo": "C",
+   "titulo": "Armo mi calaverita · primera parte",
+   "herramientas": [
+    "armado",
+    "digital",
+    "rimas",
+    "acuerdos"
+   ],
+   "apuntes": {
+    "hicimos": "Empezamos a armar la calaverita con tarjetas, verso por verso: cada verso lleva una tarjeta de inicio y una final, y las finales de cada pareja de versos riman. Escribimos ✎ Algo propio con nuestras palabras. En esta clase armamos la primera parte; la segunda, en la siguiente clase.",
+    "aprendimos": "Dos versos riman cuando sus palabras finales suenan igual; por eso las tarjetas finales vienen en familias de rima y las de cada pareja de versos se eligen de la misma familia. La rima queda asegurada; lo que hace única a la calaverita es ✎ Algo propio.",
+    "faltaste": "Armas tu calaverita en la siguiente sesión de biblioteca, con las mismas tarjetas y con ayuda del maestro. Se arma en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+    "casa": ""
+   }
+  },
+  "armo2": {
+   "tipo": "C",
+   "titulo": "Termino de armar mi calaverita",
+   "herramientas": [
+    "armado",
+    "digital",
+    "rimas",
+    "acuerdos"
+   ],
+   "apuntes": {
+    "hicimos": "Retomamos la calaverita donde la dejamos y armamos con tarjetas los versos que faltaban, hasta el final sorpresa. Revisamos con la lista del grado y firmamos con iniciales o seudónimo.",
+    "aprendimos": "Revisar también es escribir: comprobamos que cada pareja de versos rime, que esté ✎ Algo propio y que el humor sea con cariño.",
+    "faltaste": "Te ayudamos a terminar tu calaverita en la siguiente sesión de biblioteca.",
+    "casa": "Si quieren, pidan que les lea su calaverita completa."
+   }
+  },
+  "armofin": {
+   "tipo": "L",
+   "titulo": "Termino de armar mi calaverita",
+   "herramientas": [
+    "armado",
+    "digital",
+    "rimas",
+    "acuerdos"
+   ],
+   "apuntes": {
+    "hicimos": "En la lectura de 20 minutos armamos los últimos versos, los del final sorpresa. Revisamos con la lista del grado y firmamos con seudónimo.",
+    "aprendimos": "El final sorpresa es lo que vuelve memorable una calaverita.",
+    "faltaste": "Te ayudamos a terminar tu calaverita en la siguiente sesión de biblioteca.",
+    "casa": "Si quieren, pidan que les lea su calaverita completa."
    }
   }
  },
@@ -3069,12 +3151,19 @@ window.CUADERNO = {
       ["enlace", "📄 Hojas de recortables y guía de 2.° A (PDF)", "pdf/calaveritas-2A.pdf"]
     ]},
     { f: "2026-10-23", fecha: "Viernes 23 de octubre de 2026", b: [
-      ["tit", "Escribo mi calaverita"],
-      ["p", "Debajo de las tarjetas escribimos el **título**, **mi detalle** (algo de mi personaje que nadie más conoce, y lo agregamos en el verso 1) y el **seudónimo**."],
-      ["verso", "Ejemplo del maestro: «El abuelito de la tele»", ["Mi abuelito, el que colecciona trompos, veía la tele,", "cuando la Flaca ==llegó==;", "le contó un chiste", "y al final se ==rió==."]],
-      ["p", "La tuya lleva tus propias tarjetas y tu detalle."],
-      ["lista", "Reviso ✓", ["4 versos", "riman el 2 y el 4", "está la Calaca", "algo que solo yo sé", "título"], "plana"],
-      ["p", "**Le gustó:** ____________ · **Me sugiere:** ____________"]
+      ["tit", "Pienso mi ✎ Algo propio"],
+      ["p", "Hoy no recortamos. Pensamos a quién le dedicaremos la calaverita y **lo que solo nosotros sabemos** de esa persona. Es la única parte que escribimos con nuestras palabras; los demás versos se arman con tarjetas."],
+      ["lista", "Moldes para empezar", ["Le gusta ✎ ______,", "Siempre ✎ ______,", "Me enseñó a ✎ ______,"], ""],
+      ["p", "**Ideas:** bailar en la cocina, me abraza fuerte, andar en bici…"],
+      ["p", "En la clase del **martes 27** armamos la calaverita con tarjetas."]
+    ]},
+    { f: "2026-10-27", fecha: "Martes 27 de octubre de 2026", b: [
+      ["tit", "Armo mi calaverita · versos 1 a 4"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (4 versos · AABB)."],
+      ["tiras", "Ejemplo del maestro: «¡Ya llegó la Calaca!»", 2, 1, 4],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["lista", "Reviso ✓", ["¿Pegué los 4 versos en orden?", "¿Cada pareja tiene el mismo símbolo?", "¿Escribí mi Algo propio?", "¿Da risa sin burlarse?", "¿Puse mis iniciales y 2.° A?"], "plana"],
+      ["p", "**Firma:** Mis iniciales y 2.° A"]
     ]}
   ],
   "3A": [
@@ -3116,13 +3205,19 @@ window.CUADERNO = {
       ["enlace", "📄 Hojas de recortables y guía de 3.° A (PDF)", "pdf/calaveritas-3A.pdf"]
     ]},
     { f: "2026-10-22", fecha: "Jueves 22 de octubre de 2026", b: [
-      ["tit", "Escribo mi calaverita"],
-      ["p", "Escribimos el **título**, agregamos con nuestra letra **mi detalle** en el verso 1 y firmamos con **seudónimo**. Los versos 2, 4 y 6 terminan en **-ar**."],
-      ["verso", "Ejemplo del maestro: «El tío roncador»", ["Cuentan que mi tío, el que arregla bicis,", "no dejaba de ==roncar==,", "cuando la Pelona llegó", "y se lo quiso ==llevar==;", "pero se quedó dormida", "y se puso a ==bailar==."]],
-      ["p", "**¿Solo 4 versos?** Se pegan los versos 1, 2, 3 y 6."],
-      ["p", "La tuya lleva tus propias tarjetas y tu detalle."],
-      ["lista", "Reviso ✓", ["versos 2, 4 y 6 en -ar", "está la Calaca", "mi detalle propio", "humor con cariño"], "plana"],
-      ["p", "**Le gustó:** ________ · **Me sugiere:** ________ · **Cambié:** ________"]
+      ["tit", "Armo mi calaverita · versos 1 a 4"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (6 versos · AABBCC)."],
+      ["tiras", "Ejemplo del maestro: «Una visita de miedo»", 3, 1, 4],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["p", "**La segunda parte (versos 5 y 6) la armamos el jueves 29.**"]
+    ]},
+    { f: "2026-10-29", fecha: "Jueves 29 de octubre de 2026", b: [
+      ["tit", "Termino de armar mi calaverita · versos 5 a 6"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (6 versos · AABBCC)."],
+      ["tiras", "Ejemplo del maestro: «Una visita de miedo»", 3, 5, 6],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["lista", "Reviso ✓", ["¿Tiene 6 versos en tres pareados?", "¿Coinciden símbolo y terminación en cada pareja?", "¿Usé «al» o «del» si quedó «a el» o «de el»?", "¿Escribí mi Algo propio?", "¿Da risa sin burlarse?"], "plana"],
+      ["p", "**Firma:** Mis iniciales y 3.° A"]
     ]}
   ],
   "4A": [
@@ -3155,12 +3250,26 @@ window.CUADERNO = {
       ["enlace", "📄 Hojas de recortables y guía de 4.° A (PDF)", "pdf/calaveritas-4A.pdf"]
     ]},
     { f: "2026-10-23", fecha: "Viernes 23 de octubre de 2026", b: [
-      ["tit", "2. Mis versos"],
-      ["p", "Con el plan ya pegado, escribimos de **6 a 8 versos**: el 2 rima con el 1, el 4 con el 3, el 6 con el 5 y el 8 con el 7. Nos apoyamos en los arranques y en las parejas que riman."],
-      ["verso", "Ejemplo del maestro: «La cantante de la regadera»", ["Aquí yace mi hermana, la ==cantora==,", "que en la regadera cantaba a toda ==hora==;", "con el champú por micrófono en la ==mano==", "ensayaba su concierto de ==verano==.", "La Parca llegó tocando la ==puerta==,", "pero perdió la discusión, ==boquiabierta==;", "ahora cantan juntas cada ==canción==", "y comparten la misma ==emoción==."]],
-      ["p", "La tuya lleva tu propio plan y algo que solo tú sabes."],
-      ["lista", "3. Revisión ✓", ["6 a 8 versos", "suenan igual las rimas", "la Calaca es personaje", "algo propio y final sorpresa", "humor con cariño"], "plana"],
-      ["p", "**Le gustó:** ________ · **Sugerencia:** ________ · **Lo que cambié:** ________"]
+      ["tit", "Pienso mi ✎ Algo propio"],
+      ["p", "Hoy no recortamos. Pensamos a quién le dedicaremos la calaverita y **lo que solo nosotros sabemos** de esa persona. Es la única parte que escribimos con nuestras palabras; los demás versos se arman con tarjetas."],
+      ["lista", "Moldes para empezar", ["Le encantaba ✎ ______,", "Nunca dejaba de ✎ ______,", "Todos sabían que ✎ ______,", "Siempre decía: «✎ ______»,"], ""],
+      ["p", "**Ideas:** contar chistes, cantar en la ducha, roncaba como tractor, ¡No corras!…"],
+      ["p", "En la clase del **miércoles 28** armamos la calaverita con tarjetas."]
+    ]},
+    { f: "2026-10-28", fecha: "Miércoles 28 de octubre de 2026", b: [
+      ["tit", "Armo mi calaverita · versos 1 a 6"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · AABBCCDD)."],
+      ["tiras", "Ejemplo del maestro: «El día que llegó la Muerte»", 4, 1, 6],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["p", "**Los versos 7 y 8 los armamos en la lectura del viernes 30.**"]
+    ]},
+    { f: "2026-10-30", fecha: "Viernes 30 de octubre de 2026", b: [
+      ["tit", "Termino de armar mi calaverita · versos 7 a 8"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · AABBCCDD)."],
+      ["tiras", "Ejemplo del maestro: «El día que llegó la Muerte»", 4, 7, 8],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["lista", "Reviso ✓", ["¿Tiene 8 versos en cuatro pareados?", "¿Cada pareja termina igual, o suena parecido (≈)?", "¿El verso 5 termina con el nombre de la Muerte?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño?", "¿Firmé con mi seudónimo?"], "plana"],
+      ["p", "**Firma:** Mi seudónimo y 4.° A"]
     ]}
   ],
   "5A": [
@@ -3201,14 +3310,26 @@ window.CUADERNO = {
       ["enlace", "📄 Hojas de recortables y guía de 5.° A (PDF)", "pdf/calaveritas-5A.pdf"]
     ]},
     { f: "2026-10-23", fecha: "Viernes 23 de octubre de 2026", b: [
-      ["tit", "3. Mis versos"],
-      ["p", "Con la ficha respondida y el plan pegado, escribimos **dos estrofas**: la 1 presenta al personaje, lo que hace siempre y el dato propio; la 2 trae a la Calaca, algo que le sale mal y el giro final. Riman el verso 2 con el 4 y el 6 con el 8."],
-      ["verso", "Ejemplo del maestro · Estrofa 1", ["Cuentan que Posada, el grabador,", "nació en Aguascalientes, tierra de ==feria==;", "grababa y grababa calaveras sin parar", "con tinta, buril y cara muy ==seria==."]],
-      ["verso", "Estrofa 2", ["Llegó la Catrina a su taller,", "pero al ver su retrato se quedó ==encantada==;", "Posada la grabó con sombrero elegante", "y la Catrina, presumida, se fue sin llevarse ==nada==."]],
-      ["p", "**Recurso:** aliteración: «grababa y grababa» repite el sonido gr."],
-      ["p", "La tuya es sobre tu propio personaje, con tu dato propio."],
-      ["lista", "4. Revisión ✓", ["8 versos o más", "se reconoce a mi personaje", "rimas consonantes o asonantes", "giro final", "humor con cariño y respeto", "usé un recurso"], "plana"],
-      ["p", "**Le gustó:** ________ · **Sugerencia:** ________ · **Lo que cambié:** ________"]
+      ["tit", "Pienso mi ✎ Algo propio"],
+      ["p", "Hoy no recortamos. Pensamos a quién le dedicaremos la calaverita y **lo que solo nosotros sabemos** de esa persona. Es la única parte que escribimos con nuestras palabras; los demás versos se arman con tarjetas."],
+      ["lista", "Moldes para empezar", ["Le encantaba ✎ ______,", "Era famoso por ✎ ______,", "Nunca dejaba de ✎ ______,", "Siempre decía: «✎ ______»,", "Su mayor secreto era ✎ ______,", "Cada domingo ✎ ______,"], ""],
+      ["p", "**Ideas:** cantar boleros, su mole, leer el periódico, ¡Ahorita vengo!, que bailaba a escondidas, hacía tamales…"],
+      ["p", "En la clase del **miércoles 28** armamos la calaverita con tarjetas."]
+    ]},
+    { f: "2026-10-28", fecha: "Miércoles 28 de octubre de 2026", b: [
+      ["tit", "Armo mi calaverita · versos 1 a 6"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas AABB)."],
+      ["tiras", "Ejemplo del maestro: «La Muerte se quedó a cenar»", 5, 1, 6],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["p", "**Los versos 7 y 8 los armamos en la lectura del viernes 30.**"]
+    ]},
+    { f: "2026-10-30", fecha: "Viernes 30 de octubre de 2026", b: [
+      ["tit", "Termino de armar mi calaverita · versos 7 a 8"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas AABB)."],
+      ["tiras", "Ejemplo del maestro: «La Muerte se quedó a cenar»", 5, 7, 8],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["lista", "Reviso ✓", ["¿Tiene dos cuartetas de 4 versos?", "¿Las rayas del diálogo abren y cierran bien?", "¿Cada pareja rima igual o suena parecido?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño, sin burlarse de nadie?", "¿Firmé con mi seudónimo?"], "plana"],
+      ["p", "**Firma:** Mi seudónimo y 5.° A"]
     ]}
   ],
   "6A": [
@@ -3240,19 +3361,18 @@ window.CUADERNO = {
         ["¿Qué hace siempre?", "Su costumbre, su manía, lo que le encanta.", ""],
         ["Su rival o su compañero", "Con quién pelea o con quién anda.", ""]
       ]],
-      ["tit", "3. Mis versos · Estrofa 1"],
-      ["p", "Con la herramienta digital «Panteón de versos de sexto grado grupo A» empezamos a convertir la ficha en versos. **Llegamos hasta el verso 4**: presentamos al personaje, lo que hace siempre y su dato propio. Riman el verso 2 con el 4."],
-      ["verso", "Ejemplo del maestro · Estrofa 1", ["Cuentan que Sor Juana, la gran poeta,", "de niña quiso ir a la universidad vestida de ==varón==;", "leía y leía de noche y de día", "y llenó de libros cada ==rincón==."]],
-      ["p", "**Recurso:** exageración: «llenó de libros cada rincón»."],
-      ["p", "La tuya es sobre tu propio personaje, con tu dato propio. **La estrofa 2 la escribimos en la siguiente sesión.**"]
+      ["tit", "2. Mis primeros versos · Cuarteta 1"],
+      ["p", "Con la herramienta digital «Panteón de versos de sexto grado grupo A» armamos con tarjetas los **pasos 1 a 4**: quién descansa aquí, qué hacía, ✎ Algo propio y una exageración. En sexto la rima es **cruzada**: el verso 1 rima con el 3 y el 2 con el 4."],
+      ["tiras", "Ejemplo del maestro: «Epitafio con pan de muerto»", 6, 1, 4],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio. **La cuarteta 2 la armamos el jueves 29.**"]
     ]},
-    { f: "2026-10-26", fecha: "Lunes 26 de octubre de 2026", b: [
-      ["tit", "3. Mis versos · Estrofa 2"],
-      ["p", "La estrofa 2 trae a la Calaca, algo que le sale mal y el **giro final**: el personaje se libra con su poder, su ingenio o su frase. Riman el verso 6 con el 8."],
-      ["verso", "Ejemplo del maestro · Estrofa 2", ["La Muerte llegó a su celda callada,", "pero se perdió entre tanta ==poesía==;", "Sor Juana la convenció con su ingenio y su frase", "y ahora la Muerte le hace ==compañía==."]],
-      ["p", "Después leímos el borrador completo a una pareja."],
-      ["lista", "4. Revisión ✓", ["8 versos o más", "se reconoce a mi personaje", "rimas consonantes o asonantes", "giro final", "humor con cariño y respeto", "usé un recurso"], "plana"],
-      ["p", "**Le gustó:** ________ · **Sugerencia:** ________ · **Lo que cambié:** ________"]
+    { f: "2026-10-29", fecha: "Jueves 29 de octubre de 2026", b: [
+      ["tit", "Termino de armar mi calaverita · versos 5 a 8"],
+      ["p", "Pegamos **una tarjeta de cada color por verso**, en orden, y escribimos ✎ **Algo propio**. Las tarjetas finales de cada pareja de versos riman (8 versos · 2 cuartetas ABAB)."],
+      ["tiras", "Ejemplo del maestro: «Epitafio con pan de muerto»", 6, 5, 8],
+      ["p", "La tuya lleva tus propias tarjetas y tu ✎ Algo propio."],
+      ["lista", "Reviso ✓", ["¿Riman el 1 con el 3 y el 2 con el 4 (y el 5 con el 7, el 6 con el 8)?", "¿Cada verso tiene entre 7 y 11 sílabas?", "¿Usé una exageración o comparación?", "¿Tiene Algo propio y un final sorpresa?", "¿Humor con cariño, sin burlarse de nadie?", "¿Firmé con mi seudónimo?"], "plana"],
+      ["p", "**Firma:** Mi seudónimo y 6.° A"]
     ]}
   ]
 };
@@ -3281,42 +3401,981 @@ window.CUADERNO = {
 window.PROYECTO.ajustes = {
   "6A": {
     "10-19": {
-      hicimos: "Recibimos la hoja de recortables de 6.° A, recortamos las tarjetas por la línea punteada y las pegamos en el cuaderno en el orden de la guía «Así organizo mi cuaderno». Así quedó lista la guía de trabajo de las siguientes sesiones: las seis preguntas rosas para conocer al personaje, las tarjetas para planear la historia, los arranques de verso, los recursos literarios, las parejas que riman y la revisión.",
-      aprendimos: "Dividir la escritura en partes ayuda: con la guía pegada sabemos qué va primero (conocer bien al personaje), qué sigue (planear lo que pasa) y qué va al final (escribir y revisar los versos). Así nadie empieza frente a una hoja en blanco.",
-      casa: "Si quieren, pregunten qué personaje eligió (histórico, de serie animada o de cómic) y por qué."
+      hicimos: "Recibimos la hoja de recortables de 6.° A, recortamos las tarjetas por la línea punteada y las pegamos en el cuaderno en el orden de la guía «Así organizo mi cuaderno». Así quedó lista la guía de trabajo de las siguientes sesiones.",
+      aprendimos: "Dividir la escritura en partes ayuda: con la guía pegada sabemos qué va primero (conocer bien al personaje), qué sigue (armar los versos) y qué va al final (revisar). Así nadie empieza frente a una hoja en blanco.",
+      casa: "Si quieren, pregunten a quién o a qué personaje le dedicará su calaverita y por qué."
     },
     "10-22": {
       titulo: "Ficha de mi personaje y mis primeros versos",
-      hicimos: "Respondimos en el cuaderno las seis preguntas de las tarjetas rosas para conocer a nuestro personaje: quién es, de qué historia, serie o cómic viene, por qué es famoso, qué objeto, poder o frase lo identifica, qué hace siempre y quién es su rival o su compañero. Después, con la herramienta digital «Panteón de versos de sexto grado grupo A» y el acompañamiento del maestro, empezamos a convertir esa información en versos.",
-      avance: "La calaverita **todavía no está terminada**. Cada quien tiene la ficha respondida y la primera estrofa en borrador: **llegamos hasta el verso 4**. Falta la estrofa 2, donde llega la Calaca y viene el giro final.",
-      aprendimos: "Antes de escribir versos conviene saber bien de quién vamos a escribir: las respuestas de la ficha son la materia prima de la calaverita. Un dato del personaje que pocos conocen es lo que la hace propia, aunque todos usemos la misma estructura de apoyo.",
-      faltaste: "Respondes las seis preguntas de la ficha y escribes tu primera estrofa al inicio de la siguiente sesión de biblioteca, con ayuda del maestro. La calaverita se escribe en la escuela: no se hace en casa ni se copia de internet o de la IA.",
+      hicimos: "Respondimos en el cuaderno las seis preguntas de las tarjetas rosas para conocer a nuestro personaje: quién es, de qué historia, serie o cómic viene, por qué es famoso, qué objeto, poder o frase lo identifica, qué hace siempre y quién es su rival o su compañero. Después, con la herramienta digital «Panteón de versos de sexto grado grupo A» y el acompañamiento del maestro, armamos con tarjetas los primeros versos.",
+      avance: "La calaverita **todavía no está terminada**. Cada quien tiene la ficha respondida y la **cuarteta 1 (versos 1 a 4)**. La cuarteta 2 (llega la Muerte, algo le pasa, una exageración y el final) la armamos el **jueves 29**.",
+      aprendimos: "Antes de armar versos conviene saber bien de quién vamos a escribir: las respuestas de la ficha son la materia prima de ✎ Algo propio. En sexto la rima es cruzada: el verso 1 rima con el 3 y el 2 con el 4.",
+      faltaste: "Respondes la ficha y armas tu primera cuarteta al inicio de la siguiente clase, con ayuda del maestro. La calaverita se arma en la escuela: no se hace en casa ni se copia de internet o de la IA.",
       casa: "Si quieren, pidan que les cuente lo que sabe de su personaje y que les lea sus primeros cuatro versos.",
-      herramientas: ["digital", "mesa", "recortables", "rimas"]
-    },
-    "10-26": {
-      titulo: "Termino mi calaverita y la leo a mi pareja",
-      hicimos: "Retomamos la primera estrofa y escribimos la segunda: llega la Calaca, algo le sale mal y el personaje se libra con su poder, su ingenio o su frase. Después leímos el borrador completo a una pareja para mejorarlo.",
-      aprendimos: "El giro final es lo que vuelve memorable una calaverita, y la sorpresa sale de lo que ya sabemos del personaje.",
-      faltaste: "Terminas tu segunda estrofa y la lees a tu pareja al inicio de la última clase, con ayuda del maestro.",
-      herramientas: ["digital", "mesa", "recursos", "juegos"]
+      herramientas: ["armado", "digital", "recortables", "rimas"]
     }
   }
 };
 
-window.PROYECTO.digital = {
-  "6A": {
-    titulo: "Panteón de versos de sexto grado grupo A",
-    que: "Herramienta interactiva que usamos en la biblioteca para pasar de la ficha del personaje a los versos. Acompaña el proceso por partes, sin sustituir lo que escribe cada estudiante.",
+/* Herramienta digital «Panteón de versos · Sesiones de octubre» (carpeta herramienta/).
+   El final del enlace (#armador-2 … #armador-6) la abre directamente en el Armador del grado. */
+window.PROYECTO.digital = {};
+[["2A", 2], ["3A", 3], ["4A", 4], ["5A", 5], ["6A", 6]].forEach(([id, n]) => {
+  window.PROYECTO.digital[id] = {
+    titulo: n === 6 ? "Panteón de versos de sexto grado grupo A" : "Panteón de versos · Sesiones de octubre",
+    que: "Herramienta interactiva que usamos en la biblioteca, proyectada en el pizarrón, para armar la calaverita con las mismas tarjetas de las hojas. Acompaña el proceso por partes, sin sustituir lo que escribe cada estudiante. En casa pueden explorar el Armador de su grado.",
     secciones: [
-      ["Agenda", "las sesiones del proyecto y lo que toca en cada una"],
+      ["Agenda", "las sesiones del proyecto en orden de fecha"],
       ["Sesión", "el trabajo del día, paso a paso"],
-      ["Armador de versos", "ayuda a organizar las estrofas y a explorar las rimas"],
-      ["Guía de apoyo", "recordatorios para revisar cómo quedaron los versos"]
+      ["Armador", "el rompecabezas del grado: se eligen las tarjetas de cada verso y revisa la rima"],
+      ["Guía", "principios, código de colores y progresión de 2.° a 6.°"]
     ],
-    url: "",
-    sinEnlace: "Por ahora se usa en la biblioteca, proyectada en el pizarrón. Cuando se publique, aquí aparecerá el botón para abrirla."
-  }
+    url: "herramienta/panteon-de-versos-sesiones.html#armador-" + n,
+    sinEnlace: ""
+  };
+});
+
+/* Calaveritas armadas de 2.° a 6.°: pasos, ejemplo del maestro, moldes de ✎ Algo propio y lista
+   de revisión. Se generaron de la herramienta digital, con las mismas tarjetas de las hojas.
+   Categorías de color: quien, porquien, hacia, remate, algo, cierre, paso, final, rima, dialogo, figura, titulo. */
+window.PROYECTO.armado = {
+ "2": {
+  "esquema": "4 versos · AABB",
+  "reto": "Dos pareados seguidos",
+  "N": 4,
+  "pares": [
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "corte": null,
+  "etiquetas": [
+   "✂ Clase · mar 27"
+  ],
+  "cuartetas": false,
+  "letras": false,
+  "firma": "Mis iniciales y 2.° A",
+  "pasos": [
+   [
+    "¿Quién llega?",
+    "¿Por quién?",
+    "quien",
+    "porquien"
+   ],
+   [
+    "¿Qué hacía?",
+    "Rima",
+    "hacia",
+    "rima"
+   ],
+   [
+    "✎ Algo propio",
+    "¿Cómo cierra?",
+    "algo",
+    "cierre"
+   ],
+   [
+    "¿Cómo termina?",
+    "Rima",
+    "final",
+    "rima"
+   ]
+  ],
+  "ejemplo": {
+   "titulo": "¡Ya llegó la Calaca!",
+   "versos": [
+    [
+     [
+      "La Calaca llegó por",
+      "quien"
+     ],
+     [
+      "mi abuelita",
+      "porquien"
+     ]
+    ],
+    [
+     [
+      "que estaba comiendo",
+      "hacia"
+     ],
+     [
+      "una galletita",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "Le gusta contar cuentos,",
+      "algo"
+     ],
+     [
+      "¡qué emoción!",
+      "cierre"
+     ]
+    ],
+    [
+     [
+      "y se fue bailando con",
+      "final"
+     ],
+     [
+      "el ratón",
+      "rima"
+     ]
+    ]
+   ]
+  },
+  "revisar": [
+   "¿Pegué los 4 versos en orden?",
+   "¿Cada pareja tiene el mismo símbolo?",
+   "¿Escribí mi Algo propio?",
+   "¿Da risa sin burlarse?",
+   "¿Puse mis iniciales y 2.° A?"
+  ],
+  "moldes": [
+   [
+    "Le gusta ✎ ______,",
+    [
+     "bailar en la cocina",
+     "contar chistes",
+     "jugar futbol"
+    ]
+   ],
+   [
+    "Siempre ✎ ______,",
+    [
+     "me abraza fuerte",
+     "canta en la regadera",
+     "llega con pan"
+    ]
+   ],
+   [
+    "Me enseñó a ✎ ______,",
+    [
+     "andar en bici",
+     "hacer tortillas",
+     "atarme las agujetas"
+    ]
+   ]
+  ]
+ },
+ "3": {
+  "esquema": "6 versos · AABBCC",
+  "reto": "Historia con inicio, problema y final",
+  "N": 6,
+  "pares": [
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    5,
+    6
+   ]
+  ],
+  "corte": 5,
+  "etiquetas": [
+   "✂ Clase 1 · jue 22",
+   "✂ Clase 2 · jue 29"
+  ],
+  "cuartetas": false,
+  "letras": false,
+  "firma": "Mis iniciales y 3.° A",
+  "pasos": [
+   [
+    "¿Quién llega?",
+    "¿Por quién?",
+    "quien",
+    "porquien"
+   ],
+   [
+    "¿Qué hacía?",
+    "Rima",
+    "hacia",
+    "rima"
+   ],
+   [
+    "✎ Algo propio",
+    "¿Cómo cierra?",
+    "algo",
+    "cierre"
+   ],
+   [
+    "¿Qué le pasó?",
+    "Rima",
+    "paso",
+    "rima"
+   ],
+   [
+    "¿Y luego?",
+    "Rima",
+    "final",
+    "rima"
+   ],
+   [
+    "¿Cómo termina?",
+    "Rima",
+    "final",
+    "rima"
+   ]
+  ],
+  "ejemplo": {
+   "titulo": "Una visita de miedo",
+   "versos": [
+    [
+     [
+      "La Huesuda visitó a",
+      "quien"
+     ],
+     [
+      "mi hermano",
+      "porquien"
+     ]
+    ],
+    [
+     [
+      "que estaba tocando",
+      "hacia"
+     ],
+     [
+      "el piano",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "Siempre se come mis papas,",
+      "algo"
+     ],
+     [
+      "todo el día",
+      "cierre"
+     ]
+    ],
+    [
+     [
+      "pero se asustó con",
+      "paso"
+     ],
+     [
+      "su melodía",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "y del susto salió corriendo hasta",
+      "final"
+     ],
+     [
+      "la cocina",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "y se hizo amiga de",
+      "final"
+     ],
+     [
+      "la gallina",
+      "rima"
+     ]
+    ]
+   ]
+  },
+  "revisar": [
+   "¿Tiene 6 versos en tres pareados?",
+   "¿Coinciden símbolo y terminación en cada pareja?",
+   "¿Usé «al» o «del» si quedó «a el» o «de el»?",
+   "¿Escribí mi Algo propio?",
+   "¿Da risa sin burlarse?"
+  ],
+  "moldes": [
+   [
+    "Le encanta ✎ ______,",
+    [
+     "cantar rancheras",
+     "armar rompecabezas",
+     "hacer pasteles"
+    ]
+   ],
+   [
+    "Siempre ✎ ______,",
+    [
+     "se come mis papas",
+     "llega tarde",
+     "me cuenta cuentos"
+    ]
+   ],
+   [
+    "Nunca deja de ✎ ______,",
+    [
+     "silbar",
+     "hablar por teléfono",
+     "regar sus plantas"
+    ]
+   ],
+   [
+    "Me enseñó a ✎ ______,",
+    [
+     "nadar",
+     "hacer la tarea",
+     "cuidar a mi perro"
+    ]
+   ]
+  ]
+ },
+ "4": {
+  "esquema": "8 versos · AABBCCDD",
+  "reto": "Rimar sin símbolos; cosas y acciones",
+  "N": 8,
+  "pares": [
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    7,
+    8
+   ]
+  ],
+  "corte": 7,
+  "etiquetas": [
+   "✂ Clase · mié 28",
+   "✂ Lectura · vie 30"
+  ],
+  "cuartetas": false,
+  "letras": false,
+  "firma": "Mi seudónimo y 4.° A",
+  "pasos": [
+   [
+    "Aquí yace…",
+    "¿Por quién?",
+    "titulo",
+    "porquien"
+   ],
+   [
+    "¿Qué hacía?",
+    "Rima",
+    "hacia",
+    "rima"
+   ],
+   [
+    "✎ Algo propio",
+    "¿Cómo cierra?",
+    "algo",
+    "cierre"
+   ],
+   [
+    "¿Qué más hacía?",
+    "Rima",
+    "remate",
+    "rima"
+   ],
+   [
+    "¿Quién llega?",
+    "¿Cuál Muerte?",
+    "quien",
+    "quien"
+   ],
+   [
+    "¿Qué le pasó?",
+    "Rima",
+    "paso",
+    "rima"
+   ],
+   [
+    "¿Y luego?",
+    "Rima",
+    "final",
+    "rima"
+   ],
+   [
+    "¿Cómo termina?",
+    "Rima",
+    "final",
+    "rima"
+   ]
+  ],
+  "ejemplo": {
+   "titulo": "El día que llegó la Muerte",
+   "versos": [
+    [
+     [
+      "Aquí yace",
+      "titulo"
+     ],
+     [
+      "mi tío",
+      "porquien"
+     ]
+    ],
+    [
+     [
+      "que se pasaba el día en",
+      "hacia"
+     ],
+     [
+      "el río",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "Le encantaba contar chistes,",
+      "algo"
+     ],
+     [
+      "a cada rato",
+      "cierre"
+     ]
+    ],
+    [
+     [
+      "y hasta se ponía al revés",
+      "remate"
+     ],
+     [
+      "el zapato",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "Una noche llegó",
+      "quien"
+     ],
+     [
+      "la Pelona",
+      "quien"
+     ]
+    ],
+    [
+     [
+      "pero resultó ser muy",
+      "paso"
+     ],
+     [
+      "dormilona",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "y de pronto empezó a",
+      "final"
+     ],
+     [
+      "bailar",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "y prometió volver a",
+      "final"
+     ],
+     [
+      "cenar",
+      "rima"
+     ]
+    ]
+   ]
+  },
+  "revisar": [
+   "¿Tiene 8 versos en cuatro pareados?",
+   "¿Cada pareja termina igual, o suena parecido (≈)?",
+   "¿El verso 5 termina con el nombre de la Muerte?",
+   "¿Tiene Algo propio y un final sorpresa?",
+   "¿Humor con cariño?",
+   "¿Firmé con mi seudónimo?"
+  ],
+  "moldes": [
+   [
+    "Le encantaba ✎ ______,",
+    [
+     "contar chistes",
+     "bailar danzón",
+     "comer chicharrón"
+    ]
+   ],
+   [
+    "Nunca dejaba de ✎ ______,",
+    [
+     "cantar en la ducha",
+     "regar sus plantas",
+     "hablar con su perico"
+    ]
+   ],
+   [
+    "Todos sabían que ✎ ______,",
+    [
+     "roncaba como tractor",
+     "hacía el mejor mole",
+     "coleccionaba tazas"
+    ]
+   ],
+   [
+    "Siempre decía: «✎ ______»,",
+    [
+     "¡No corras!",
+     "¡Ya merito!",
+     "¡Ay, qué caray!"
+    ]
+   ]
+  ]
+ },
+ "5": {
+  "esquema": "8 versos · 2 cuartetas AABB",
+  "reto": "Diálogo y rima reconocida de oído",
+  "N": 8,
+  "pares": [
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    7,
+    8
+   ]
+  ],
+  "corte": 7,
+  "etiquetas": [
+   "✂ Clase · mié 28",
+   "✂ Lectura · vie 30"
+  ],
+  "cuartetas": true,
+  "letras": false,
+  "firma": "Mi seudónimo y 5.° A",
+  "pasos": [
+   [
+    "Aquí yace…",
+    "¿Por quién?",
+    "titulo",
+    "porquien"
+   ],
+   [
+    "¿Qué hacía?",
+    "Rima",
+    "hacia",
+    "rima"
+   ],
+   [
+    "✎ Algo propio",
+    "¿Cómo cierra?",
+    "algo",
+    "cierre"
+   ],
+   [
+    "¿Qué más hacía?",
+    "Rima",
+    "remate",
+    "rima"
+   ],
+   [
+    "¿Qué dice la Muerte?",
+    "¿Cuál Muerte?",
+    "dialogo",
+    "quien"
+   ],
+   [
+    "¿Qué le pasó?",
+    "Rima",
+    "paso",
+    "rima"
+   ],
+   [
+    "¿Qué contesta?",
+    "Rima",
+    "dialogo",
+    "rima"
+   ],
+   [
+    "¿Cómo termina?",
+    "Rima",
+    "final",
+    "rima"
+   ]
+  ],
+  "ejemplo": {
+   "titulo": "La Muerte se quedó a cenar",
+   "versos": [
+    [
+     [
+      "Aquí descansa",
+      "titulo"
+     ],
+     [
+      "el panadero",
+      "porquien"
+     ]
+    ],
+    [
+     [
+      "que horneaba pan con",
+      "hacia"
+     ],
+     [
+      "su sombrero",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "Le encantaba cantar boleros,",
+      "algo"
+     ],
+     [
+      "de corazón",
+      "cierre"
+     ]
+    ],
+    [
+     [
+      "y hasta le daba pan a",
+      "remate"
+     ],
+     [
+      "un ratón",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "—¡Ya llegó tu hora!— dijo",
+      "dialogo"
+     ],
+     [
+      "la Parca",
+      "quien"
+     ]
+    ],
+    [
+     [
+      "pero se resbaló en",
+      "paso"
+     ],
+     [
+      "la charca",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "—¡Mejor quédate a",
+      "dialogo"
+     ],
+     [
+      "cenar!—",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "y al final se puso a",
+      "final"
+     ],
+     [
+      "cantar",
+      "rima"
+     ]
+    ]
+   ]
+  },
+  "revisar": [
+   "¿Tiene dos cuartetas de 4 versos?",
+   "¿Las rayas del diálogo abren y cierran bien?",
+   "¿Cada pareja rima igual o suena parecido?",
+   "¿Tiene Algo propio y un final sorpresa?",
+   "¿Humor con cariño, sin burlarse de nadie?",
+   "¿Firmé con mi seudónimo?"
+  ],
+  "moldes": [
+   [
+    "Le encantaba ✎ ______,",
+    [
+     "cantar boleros",
+     "jugar dominó",
+     "hacer chistes malos"
+    ]
+   ],
+   [
+    "Era famoso por ✎ ______,",
+    [
+     "su mole",
+     "su silbido",
+     "sus bigotes"
+    ]
+   ],
+   [
+    "Nunca dejaba de ✎ ______,",
+    [
+     "leer el periódico",
+     "bailar cumbia",
+     "regar sus plantas"
+    ]
+   ],
+   [
+    "Siempre decía: «✎ ______»,",
+    [
+     "¡Ahorita vengo!",
+     "¡Échale ganas!",
+     "¡No hay que rendirse!"
+    ]
+   ],
+   [
+    "Su mayor secreto era ✎ ______,",
+    [
+     "que bailaba a escondidas",
+     "que le daban miedo los ratones",
+     "que no sabía silbar"
+    ]
+   ],
+   [
+    "Cada domingo ✎ ______,",
+    [
+     "hacía tamales",
+     "iba al tianguis",
+     "visitaba a su familia"
+    ]
+   ]
+  ]
+ },
+ "6": {
+  "esquema": "8 versos · 2 cuartetas ABAB",
+  "reto": "Rima cruzada y ritmo",
+  "N": 8,
+  "pares": [
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    6,
+    8
+   ]
+  ],
+  "corte": 5,
+  "etiquetas": [
+   "✂ Clase 1 · jue 22",
+   "✂ Clase 2 · jue 29"
+  ],
+  "cuartetas": true,
+  "letras": true,
+  "firma": "Mi seudónimo y 6.° A",
+  "pasos": [
+   [
+    "Aquí yace…",
+    "¿Por quién?",
+    "titulo",
+    "porquien"
+   ],
+   [
+    "¿Qué hacía?",
+    "Rima",
+    "hacia",
+    "rima"
+   ],
+   [
+    "✎ Algo propio",
+    "¿Cómo cierra?",
+    "algo",
+    "cierre"
+   ],
+   [
+    "¡Exagera!",
+    "Rima",
+    "figura",
+    "rima"
+   ],
+   [
+    "¿Quién llega?",
+    "Rima",
+    "quien",
+    "rima"
+   ],
+   [
+    "¿Qué le pasó?",
+    "Rima",
+    "paso",
+    "rima"
+   ],
+   [
+    "¡Exagera!",
+    "Rima",
+    "figura",
+    "rima"
+   ],
+   [
+    "¿Cómo termina?",
+    "Rima",
+    "final",
+    "rima"
+   ]
+  ],
+  "ejemplo": {
+   "titulo": "Epitafio con pan de muerto",
+   "versos": [
+    [
+     [
+      "Aquí descansa",
+      "titulo"
+     ],
+     [
+      "el panadero",
+      "porquien"
+     ]
+    ],
+    [
+     [
+      "que hacía pan de",
+      "hacia"
+     ],
+     [
+      "canela",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "Siempre silbaba,",
+      "algo"
+     ],
+     [
+      "con su sombrero",
+      "cierre"
+     ]
+    ],
+    [
+     [
+      "y era más famoso que",
+      "figura"
+     ],
+     [
+      "la escuela",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "La Parca llegó al",
+      "quien"
+     ],
+     [
+      "mercado",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "con hambre de",
+      "paso"
+     ],
+     [
+      "un elote",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "y comió hasta quedar",
+      "figura"
+     ],
+     [
+      "inflado",
+      "rima"
+     ]
+    ],
+    [
+     [
+      "y se fue volando en",
+      "final"
+     ],
+     [
+      "un papalote",
+      "rima"
+     ]
+    ]
+   ]
+  },
+  "revisar": [
+   "¿Riman el 1 con el 3 y el 2 con el 4 (y el 5 con el 7, el 6 con el 8)?",
+   "¿Cada verso tiene entre 7 y 11 sílabas?",
+   "¿Usé una exageración o comparación?",
+   "¿Tiene Algo propio y un final sorpresa?",
+   "¿Humor con cariño, sin burlarse de nadie?",
+   "¿Firmé con mi seudónimo?"
+  ],
+  "moldes": [
+   [
+    "Siempre ✎ ______,",
+    [
+     "silbaba",
+     "llegaba con pan",
+     "leía el periódico"
+    ]
+   ],
+   [
+    "Le encantaba ✎ ______,",
+    [
+     "el futbol",
+     "cantar ópera",
+     "coser vestidos"
+    ]
+   ],
+   [
+    "Era famoso por ✎ ______,",
+    [
+     "su mole",
+     "sus bromas",
+     "sus bigotes"
+    ]
+   ],
+   [
+    "Todos sabían que ✎ ______,",
+    [
+     "odiaba el brócoli",
+     "bailaba bonito",
+     "era valiente"
+    ]
+   ]
+  ]
+ }
 };
 
 window.PROYECTO.recortables["1A"].mesa = {

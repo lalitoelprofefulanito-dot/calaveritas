@@ -1,4 +1,4 @@
-# Calaveritas literarias · Apuntes para familias
+# Panteón de versos · Apuntes para familias
 
 Sitio de consulta para familias de la **Escuela Primaria «Molino de Rosas»** (Biblioteca, ciclo 2026-2027).
 Muestra, por grupo y en orden de fecha, qué se hizo en cada sesión de biblioteca, qué quedó en el cuaderno y qué se aprendió.
@@ -37,9 +37,12 @@ img/recortables/  hojas de recortables y guías «Así organizo mi cuaderno» de
 pdf/         un PDF por grupo: 2 hojas de recortables + la guía del cuaderno
              y pdf/mesa-recursos-*.pdf: la hoja de la mesa (recursos literarios y banco de rimas)
 img/recortables/mesa-*.webp  las dos caras de la hoja de la mesa de cada grupo
+herramienta/ la herramienta digital «Panteón de versos · Sesiones de octubre» (Agenda, Sesión, Armador y Guía)
 ```
 
 ## Semana de recortables y escritura (19 al 23 de octubre)
+
+> **Nota:** desde el 22 de octubre, 2.° a 6.° A siguen el calendario de las calaveritas armadas (ver «Actualización del 26 de octubre»). La tabla de abajo queda como registro del plan original; 1.° A lo sigue igual.
 
 Cada grupo tiene dos sesiones esa semana, **en el orden en que le toquen, sea lectura de 20 minutos o clase de 50**:
 
@@ -67,6 +70,29 @@ Después siguen «Leo a mi pareja» y «Reviso, paso en limpio y leo» en las do
 
 **Para actualizar el contenido solo se edita `datos.js`.** Al inicio de la sección `window.CUADERNO` hay instrucciones para agregar una página nueva del cuaderno: se copia un bloque, se cambia la fecha (`AAAA-MM-DD`) y el contenido. La página aparece sola en «El cuaderno completo» del grupo. Si la fecha coincide con una sesión del proyecto, aparece también en la pestaña «Lo que anotamos» de ese día; si no coincide (por ejemplo, un reporte de lectura), se crea un día nuevo en la lista, y entonces hay que escribir también `titulo`, `trabajamos` y `aprendimos`.
 
+## Actualización del 26 de octubre: formato de la herramienta y calaveritas armadas
+
+**Mismo formato y estilo que la herramienta.** El sitio usa ahora el diseño de «Panteón de versos · Sesiones de octubre»: encabezado morado fijo con botones tipo píldora (Grupo, Sesiones, Cuaderno, Guía) y papel picado naranja, tarjetas blancas con sombra, botones naranjas y **un color por grado** (el mismo de la herramienta para 2.° a 6.°; verde olivo para 1.°). Los días se ven como las tarjetas de la Agenda, con su línea de pasos. La hoja de raya del cuaderno se conserva. Todo el tema está al final de `estilos.css`, en el bloque «TEMA PANTEÓN DE VERSOS».
+
+**La herramienta está dentro del sitio.** El archivo vive en `herramienta/panteon-de-versos-sesiones.html` y se publica junto con el sitio. El final del enlace elige qué se abre: `#armador-2` … `#armador-6` abre el Armador del grado; `#guia`, `#agenda` y `#sesion` abren esas vistas. Sin final, abre la Agenda como siempre. Si actualiza la herramienta, reemplace ese archivo y conserve al final el bloque «Enlace directo desde el sitio de apuntes».
+
+**Calendario de 2.° a 6.° A igual al de la herramienta.** Desde el 22 de octubre las rutas siguen la Agenda de la herramienta:
+
+| Grupo | Sesiones |
+|---|---|
+| 2.° A | vie 23 *Pienso mi ✎ Algo propio* · mar 27 *Armo mi calaverita* (pasos 1–4 de 4) · vie 30 *Reviso, paso en limpio y leo* |
+| 3.° A | jue 22 *Armo mi calaverita · primera parte* (pasos 1–4 de 6) · jue 29 *Termino de armar* (pasos 5–6) |
+| 4.° A y 5.° A | vie 23 *Pienso mi ✎ Algo propio* · mié 28 *Armo mi calaverita* (pasos 1–6 de 8) · vie 30 *Termino de armar* (pasos 7–8) |
+| 6.° A | jue 22 *Ficha de mi personaje y mis primeros versos* (pasos 1–4 de 8) · jue 29 *Termino de armar* (pasos 5–8) |
+
+1.° A no cambia. Cada sesión de la ruta puede llevar una tercera pieza con sus pasos, por ejemplo `["10-28", "armo", "Pasos 1–6 de 8"]`; se muestra en la tarjeta del día y en su encabezado.
+
+**🃏 Así se arma la calaverita.** Herramienta nueva para las familias de 2.° a 6.°: el ejemplo del maestro en tiras de colores, igual que el cuaderno del Armador, las piezas verso por verso, los moldes de ✎ Algo propio, la lista de revisión y el botón para abrir el Armador del grado. Sus datos están en `window.PROYECTO.armado` y salen de la herramienta, con las mismas tarjetas.
+
+**Páginas del cuaderno con tiras.** Las páginas de armado usan el bloque `["tiras", "título", grado, desde, hasta]`, que pinta los versos del ejemplo del grado como tiras de colores. Ejemplo: `["tiras", "Ejemplo del maestro", 6, 1, 4]` muestra la cuarteta 1 de sexto.
+
+**La hoja de la mesa** sigue en *Escribo mi calaverita* y *Leo a mi pareja*, que ahora solo usa 1.° A: el banco de rimas de 2.° y 3.° de esa hoja (palabras en -ó y en -ar) era del esquema anterior y no corresponde a las calaveritas armadas.
+
 ## Actualización del 22 de octubre
 
 ### Tres funciones nuevas
@@ -88,8 +114,8 @@ Después siguen «Leo a mi pareja» y «Reviso, paso en limpio y leo» en las do
 Con base en el relato del trabajo de la semana:
 
 - **Lunes 19 (lectura).** Recortaron y pegaron en el cuaderno la hoja de recortables siguiendo la guía. Quedó lista la guía de trabajo: preguntas del personaje, tarjetas para planear, arranques, recursos literarios, parejas que riman y revisión.
-- **Jueves 22 (clase).** Respondieron las seis preguntas rosas de la ficha del personaje y, con la herramienta digital «Panteón de versos de sexto grado grupo A», avanzaron **hasta el verso 4** (primera estrofa). La calaverita **no está terminada**.
-- **Lunes 26 (preparado).** *Termino mi calaverita y la leo a mi pareja*: estrofa 2 y giro final. La página del cuaderno de ese día lleva la estrofa 2 del ejemplo del maestro (Sor Juana) y se habilita sola el 26. **Si la sesión cambia** (por ejemplo, por la Evaluación de Comprensión Lectora de ese día), edite `window.PROYECTO.ajustes["6A"]["10-26"]` y la página del 26 en `window.CUADERNO["6A"]`.
+- **Jueves 22 (clase).** Respondieron las seis preguntas rosas de la ficha del personaje y, con la herramienta digital, armaron con tarjetas **los pasos 1 a 4** (cuarteta 1). La calaverita **no está terminada**.
+- **Jueves 29 (clase, preparada).** *Termino de armar mi calaverita*: pasos 5 a 8 (cuarteta 2) y revisión. Su página del cuaderno se habilita sola ese día.
 
 ## Publicar en GitHub Pages (paso a paso)
 
@@ -137,6 +163,6 @@ GitHub Pages no cuenta visitas por sí mismo. `contador.js` usa **GoatCounter**,
 - **Tres pestañas, tres momentos de la clase.** *Lo que trabajamos* recupera la experiencia (hacer); *Lo que anotamos* muestra el registro que produjo el propio estudiante; *Lo que aprendimos* nombra el aprendizaje y abre la metacognición en casa («¿qué aprendiste hoy?», con algo concreto que mirar juntos).
 - **Una cosa a la vez.** Un día y una pestaña abiertos; dentro, una herramienta y un juego a la vez. Así se reduce la carga cognitiva para familias que consultan desde el celular.
 - **Faltar no se castiga.** Cada sesión dice qué hacer si el estudiante faltó y que se pone al día en la escuela. La calaverita no es tarea: se escribe en clase, con apoyos.
-- **Diseño Universal para el Aprendizaje (DUA).** Varias formas de acceder al mismo contenido: lectura en voz alta (🔊), emojis en 1.° y 2.°, colores para ver las rimas, juegos para practicarlas y letra Atkinson Hyperlegible.
+- **Diseño Universal para el Aprendizaje (DUA).** Varias formas de acceder al mismo contenido: lectura en voz alta (🔊), emojis en 1.° y 2.°, colores para ver las rimas y las piezas de la calaverita, juegos para practicarlas, letra base grande (18 px) y texto secundario oscuro para que se lea bien.
 - **Corresponsabilidad escuela–familia.** «Para platicar en casa» propone conversaciones opcionales (cómo se celebra el Día de Muertos en la familia), sin exigir materiales ni tareas.
 - **Privacidad.** No se piden ni se guardan datos personales; las páginas del cuaderno no llevan nombres de estudiantes. El navegador solo recuerda el último grupo elegido, y el conteo de visitas es anónimo y sin cookies.
